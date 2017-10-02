@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B20D1759-6C16-4300-92CF-9DCBE5F31710}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Training.Codility.Tests</RootNamespace>
+    <AssemblyName>Training.Codility.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="nunit.framework, Version=3.8.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.8.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Array\OddOccurrencesInArrayTest.cs" />
+    <Compile Include="Array\CyclicRotationTest.cs" />
+    <Compile Include="CountingElements\FrogRiverOneTest.cs" />
+    <Compile Include="CountingElements\MaxCountersTest.cs" />
+    <Compile Include="CountingElements\MissingIntegersTest.cs" />
+    <Compile Include="CountingElements\PermChekTest.cs" />
+    <Compile Include="DynamicProgramming\MinAbsSumTest.cs" />
+    <Compile Include="Leader\DominatorTest.cs" />
+    <Compile Include="Leader\EquiLeaderTest.cs" />
+    <Compile Include="Leader\LeaderTest.cs" />
+    <Compile Include="MaximumSliceProblem\MaxDoubleSliceSumTest.cs" />
+    <Compile Include="MaximumSliceProblem\MaxProfitTest.cs" />
+    <Compile Include="MaximumSliceProblem\MaxSliceSumTest.cs" />
+    <Compile Include="MaximumSliceProblem\MaxSliceTest.cs" />
+    <Compile Include="PrefixSums\CountDivTest.cs" />
+    <Compile Include="PrefixSums\GenomicRangeQueryTest.cs" />
+    <Compile Include="PrefixSums\MinAvgTwoSliceTest.cs" />
+    <Compile Include="PrefixSums\MushroomsPickerTest.cs" />
+    <Compile Include="PrefixSums\PassingCarsTest.cs" />
+    <Compile Include="PrimeAndCompositeNumbers\CountFactorsTest.cs" />
+    <Compile Include="PrimeAndCompositeNumbers\MinPerimeterRectangleTest.cs" />
+    <Compile Include="PrimeAndCompositeNumbers\PeaksTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sorting\DistinctTest.cs" />
+    <Compile Include="Sorting\MaxProductOfThree.cs" />
+    <Compile Include="Sorting\NumberOfDiscIntersectionsTest.cs" />
+    <Compile Include="Sorting\TriangleTest.cs" />
+    <Compile Include="StacksAndQueues\BracketsTest.cs" />
+    <Compile Include="StacksAndQueues\FishTest.cs" />
+    <Compile Include="StacksAndQueues\StoneWallTest.cs" />
+    <Compile Include="TimeComplexity\PermMissingElemTest.cs" />
+    <Compile Include="TimeComplexity\TapeEquilibriumTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Training.Codility\Training.Codility.csproj">
+      <Project>{e79cf9ef-d4c1-47a1-8788-7962d7119ce7}</Project>
+      <Name>Training.Codility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Training.Common\Training.Common.csproj">
+      <Project>{21ED494E-CF46-4587-9BB5-D73E207AFD06}</Project>
+      <Name>Training.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Training.DataStructures\Training.DataStructures.csproj">
+      <Project>{7a909765-c509-420b-b58d-40fb6bcb4461}</Project>
+      <Name>Training.DataStructures</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

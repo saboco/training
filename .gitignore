@@ -1,0 +1,13 @@
+.idea/
+packages/
+.vs/
+Training.Codility.Console/bin/
+Training.Codility.Console/obj/
+Training.Codility.Tests/bin/
+Training.Codility.Tests/obj/
+Training.Codility/obj/
+Training.Common/obj/
+Training.Console/obj/
+Training.DataStructures.Tests/obj/
+*/obj/
+*/bin/
