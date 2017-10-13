@@ -1,4 +1,4 @@
-﻿namespace Training.DataStructures.Properties
+﻿namespace Training.DataStructures
 {
     public class StackWithTransactions<T>
     {

@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7A909765-C509-420B-B58D-40FB6BCB4461}</ProjectGuid>
+    <ProjectGuid>{FA7D402E-5F75-4CCE-8E84-CC259DB6D5B7}</ProjectGuid>
     <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Training.DataStructures</RootNamespace>
-    <AssemblyName>Training.DataStructures</AssemblyName>
+    <RootNamespace>Training.Common.Tests</RootNamespace>
+    <AssemblyName>Training.Common.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,24 +37,22 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
+      <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BinaryTree.cs" />
-    <Compile Include="Graph.cs" />
-    <Compile Include="MaxHeap.cs" />
-    <Compile Include="MinHeap.cs" />
+    <Compile Include="BoxingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queue.cs" />
-    <Compile Include="Sorting\MergeSort.cs" />
-    <Compile Include="Sorting\Quick.cs" />
-    <Compile Include="Stack.cs" />
-    <Compile Include="StackWithTransactions.cs" />
-    <Compile Include="Tries.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Training.Common\Training.Common.csproj">
-      <Project>{21ED494E-CF46-4587-9BB5-D73E207AFD06}</Project>
+      <Project>{21ed494e-cf46-4587-9bb5-d73e207afd06}</Project>
       <Name>Training.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Training.Tests.Common\Training.Tests.Common.csproj">
+      <Project>{587CB08C-364F-41A5-A353-F82B7EB7F051}</Project>
+      <Name>Training.Tests.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

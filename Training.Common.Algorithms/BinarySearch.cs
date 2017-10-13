@@ -1,4 +1,4 @@
-﻿namespace Training.DataStructures
+﻿namespace Training.Common.Algorithms
 {
     public class BinarySearch
     {

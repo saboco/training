@@ -42,7 +42,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BinarySearchTest.cs" />
+    <Compile Include="BinaryTreeTests.cs" />
     <Compile Include="GraphTest.cs" />
     <Compile Include="MaxHeapTest.cs" />
     <Compile Include="MinHeapTest.cs" />

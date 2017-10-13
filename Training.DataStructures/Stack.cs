@@ -4,13 +4,13 @@ namespace Training.DataStructures
 {
     public class Stack<T>
     {
-        public Node<T> Head { get; private set; }
+        public Node Head { get; private set; }
         public bool IsEmpty => Head == null;
         public int Count { get; private set; }
 
         public void Push(T data)
         {
-            var node = new Node<T>(data) {Next = Head};
+            var node = new Node(data) {Next = Head};
             Head = node;
             Count++;
         }
@@ -65,6 +65,17 @@ namespace Training.DataStructures
         private T InternalTop()
         {
             return Head.Data;
+        }
+
+        public class Node
+        {
+            public T Data { get; }
+            public Node Next { get; set; }
+
+            public Node(T data)
+            {
+                Data = data;
+            }
         }
     }
 }

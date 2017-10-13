@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using NUnit.Framework;
 
-namespace Training.DataStructures.Tests
+namespace Training.Common.Algorithms.Tests
 {
     public class BinarySearchTest
     {

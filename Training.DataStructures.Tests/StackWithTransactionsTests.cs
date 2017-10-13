@@ -1,5 +1,4 @@
 ﻿using NUnit.Framework;
-using Training.DataStructures.Properties;
 
 namespace Training.DataStructures.Tests
 {
