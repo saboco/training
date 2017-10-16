@@ -31,7 +31,7 @@ namespace Training.HackerRank.DataStructures
             }
         }
 
-        private string GetEdgeId(Cell source, Cell destination)
+        private static string GetEdgeId(Cell source, Cell destination)
         {
             return source.Id + "<|>" + destination.Id;
         }
