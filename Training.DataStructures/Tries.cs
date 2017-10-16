@@ -5,14 +5,59 @@ namespace Training.DataStructures
 {
     public class Tries
     {
-        private readonly IPrint _printer;
+        private readonly Node _root = new Node();
 
-        public Tries(IPrint printer)
+        public void Add(string s)
         {
-            _printer = printer;
+            Add(s, _root);
         }
 
-        private readonly Node _root = new Node();
+        private static void Add(string s, Node node)
+        {
+            while (s != string.Empty)
+            {
+                var nextNode = node.Add(s[0], IsEndOfWord(s));
+                s = s.Substring(1);
+                node = nextNode;
+            }
+        }
+
+        public void Print(IPrint printer)
+        {
+            PrintChildren(_root, string.Empty, printer);
+        }
+
+        private static void PrintChildren(Node node, string prefix, IPrint printer)
+        {
+            foreach (var kv in node.Children)
+            {
+                if (kv.Value.IsCompleteWord) printer.Print(prefix + kv.Key);
+                PrintChildren(kv.Value, prefix + kv.Key, printer);
+            }
+        }
+
+        private static bool IsEndOfWord(string s)
+        {
+            return s.Length == 1;
+        }
+
+        public int Find(string s)
+        {
+            return Find(s, _root);
+        }
+
+        private static int Find(string s, Node node)
+        {
+            var prefixComplet = true;
+            while (s != string.Empty)
+            {
+                prefixComplet = prefixComplet && node.Contains(s[0]);
+                if (!node.Contains(s[0])) break;
+                node = node.GetChild(s[0]);
+                s = s.Substring(1);
+            }
+            return !prefixComplet ? 0 : node.WordsCount;
+        }
 
         private class Node
         {
@@ -49,58 +94,6 @@ namespace Training.DataStructures
             {
                 return Children[c];
             }
-        }
-
-        public void Add(string s)
-        {
-            Add(s, _root);
-        }
-
-        private static void Add(string s, Node node)
-        {
-            while (s != string.Empty)
-            {
-                var nextNode = node.Add(s[0], IsEndOfWord(s));
-                s = s.Substring(1);
-                node = nextNode;
-            }
-        }
-
-        public void Print()
-        {
-            PrintChildren(_root, string.Empty);
-        }
-
-        private void PrintChildren(Node node, string prefix)
-        {
-            foreach (var kv in node.Children)
-            {
-                if (node.IsCompleteWord) _printer.Print(prefix + kv.Key);
-                PrintChildren(kv.Value, prefix + kv.Key);
-            }
-        }
-
-        private static bool IsEndOfWord(string s)
-        {
-            return s.Length == 1;
-        }
-
-        public int Find(string s)
-        {
-            return Find(s, _root);
-        }
-
-        private static int Find(string s, Node node)
-        {
-            var prefixComplet = true;
-            while (s != string.Empty)
-            {
-                prefixComplet = prefixComplet && node.Contains(s[0]);
-                if (!node.Contains(s[0])) break;
-                node = node.GetChild(s[0]);
-                s = s.Substring(1);
-            }
-            return !prefixComplet ? 0 : node.WordsCount;
         }
     }
 }

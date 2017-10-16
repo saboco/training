@@ -11,12 +11,15 @@ namespace Training.DataStructures.Tests
         {
             var input = new[] { "CAR", "CARD", "CARDAN" };
             var printer = new FakePrinter("{0:#}");
-            var tries = new Tries(printer);
+            var tries = new Tries();
             foreach (var s in input)
             {
                 tries.Add(s);
             }
-            tries.Print();
+            tries.Print(printer);
+            Assert.AreEqual("CAR", printer.Printed[0]);
+            Assert.AreEqual("CARD", printer.Printed[1]);
+            Assert.AreEqual("CARDAN", printer.Printed[2]);
         }
 
         [Test]
@@ -24,7 +27,7 @@ namespace Training.DataStructures.Tests
         {
             var input = new[] { "CAR", "CARD", "CARDAN", "TRY", "TRIES", "TRIED" };
             var printer = new FakePrinter("{0:#}");
-            var tries = new Tries(printer);
+            var tries = new Tries();
             foreach (var s in input)
             {
                 tries.Add(s);
@@ -54,6 +57,14 @@ namespace Training.DataStructures.Tests
 
             var nCount = tries.Find("N");
             Assert.AreEqual(0, nCount);
+            
+            tries.Print(printer);
+
+            foreach (var s in input)
+            {
+                Assert.IsTrue(printer.Printed.Contains(s));
+            }
+            Assert.AreEqual(6, printer.Printed.Count);
         }
     }
 }
