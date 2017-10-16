@@ -4,14 +4,15 @@ namespace Training.DataStructures
 {
     public class Stack<T>
     {
-        public Node Head { get; private set; }
-        public bool IsEmpty => Head == null;
+        public bool IsEmpty => _head == null;
         public int Count { get; private set; }
+
+        private Node _head;
 
         public void Push(T data)
         {
-            var node = new Node(data) {Next = Head};
-            Head = node;
+            var node = new Node(data) {Next = _head};
+            _head = node;
             Count++;
         }
 
@@ -56,15 +57,15 @@ namespace Training.DataStructures
 
         private T InternalPop()
         {
-            var data = Head.Data;
-            Head = Head.Next;
+            var data = _head.Data;
+            _head = _head.Next;
             Count--;
             return data;
         }
 
         private T InternalTop()
         {
-            return Head.Data;
+            return _head.Data;
         }
 
         public class Node
