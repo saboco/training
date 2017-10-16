@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 
 namespace Training.DataStructures
 {
@@ -51,7 +50,7 @@ namespace Training.DataStructures
         {
             var visitedNodes = new HashSet<Node>();
             var greatesRegion = 0;
-            foreach (var nextNode in _nodes.Select(kvNode => kvNode.Value))
+            foreach (var nextNode in _nodes.Values)
             {
                 if (visitedNodes.Contains(nextNode)) continue;
                 visitedNodes.Add(nextNode);
@@ -111,7 +110,7 @@ namespace Training.DataStructures
 
         private static bool HasPathBfs(Node source, Node destination)
         {
-            var nextNodesToVisite = new Queue<Node>();
+            var nextNodesToVisite = new QueueOnStacks<Node>();
             var visitedNodes = new HashSet<Node>();
 
             nextNodesToVisite.Enqueue(source);
