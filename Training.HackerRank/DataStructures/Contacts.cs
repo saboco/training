@@ -18,7 +18,7 @@ namespace Training.HackerRank.DataStructures
         public Contacts(IPrint printer)
         {
             _printer = printer;
-            _contacts = new Tries(printer);
+            _contacts = new Tries();
         }
 
         public void TreatTransaction(string rawTransaction)
