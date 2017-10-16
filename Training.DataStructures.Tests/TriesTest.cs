@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System.Runtime.Remoting;
+using NUnit.Framework;
 using Training.Tests.Common;
 
 namespace Training.DataStructures.Tests
@@ -20,6 +21,8 @@ namespace Training.DataStructures.Tests
             Assert.AreEqual("CAR", printer.Printed[0]);
             Assert.AreEqual("CARD", printer.Printed[1]);
             Assert.AreEqual("CARDAN", printer.Printed[2]);
+            
+            Assert.AreEqual(3, printer.Printed.Count);
         }
 
         [Test]
