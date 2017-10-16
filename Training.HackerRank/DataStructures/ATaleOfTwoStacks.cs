@@ -7,7 +7,7 @@ namespace Training.HackerRank.DataStructures
     public class ATaleOfTwoStacks
     {
         private readonly IPrint _printer;
-        private readonly Queue<int> _queue = new Queue<int>();
+        private readonly QueueOnStacks<int> _queue = new QueueOnStacks<int>();
 
         public ATaleOfTwoStacks(IPrint printer)
         {

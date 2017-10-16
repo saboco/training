@@ -1,6 +1,6 @@
 ﻿namespace Training.DataStructures
 {
-    public class Queue<T>
+    public class QueueOnStacks<T>
     {
         private readonly Stack<T> _head = new Stack<T>();
         private readonly Stack<T> _tail = new Stack<T>();
