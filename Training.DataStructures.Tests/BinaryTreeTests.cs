@@ -77,13 +77,13 @@ namespace Training.DataStructures.Tests
         {
             var values = new[] {10, 10, 12, 5, 9, 15};
             var bt = CreateTreeWithValues(values);
-            
+
             Assert.IsTrue(bt.Contains(10));
             Assert.IsTrue(bt.Contains(12));
             Assert.IsTrue(bt.Contains(5));
             Assert.IsTrue(bt.Contains(9));
             Assert.IsTrue(bt.Contains(15));
-            
+
             Assert.IsFalse(bt.Contains(11));
             Assert.IsFalse(bt.Contains(13));
             Assert.IsFalse(bt.Contains(7));
