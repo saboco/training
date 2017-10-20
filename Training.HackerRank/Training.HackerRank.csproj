@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Algorithms\BubbleSort.cs" />
     <Compile Include="Algorithms\CountingInversions.cs" />
+    <Compile Include="Algorithms\IceCreamParlor.cs" />
     <Compile Include="DataStructures\ATaleOfTwoStacks.cs" />
     <Compile Include="DataStructures\BalancedBrackets.cs" />
     <Compile Include="DataStructures\ConnectedCellsInAGrid.cs" />
@@ -50,6 +51,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Training.Common.Algorithms\Training.Common.Algorithms.csproj">
+      <Project>{6B6707D8-15FD-42AE-AAEF-68F879B651D9}</Project>
+      <Name>Training.Common.Algorithms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Training.Common\Training.Common.csproj">
       <Project>{21ED494E-CF46-4587-9BB5-D73E207AFD06}</Project>
       <Name>Training.Common</Name>

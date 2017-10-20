@@ -1,5 +1,4 @@
 ﻿using System;
-using Training.DataStructures;
 using Training.DataStructures.Sorting;
 
 namespace Training.Codility.Sorting.MaxProductOfThree
