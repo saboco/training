@@ -1,6 +1,6 @@
 ﻿namespace Training.HackerRank.Algorithms
 {
-    public class CountingInversions
+    public static class CountingInversions
     {
         public static long CountInversions(int[] arr)
         {
@@ -21,9 +21,9 @@
 
         private static long Merge(int[] arr, int[] aux, int lo, int mid, int hi)
         {
-            var leftIndex = lo;
-            var rightIndex = mid + 1;
-            var count = 0;
+            long leftIndex = lo;
+            long rightIndex = mid + 1;
+            long count = 0;
 
             for (var k = lo; k <= hi; k++)
             {
