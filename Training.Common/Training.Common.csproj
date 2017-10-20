@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayHelpers.cs" />
+    <Compile Include="Boxing.cs" />
     <Compile Include="FuncExtentions.cs" />
     <Compile Include="IPrint.cs" />
     <Compile Include="Printer.cs" />
