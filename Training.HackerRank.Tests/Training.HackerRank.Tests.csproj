@@ -54,6 +54,7 @@
     <Compile Include="DataStructures\ContactsTest.cs" />
     <Compile Include="DataStructures\FindTheRunningMedianTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Techniques_Concepts\TimeComplexityPrimalityTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Training.Common\Training.Common.csproj">
