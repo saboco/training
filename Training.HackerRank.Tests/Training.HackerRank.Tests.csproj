@@ -44,7 +44,10 @@
   <ItemGroup>
     <Compile Include="Algorithms\BubbleSortTests.cs" />
     <Compile Include="Algorithms\CountingInversionTests.cs" />
+    <Compile Include="Algorithms\FakeLinesReader.cs" />
     <Compile Include="Algorithms\IceCreamParlorTests.cs" />
+    <Compile Include="Algorithms\ShortestReachInAGraphTestData.cs" />
+    <Compile Include="Algorithms\ShortestReachInAGraphTests.cs" />
     <Compile Include="DataStructures\ATaleOfTwoStacksTests.cs" />
     <Compile Include="DataStructures\BalancedBracketsTest.cs" />
     <Compile Include="DataStructures\ConnectedCellsInAGridTest.cs" />

@@ -2,16 +2,18 @@
 
 namespace Training.DataStructures
 {
-    public class Graph<T>
+    public class Graph<TId>
     {
-        private readonly Dictionary<T, Node> _nodes = new Dictionary<T, Node>();
+        public int NodesCount => _nodes.Count;
 
-        public class Node
+        private readonly Dictionary<TId, Node> _nodes = new Dictionary<TId, Node>();
+
+        private class Node
         {
             public readonly ICollection<Node> AdjacentNodes = new List<Node>();
-            public T Id { get; }
+            public TId Id { get; }
 
-            public Node(T id)
+            public Node(TId id)
             {
                 Id = id;
             }
@@ -22,12 +24,17 @@ namespace Training.DataStructures
             }
         }
 
-        public void AddNode(T id)
+        public bool ContainsNode(TId id)
         {
-            if (!_nodes.ContainsKey(id)) _nodes[id] = new Node(id);
+            return _nodes.ContainsKey(id);
         }
 
-        public void AddEdge(T source, T destination)
+        public void AddNode(TId id)
+        {
+            if (!ContainsNode(id)) _nodes[id] = new Node(id);
+        }
+
+        public void AddEdge(TId source, TId destination)
         {
             var sourceNode = _nodes.ContainsKey(source) ? _nodes[source] : new Node(source);
             var destinationNode = _nodes.ContainsKey(destination) ? _nodes[destination] : new Node(destination);
@@ -40,10 +47,64 @@ namespace Training.DataStructures
                 _nodes.Add(destination, destinationNode);
         }
 
-        public bool HasPathDfs(T source, T destination)
+        public Dictionary<TId, int> GetDistanceToAllNodesFrom(TId sourceId, int distanceBetweenEdges)
         {
+            var distances = new Dictionary<TId, int>();
+            var source = GetNode(sourceId);
+            var nextNodesToVisite = new QueueOnStacks<Node>();
             var visitedNodes = new HashSet<Node>();
-            return HasPathDfs(GetNode(source), GetNode(destination), visitedNodes);
+
+            distances.Add(source.Id, 0);
+            nextNodesToVisite.Enqueue(source);
+            while (!nextNodesToVisite.IsEmpty)
+            {
+                var node = nextNodesToVisite.Dequeue();
+
+                if (visitedNodes.Contains(node)) continue;
+                visitedNodes.Add(node);
+                var previousDistance = distances[node.Id];
+
+                foreach (var adjacentNode in node.AdjacentNodes)
+                {
+                    if (!distances.ContainsKey(adjacentNode.Id))
+                        distances.Add(adjacentNode.Id, previousDistance + distanceBetweenEdges);
+
+                    nextNodesToVisite.Enqueue(adjacentNode);
+                }
+            }
+
+            return distances;
+        }
+
+        public bool HasPathBfs(TId source, TId destination)
+        {
+            return HasPathBfs(GetNode(source), GetNode(destination));
+        }
+
+        private static bool HasPathBfs(Node source, Node destination)
+        {
+            var nextNodesToVisite = new Queue<Node>();
+            var visitedNodes = new HashSet<Node>();
+
+            nextNodesToVisite.Enqueue(source);
+            while (nextNodesToVisite.Count != 0)
+            {
+                var node = nextNodesToVisite.Dequeue();
+                if (node == destination) return true;
+                if (visitedNodes.Contains(node)) continue;
+                visitedNodes.Add(node);
+
+                foreach (var adjacentNode in node.AdjacentNodes)
+                {
+                    nextNodesToVisite.Enqueue(adjacentNode);
+                }
+            }
+            return false;
+        }
+
+        private Node GetNode(TId id)
+        {
+            return _nodes.ContainsKey(id) ? _nodes[id] : null;
         }
 
         public int GetGreatesRegion()
@@ -64,16 +125,18 @@ namespace Training.DataStructures
             return greatesRegion;
         }
 
-        public int GetConnectedNodesCount(T source)
+        public int GetConnectedNodesCount(TId source)
         {
             var visitedNodes = new HashSet<Node>();
             return GetConnectedNodesCount(GetNode(source), visitedNodes);
         }
 
-        private Node GetNode(T id)
+        public bool HasPathDfs(TId source, TId destination)
         {
-            return _nodes.ContainsKey(id) ? _nodes[id] : null;
+            var visitedNodes = new HashSet<Node>();
+            return HasPathDfs(GetNode(source), GetNode(destination), visitedNodes);
         }
+
 
         private static int GetConnectedNodesCount(Node source, HashSet<Node> visitedNodes)
         {
@@ -98,32 +161,6 @@ namespace Training.DataStructures
                 if (HasPathDfs(nextNode, destination, visitedNodes))
                 {
                     return true;
-                }
-            }
-            return false;
-        }
-
-        public bool HasPathBfs(T source, T destination)
-        {
-            return HasPathBfs(GetNode(source), GetNode(destination));
-        }
-
-        private static bool HasPathBfs(Node source, Node destination)
-        {
-            var nextNodesToVisite = new QueueOnStacks<Node>();
-            var visitedNodes = new HashSet<Node>();
-
-            nextNodesToVisite.Enqueue(source);
-            while (!nextNodesToVisite.IsEmpty)
-            {
-                var node = nextNodesToVisite.Dequeue();
-                if (node == destination) return true;
-                if (visitedNodes.Contains(node)) continue;
-                visitedNodes.Add(node);
-
-                foreach (var adjacentNode in node.AdjacentNodes)
-                {
-                    nextNodesToVisite.Enqueue(adjacentNode);
                 }
             }
             return false;
