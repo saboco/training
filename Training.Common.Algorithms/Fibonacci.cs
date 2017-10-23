@@ -80,5 +80,33 @@ namespace Training.Common.Algorithms
                 return GetFiboOf(n - 1) + GetFiboOf(n - 2);
             }
         }
+        
+        public static class GoldenRatio
+        {
+            public static long GetFiboOf(long n)
+            {
+                var sqrt5 = Math.Sqrt(5);
+                var goldenRation = (1 + sqrt5) / 2;
+                return (long) ((Math.Pow(goldenRation, n) - Math.Pow(1 - goldenRation, n)) / sqrt5);
+            }
+        }
+
+        public static class DynamicProgramming
+        {
+            public static long GetFibo(long n)
+            {
+                if (n == 0) return 0;
+                if (n == 1) return 1;
+                
+                var fiboSequence = new int[n];
+                fiboSequence[0] = 1;
+                fiboSequence[1] = 1;
+                for (var i = 2; i < n; i++)
+                {
+                    fiboSequence[i] = fiboSequence[i - 1] + fiboSequence[i - 2];
+                }
+                return fiboSequence[n - 1];
+            }
+        }
     }
 }

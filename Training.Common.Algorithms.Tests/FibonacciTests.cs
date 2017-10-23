@@ -14,6 +14,8 @@ namespace Training.Common.Algorithms.Tests
             Assert.AreEqual(0, Fibonacci.Memoized.GetFiboOf(n));
             Assert.AreEqual(0, Fibonacci.RecursiveIterative.GetFiboOf(n));
             Assert.AreEqual(0, Fibonacci.Recursive.GetFiboOf(n));
+            Assert.AreEqual(0, Fibonacci.GoldenRatio.GetFiboOf(n));
+            Assert.AreEqual(0, Fibonacci.DynamicProgramming.GetFibo(n));
         }
 
         [TestCase(1)]
@@ -23,6 +25,8 @@ namespace Training.Common.Algorithms.Tests
             Assert.AreEqual(1, Fibonacci.Memoized.GetFiboOf(n));
             Assert.AreEqual(1, Fibonacci.RecursiveIterative.GetFiboOf(n));
             Assert.AreEqual(1, Fibonacci.Recursive.GetFiboOf(n));
+            Assert.AreEqual(1, Fibonacci.GoldenRatio.GetFiboOf(n));
+            Assert.AreEqual(1, Fibonacci.DynamicProgramming.GetFibo(n));
         }
 
         [TestCase(2, 1)]
@@ -36,6 +40,8 @@ namespace Training.Common.Algorithms.Tests
             Assert.AreEqual(fibo, Fibonacci.Memoized.GetFiboOf(n));
             Assert.AreEqual(fibo, Fibonacci.RecursiveIterative.GetFiboOf(n));
             Assert.AreEqual(fibo, Fibonacci.Recursive.GetFiboOf(n));
+            Assert.AreEqual(fibo, Fibonacci.GoldenRatio.GetFiboOf(n));
+            Assert.AreEqual(fibo, Fibonacci.DynamicProgramming.GetFibo(n));
         }
 
         [TestCase(40)]
@@ -49,6 +55,8 @@ namespace Training.Common.Algorithms.Tests
                 Fibonacci.Memoized.GetFiboOf,
                 Fibonacci.RecursiveIterative.GetFiboOf,
                 // Fibonacci.Recursive.GetFiboOf left out because it wont pass the test
+                Fibonacci.GoldenRatio.GetFiboOf,
+                Fibonacci.DynamicProgramming.GetFibo
             };
             var stopWatch = new Stopwatch();
             foreach (var fiboImplementation in fiboImplementations)
