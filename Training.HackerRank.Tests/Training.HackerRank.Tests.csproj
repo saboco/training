@@ -55,6 +55,7 @@
     <Compile Include="DataStructures\FindTheRunningMedianTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Techniques_Concepts\BitManipulationLonelyIntegerTests.cs" />
+    <Compile Include="Techniques_Concepts\DynamicProgrammingCoinChangeTests.cs" />
     <Compile Include="Techniques_Concepts\RecursionDavisStaircaseTests.cs" />
     <Compile Include="Techniques_Concepts\TimeComplexityPrimalityTests.cs" />
   </ItemGroup>

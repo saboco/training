@@ -51,6 +51,7 @@
     <Compile Include="DataStructures\HashTableRansom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Techniques_Concepts\BitManipulationLonelyInteger.cs" />
+    <Compile Include="Techniques_Concepts\DynamicProgrammingCoinChange.cs" />
     <Compile Include="Techniques_Concepts\RecursionDavisStaircase.cs" />
     <Compile Include="Techniques_Concepts\TimeComplexityPrimality.cs" />
   </ItemGroup>
