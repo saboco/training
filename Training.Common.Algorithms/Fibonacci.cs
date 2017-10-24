@@ -55,16 +55,18 @@ namespace Training.Common.Algorithms
         {
             public static long GetFiboOf(long n)
             {
-                return Fibonacci(1, n, 0, 1);
+                if (n == 0) return 0;
+                if (n == 1) return 1;
+
+                return Fibonacci(n, 0, 1);
             }
 
-            private static long Fibonacci(long i, long n, long previousFibo, long current)
+            private static long Fibonacci(long n, long previousFibo, long current)
             {
-                if (i >= n)
-                {
-                    return n == 0 ? 0 : current;
-                }
-                return Fibonacci(i + 1, n, current, current + previousFibo);
+                if (n < 2) return current;
+                
+                // ReSharper disable once TailRecursiveCall
+                return Fibonacci(n - 1, current, current + previousFibo);
             }
         }
 
@@ -80,7 +82,7 @@ namespace Training.Common.Algorithms
                 return GetFiboOf(n - 1) + GetFiboOf(n - 2);
             }
         }
-        
+
         public static class GoldenRatio
         {
             public static long GetFiboOf(long n)
@@ -97,7 +99,7 @@ namespace Training.Common.Algorithms
             {
                 if (n == 0) return 0;
                 if (n == 1) return 1;
-                
+
                 var fiboSequence = new int[n];
                 fiboSequence[0] = 1;
                 fiboSequence[1] = 1;
