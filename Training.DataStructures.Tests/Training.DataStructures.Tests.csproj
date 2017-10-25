@@ -54,10 +54,6 @@
     <Compile Include="TriesTest.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Training.Codility.Tests\Training.Codility.Tests.csproj">
-      <Project>{b20d1759-6c16-4300-92cf-9dcbe5f31710}</Project>
-      <Name>Training.Codility.Tests</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Training.Common\Training.Common.csproj">
       <Project>{21ED494E-CF46-4587-9BB5-D73E207AFD06}</Project>
       <Name>Training.Common</Name>
@@ -65,10 +61,6 @@
     <ProjectReference Include="..\Training.DataStructures\Training.DataStructures.csproj">
       <Project>{7a909765-c509-420b-b58d-40fb6bcb4461}</Project>
       <Name>Training.DataStructures</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Training.HackerRank.Tests\Training.HackerRank.Tests.csproj">
-      <Project>{d42f09a0-c55f-45bd-90ed-7f1bed1ff71e}</Project>
-      <Name>Training.HackerRank.Tests</Name>
     </ProjectReference>
     <ProjectReference Include="..\Training.Tests.Common\Training.Tests.Common.csproj">
       <Project>{587CB08C-364F-41A5-A353-F82B7EB7F051}</Project>

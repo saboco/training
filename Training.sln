@@ -33,6 +33,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainModelingMadeFuncional
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "OrderTaking", "OrderTaking\OrderTaking.fsproj", "{EEE028BB-CCE7-4AB9-B89B-AF9F95E0709C}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Training.ParserCombinator", "Training.ParserCombinator\Training.ParserCombinator.fsproj", "{C9BFC7FD-1EE5-4334-83C6-1A0BC37D4B39}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{EEE028BB-CCE7-4AB9-B89B-AF9F95E0709C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEE028BB-CCE7-4AB9-B89B-AF9F95E0709C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEE028BB-CCE7-4AB9-B89B-AF9F95E0709C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9BFC7FD-1EE5-4334-83C6-1A0BC37D4B39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9BFC7FD-1EE5-4334-83C6-1A0BC37D4B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9BFC7FD-1EE5-4334-83C6-1A0BC37D4B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9BFC7FD-1EE5-4334-83C6-1A0BC37D4B39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
