@@ -45,9 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common.fs" />
-    <Compile Include="AppServices.fs" />
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Common.fs" />
+    <Compile Include="AppServices.fs" />    
     <Compile Include="Domain.fs" />
     <Compile Include="OrderTaking.fs" />
   </ItemGroup>
