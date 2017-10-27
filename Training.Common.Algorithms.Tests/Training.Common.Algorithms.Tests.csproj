@@ -46,6 +46,7 @@
     <Compile Include="BinarySearchTest.cs" />
     <Compile Include="FibonacciTests.cs" />
     <Compile Include="FizzBuzzTests.cs" />
+    <Compile Include="MergeTwoSortedArraysTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

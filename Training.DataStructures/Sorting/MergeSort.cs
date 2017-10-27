@@ -1,6 +1,6 @@
 ﻿namespace Training.DataStructures.Sorting
 {
-    public class MergeSort
+    public static class MergeSort
     {
         public static int[] Sort(int[] arr)
         {

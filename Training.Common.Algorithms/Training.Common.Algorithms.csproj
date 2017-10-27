@@ -43,6 +43,7 @@
     <Compile Include="BinarySearch.cs" />
     <Compile Include="Fibonacci.cs" />
     <Compile Include="FizzBuzz.cs" />
+    <Compile Include="MergeTwoSortedArrays.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
