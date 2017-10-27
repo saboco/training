@@ -42,6 +42,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnagramsTests.cs" />
     <Compile Include="BinarySearchTest.cs" />
     <Compile Include="FibonacciTests.cs" />
     <Compile Include="FizzBuzzTests.cs" />
