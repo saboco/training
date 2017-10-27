@@ -35,6 +35,10 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "OrderTaking", "OrderTaking\
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Training.ParserCombinator", "Training.ParserCombinator\Training.ParserCombinator.fsproj", "{C9BFC7FD-1EE5-4334-83C6-1A0BC37D4B39}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredictiveKeyboardT9", "PredictiveKeyboardT9\PredictiveKeyboardT9.csproj", "{3BD7B326-5B73-4452-953A-214F9C8AE91E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredictiveKeyboardT9Tests", "PredictiveKeyboardT9Tests\PredictiveKeyboardT9Tests.csproj", "{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +97,14 @@ Global
 		{C9BFC7FD-1EE5-4334-83C6-1A0BC37D4B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9BFC7FD-1EE5-4334-83C6-1A0BC37D4B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9BFC7FD-1EE5-4334-83C6-1A0BC37D4B39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BD7B326-5B73-4452-953A-214F9C8AE91E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BD7B326-5B73-4452-953A-214F9C8AE91E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BD7B326-5B73-4452-953A-214F9C8AE91E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BD7B326-5B73-4452-953A-214F9C8AE91E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
