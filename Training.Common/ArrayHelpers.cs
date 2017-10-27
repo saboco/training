@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Training.Common
@@ -60,6 +61,38 @@ namespace Training.Common
                     arrResult[j++] = arr[i];
             }
             return arrResult;
+        }
+        
+        public static IEnumerable<T> Intersection<T>(T[] arrA, T[] arrB) where T : IComparable
+        {
+            if (arrA == null || arrB == null) yield break;
+           
+            for (int aIndex = 0, bIndex = 0; aIndex < arrA.Length && bIndex < arrB.Length;)
+            {
+                if (arrA[aIndex].CompareTo(arrB[bIndex]) == 0)
+                {
+                    var item = arrA[aIndex];
+                    yield return item;
+
+                    while (aIndex < arrA.Length && bIndex < arrB.Length
+                           && item.CompareTo(arrA[aIndex]) == 0
+                           && item.CompareTo(arrB[bIndex]) == 0)
+                    {
+                        aIndex++;
+                        bIndex++;
+                    }
+                    continue;
+                }
+
+                if (arrA[aIndex].CompareTo(arrB[bIndex]) > 0)
+                {
+                    bIndex++;
+                }
+                else
+                {
+                    aIndex++;
+                }
+            }
         }
     }
 }
