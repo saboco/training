@@ -46,7 +46,7 @@ namespace PredictiveKeyboardT9
                 {
                     words.AddRange(next.GetCompleteWords(tempWord));
                 }
-                GetPredictions(digits, digitIndex + 1, next, word + letter, words);
+                GetPredictions(digits, digitIndex + 1, next, tempWord, words);
             }
             return words;
         }
