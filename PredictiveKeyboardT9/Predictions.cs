@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using Training.Common;
 
 namespace PredictiveKeyboardT9
 {
@@ -22,20 +21,20 @@ namespace PredictiveKeyboardT9
         {
             return digits == null
                 ? new string[0]
-                : GetPredictions(digits, _dictionary.Root, "", new List<string>());
+                : GetPredictions(digits, 0, _dictionary.Root, "", new List<string>());
         }
 
-        private IEnumerable<string> GetPredictions(IReadOnlyList<int> digits, Dictionary.Node node, string word,
-            List<string> words)
+        private IEnumerable<string> GetPredictions
+            (IReadOnlyList<int> digits, int digitIndex, Dictionary.Node node, string word, List<string> words)
         {
-            if (digits.Count == 0)
+            if (NoMoreDigits(digits, digitIndex))
             {
                 return word == string.Empty
                     ? new string[0]
                     : new[] {word};
             }
 
-            var digit = digits[0];
+            var digit = digits[digitIndex];
 
             foreach (var letter in _keyboard.GetLetters(digit))
             {
@@ -43,13 +42,23 @@ namespace PredictiveKeyboardT9
 
                 var next = node.Children[letter];
                 var tempWord = word + letter;
-                if (digits.Count == 1)
+                if (IsLastDigit(digits, digitIndex))
                 {
                     words.AddRange(next.GetCompleteWords(tempWord));
                 }
-                GetPredictions(ArrayHelpers.RemoveAt(digits, 0), next, word + letter, words);
+                GetPredictions(digits, digitIndex + 1, next, word + letter, words);
             }
             return words;
+        }
+
+        private static bool NoMoreDigits(IReadOnlyCollection<int> digits, int digitIndex)
+        {
+            return digitIndex >= digits.Count;
+        }
+
+        private static bool IsLastDigit(IReadOnlyCollection<int> digits, int digitIndex)
+        {
+            return digitIndex == digits.Count - 1;
         }
     }
 }
