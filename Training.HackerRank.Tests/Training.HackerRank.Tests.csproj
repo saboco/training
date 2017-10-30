@@ -48,6 +48,7 @@
     <Compile Include="Algorithms\IceCreamParlorTests.cs" />
     <Compile Include="Algorithms\ShortestReachInAGraphTestData.cs" />
     <Compile Include="Algorithms\ShortestReachInAGraphTests.cs" />
+    <Compile Include="Algorithms\ThePowerSumTests.cs" />
     <Compile Include="DataStructures\ATaleOfTwoStacksTests.cs" />
     <Compile Include="DataStructures\BalancedBracketsTest.cs" />
     <Compile Include="DataStructures\ConnectedCellsInAGridTest.cs" />

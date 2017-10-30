@@ -43,6 +43,7 @@
     <Compile Include="Algorithms\CountingInversions.cs" />
     <Compile Include="Algorithms\IceCreamParlor.cs" />
     <Compile Include="Algorithms\ShortestReachInAGraph.cs" />
+    <Compile Include="Algorithms\ThePowerSum.cs" />
     <Compile Include="DataStructures\ATaleOfTwoStacks.cs" />
     <Compile Include="DataStructures\BalancedBrackets.cs" />
     <Compile Include="DataStructures\ConnectedCellsInAGrid.cs" />
