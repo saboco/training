@@ -47,7 +47,10 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
     <Compile Include="Monoids.fs" />
-    <None Include="Monoids.fsx" />
+    <None Include="WordCountTest.fsx" />
+    <None Include="Products.fsx" />
+    <None Include="Customers.fsx" />
+    <None Include="FrequentWordTest.fsx" />
   </ItemGroup>
   <PropertyGroup>
     <FSharpTargetsPath>..\packages\FSharp.Compiler.Tools.4.1.23\tools\Microsoft.FSharp.Targets</FSharpTargetsPath>

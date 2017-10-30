@@ -1,9 +1,7 @@
-﻿// Learn more about F# at http://fsharp.org. See the 'F# Tutorial' project
-// for more guidance on F# programming.
+﻿// https://fsharpforfunandprofit.com/posts/monoids-part2/
 
 #load "Monoids.fs"
 open Training.Monoids.WordCountTest
-
 
 time wordCountViaAddText "reduce then count"
 time wordCountViaMap "map then reduce"
