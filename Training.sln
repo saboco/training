@@ -39,6 +39,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredictiveKeyboardT9", "Pre
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredictiveKeyboardT9Tests", "PredictiveKeyboardT9Tests\PredictiveKeyboardT9Tests.csproj", "{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Training.Monoids", "Training.Monoids\Training.Monoids.fsproj", "{478A0F46-A3C8-4F3C-AEDB-B37322A483D5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{478A0F46-A3C8-4F3C-AEDB-B37322A483D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{478A0F46-A3C8-4F3C-AEDB-B37322A483D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{478A0F46-A3C8-4F3C-AEDB-B37322A483D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{478A0F46-A3C8-4F3C-AEDB-B37322A483D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
