@@ -41,6 +41,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredictiveKeyboardT9Tests",
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Training.Monoids", "Training.Monoids\Training.Monoids.fsproj", "{478A0F46-A3C8-4F3C-AEDB-B37322A483D5}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Training.RailwayOrientedProgramming", "Training.RailwayOrientedProgramming\Training.RailwayOrientedProgramming.fsproj", "{CDEF7BE7-21BD-42AD-92F8-3214B143D517}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.RailwayOrientedProgrammingCs", "Training.RailwayOrientedProgrammingCs\Training.RailwayOrientedProgrammingCs.csproj", "{D11A3B47-000D-4E47-B935-AAEEFB3717FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +115,14 @@ Global
 		{478A0F46-A3C8-4F3C-AEDB-B37322A483D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{478A0F46-A3C8-4F3C-AEDB-B37322A483D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{478A0F46-A3C8-4F3C-AEDB-B37322A483D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDEF7BE7-21BD-42AD-92F8-3214B143D517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDEF7BE7-21BD-42AD-92F8-3214B143D517}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDEF7BE7-21BD-42AD-92F8-3214B143D517}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDEF7BE7-21BD-42AD-92F8-3214B143D517}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D11A3B47-000D-4E47-B935-AAEEFB3717FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D11A3B47-000D-4E47-B935-AAEEFB3717FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D11A3B47-000D-4E47-B935-AAEEFB3717FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D11A3B47-000D-4E47-B935-AAEEFB3717FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
