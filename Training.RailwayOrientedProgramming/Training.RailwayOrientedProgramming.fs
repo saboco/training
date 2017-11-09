@@ -1,4 +1,6 @@
-﻿namespace Training.RailwayOrientedProgramming
+﻿// Related to : http://fsharpforfunandprofit.com/rop/
+
+namespace Training.RailwayOrientedProgramming
 
 module Rop =
 

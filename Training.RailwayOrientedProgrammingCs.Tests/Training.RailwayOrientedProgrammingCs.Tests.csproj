@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D11A3B47-000D-4E47-B935-AAEEFB3717FE}</ProjectGuid>
+    <ProjectGuid>{587616AB-634D-4047-84A3-4A821BA9C37B}</ProjectGuid>
     <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Training.RailwayOrientedProgrammingCs</RootNamespace>
-    <AssemblyName>Training.RailwayOrientedProgrammingCs</AssemblyName>
+    <RootNamespace>Training.RailwayOrientedProgrammingCs.Tests</RootNamespace>
+    <AssemblyName>Training.RailwayOrientedProgrammingCs.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,10 +37,19 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="nunit.framework, Version=3.5.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb">
+      <HintPath>..\packages\NUnit.3.5.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Result.cs" />
+    <Compile Include="ResultTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Training.RailwayOrientedProgrammingCs\Training.RailwayOrientedProgrammingCs.csproj">
+      <Project>{d11a3b47-000d-4e47-b935-aaeefb3717fe}</Project>
+      <Name>Training.RailwayOrientedProgrammingCs</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

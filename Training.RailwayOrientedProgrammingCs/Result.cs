@@ -1,12 +1,56 @@
-﻿using System;
+﻿// Related to : http://fsharpforfunandprofit.com/rop/
+
+using System;
 
 namespace Training.RailwayOrientedProgrammingCs
 {
-    public abstract class Result<TSuccess, TFailure>
+    public abstract class Result<TSuccess, TFailure> : IEquatable<Result<TSuccess, TFailure>>
     {
+        public bool Equals(Result<TSuccess, TFailure> other)
+        {
+            switch (this)
+            {
+                case Success s1 when other is Success s2:
+                    return s1.Value.Equals(s2.Value);
+                case Failure f1 when other is Failure f2:
+                    return f1.Error.Equals(f2.Error);
+                default: return false;
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            return obj.GetType() == GetType()
+                   && Equals((Result<TSuccess, TFailure>) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            switch (this)
+            {
+                case Success s:
+                    return s.Value.GetHashCode();
+                case Failure f:
+                    return f.Error.GetHashCode();
+                default: return 0;
+            }
+        }
+
+        public static bool operator ==(Result<TSuccess, TFailure> left, Result<TSuccess, TFailure> right)
+        {
+            return Equals(left, right);
+        }
+
+        public static bool operator !=(Result<TSuccess, TFailure> left, Result<TSuccess, TFailure> right)
+        {
+            return !Equals(left, right);
+        }
+
         public class Success : Result<TSuccess, TFailure>
         {
-            public TSuccess Value;
+            public readonly TSuccess Value;
 
             public Success(TSuccess value)
             {
@@ -16,7 +60,7 @@ namespace Training.RailwayOrientedProgrammingCs
 
         public class Failure : Result<TSuccess, TFailure>
         {
-            public TFailure Error;
+            public readonly TFailure Error;
 
             public Failure(TFailure error)
             {
@@ -34,7 +78,22 @@ namespace Training.RailwayOrientedProgrammingCs
             return new Failure(item);
         }
 
-        private static Func<T1, T3> SimpleCompose<T1, T2, T3>(Func<T1, T2> f1, Func<T2, T3> f2)
+        public override string ToString()
+        {
+            switch (this)
+            {
+                case Success s:
+                    return s.Value.ToString();
+                case Failure f:
+                    return f.Error.ToString();
+                default: return "";
+            }
+        }
+    }
+
+    public static class FuncExtensions
+    {
+        public static Func<T1, T3> Compose<T1, T2, T3>(this Func<T1, T2> f1, Func<T2, T3> f2)
         {
             return arg =>
             {
@@ -43,8 +102,22 @@ namespace Training.RailwayOrientedProgrammingCs
             };
         }
 
-        private static TResult Either<T1, T2, TResult>(Func<T1, TResult> successFunc, Func<T2, TResult> failureFunc,
-            Result<T1, T2> r)
+        public static Func<TA, TA> Tee<TA>(this Action<TA> f)
+        {
+            return arg =>
+            {
+                f(arg);
+                return arg;
+            };
+        }
+    }
+
+    public static class ResultExtentions
+    {
+        public static TResult EitherR<T1, T2, TResult>(
+            this Result<T1, T2> r,
+            Func<T1, TResult> successFunc,
+            Func<T2, TResult> failureFunc)
         {
             switch (r)
             {
@@ -57,125 +130,108 @@ namespace Training.RailwayOrientedProgrammingCs
             }
         }
 
-        public static Result<TB, TC> Bind<TA, TB, TC>(Func<TA, Result<TB, TC>> switchFunction,
-            Result<TA, TC> twoTrackInput)
+        public static Result<TB, TC> BindR<TA, TB, TC>(this Func<TA, Result<TB, TC>> f, Result<TA, TC> r)
         {
-            var result = twoTrackInput;
+            var result = r;
             if (result is Result<TA, TC>.Failure failure)
             {
                 return Result<TB, TC>.NewFailure(failure.Error);
             }
-            var r = ((Result<TA, TC>.Success)result).Value;
-            return switchFunction(r);
+            var rSuccess = ((Result<TA, TC>.Success) result).Value;
+            return f(rSuccess);
         }
 
-        public static Func<Result<TA, TC>, Result<TB, TC>> Bind<TA, TB, TC>(Func<TA, Result<TB, TC>> f)
+        public static Func<Result<TA, TC>, Result<TB, TC>> BindR<TA, TB, TC>(this Func<TA, Result<TB, TC>> f)
         {
             Result<TB, TC> Func(Result<TA, TC> arg)
             {
                 var result = arg;
                 if (result is Result<TA, TC>.Failure failure)
                 {
-                    // ISSUE: reference to a compiler-generated field
                     return Result<TB, TC>.NewFailure(failure.Error);
                 }
-                // ISSUE: reference to a compiler-generated field
-                var r = ((Result<TA, TC>.Success)result).Value;
+                
+                var r = ((Result<TA, TC>.Success) result).Value;
                 return f(r);
             }
 
             return Func;
         }
 
-        public static Result<TC, TB> Pipe<TA, TB, TC>(Result<TA, TB> r, Func<TA, Result<TC, TB>> f)
+        public static Result<TC, TB> PipeR<TA, TB, TC>(this Result<TA, TB> r, Func<TA, Result<TC, TB>> f)
         {
-            return Bind(f, r);
+            return f.BindR(r);
         }
-        public static Func<TA, Result<TD, TC>> Compose<TA, TB, TC, TD>(
-            Func<TA, Result<TB, TC>> f1,
+
+        public static Func<TA, Result<TD, TC>> ComposeR<TA, TB, TC, TD>(
+            this Func<TA, Result<TB, TC>> f1,
             Func<TB, Result<TD, TC>> f2)
         {
-            return SimpleCompose(f1, Bind(f2));
+            return f1.Compose(BindR(f2));
         }
 
-        public static Result<TD, TC> Compose<TA, TB, TC, TD>(
-            Func<TA, Result<TB, TC>> f1,
-            Func<TB, Result<TD, TC>> f2,
-            TA a)
+        public static Func<TA, Result<TB, TC>> SwitchR<TA, TB, TC>(this Func<TA, TB> f)
         {
-            var result = f1(a);
-            if (result is Result<TB, TC>.Failure failure)
+            return f.Compose(Result<TB, TC>.NewSuccess);
+        }
+
+        public static Func<Result<TA, TC>, Result<TB, TC>> MapR<TA, TB, TC>(this Func<TA, TB> f)
+        {
+            return r => r.EitherR(SwitchR<TA, TB, TC>(f), Result<TB, TC>.NewFailure);
+        }
+
+        public static Func<TA, Result<TB, TC>> TryCatchR<TA, TB, TC>(this Func<TA, TB> f, Func<Exception, TC> exHandler)
+        {
+            return arg =>
             {
-                return Result<TD, TC>.NewFailure(failure.Error);
-            }
-
-            var r = ((Result<TB, TC>.Success)result).Value;
-            return f2(r);
+                try
+                {
+                    var result = f(arg);
+                    return Result<TB, TC>.NewSuccess(result);
+                }
+                catch (Exception e)
+                {
+                    var result = exHandler(e);
+                    return Result<TB, TC>.NewFailure(result);
+                }
+            };
         }
 
-        public static Func<TA, Result<TB, TC>> Switch<TA, TB, TC>(Func<TA, TB> f)
-        {
-            return SimpleCompose(f, Result<TB, TC>.NewSuccess);
-        }
-
-        public static Func<Result<TA, TC>, Result<TB, TC>> Map<TA, TB, TC>(Func<TA, TB> f)
-        {
-            return r => Either(Switch<TA, TB, TC>(f), Result<TB, TC>.NewFailure, r);
-        }
-
-        public static TA Tee<TA>(Action<TA> f, TA x)
-        {
-            f(x);
-            return x;
-        }
-
-        public static Result<TB, TC> TryCatch<TA, TB, TC>(Func<TA, TB> f, Func<Exception, TC> exHandler, TA x)
-        {
-            try
-            {
-                var result = f(x);
-                return Result<TB, TC>.NewSuccess(result);
-            }
-            catch (Exception e)
-            {
-                var result = exHandler(e);
-                return Result<TB, TC>.NewFailure(result);
-            }
-        }
-
-        public static Func<Result<TA, TC>, Result<TB, TD>> DoubleMap<TA, TB, TC, TD>(
+        public static Func<Result<TA, TC>, Result<TB, TD>> DoubleMapR<TA, TB, TC, TD>(
             Func<TA, TB> successF,
             Func<TC, TD> failF)
         {
-            return r => Either(Switch<TA, TB, TD>(successF), SimpleCompose(failF, Result<TB, TD>.NewFailure), r);
+            return r => r.EitherR(SwitchR<TA, TB, TD>(successF), failF.Compose(Result<TB, TD>.NewFailure));
         }
 
-        public static Result<TC, TD> Plus<TA, TB, TC, TD, TE>(
+        public static Func<TE, Result<TC, TD>> PlusR<TA, TB, TC, TD, TE>(
             Func<TA, TB, TC> addSuccess,
             Func<TD, TD, TD> addFailure,
             Func<TE, Result<TA, TD>> f1,
-            Func<TE, Result<TB, TD>> f2,
-            TE x)
+            Func<TE, Result<TB, TD>> f2)
         {
-            var result1 = f1(x);
-            var result2 = f2(x);
+            return x =>
+            {
+                var result1 = f1(x);
+                var result2 = f2(x);
 
-            if (result1 is Result<TA, TD>.Success success1 && result2 is Result<TB, TD>.Success success2)
-            {
-                return Result<TC, TD>.NewSuccess(addSuccess(success1.Value, success2.Value));
-            }
-            if (result1 is Result<TA, TD>.Failure failure1 && result2 is Result<TB, TD>.Success)
-            {
-                return Result<TC, TD>.NewFailure(failure1.Error);
-            }
-            if (result1 is Result<TA, TD>.Success && result2 is Result<TB, TD>.Failure failure2)
-            {
-                return Result<TC, TD>.NewFailure(failure2.Error);
-            }
-            if (result1 is Result<TA, TD>.Failure failure3 && result2 is Result<TB, TD>.Failure failure4)
-                return Result<TC, TD>.NewFailure(addFailure(failure3.Error, failure4.Error));
+                if (result1 is Result<TA, TD>.Success success1 && result2 is Result<TB, TD>.Success success2)
+                {
+                    return Result<TC, TD>.NewSuccess(addSuccess(success1.Value, success2.Value));
+                }
+                if (result1 is Result<TA, TD>.Failure failure1 && result2 is Result<TB, TD>.Success)
+                {
+                    return Result<TC, TD>.NewFailure(failure1.Error);
+                }
+                if (result1 is Result<TA, TD>.Success && result2 is Result<TB, TD>.Failure failure2)
+                {
+                    return Result<TC, TD>.NewFailure(failure2.Error);
+                }
+                if (result1 is Result<TA, TD>.Failure failure3 && result2 is Result<TB, TD>.Failure failure4)
+                    return Result<TC, TD>.NewFailure(addFailure(failure3.Error, failure4.Error));
 
-            throw new InvalidOperationException();
+                throw new InvalidOperationException();
+            };
         }
     }
 }
