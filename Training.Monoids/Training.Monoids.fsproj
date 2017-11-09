@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Training.Monoids</RootNamespace>
     <AssemblyName>Training.Monoids</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Name>Training.Monoids</Name>
   </PropertyGroup>

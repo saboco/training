@@ -1,4 +1,6 @@
-﻿module JsonParser
+﻿// Related blog post: http://fsharpforfunandprofit.com/posts/understanding-parser-combinators-3/
+
+module JsonParser
 
 open ParserLibrary.Core
 open System

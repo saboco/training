@@ -1,5 +1,4 @@
-﻿// Learn more about F# at http://fsharp.org. See the 'F# Tutorial' project
-// for more guidance on F# programming.
+﻿// Related blog post: http://fsharpforfunandprofit.com/posts/understanding-parser-combinators-3/
 
 #load "ParserLibrary.fs"
 

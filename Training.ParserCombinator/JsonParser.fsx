@@ -1,4 +1,5 @@
-﻿
+﻿// Related blog post: http://fsharpforfunandprofit.com/posts/understanding-parser-combinators-3/
+
 #load "ParserLibrary.fs"
 #load "JsonParser.fs"
 
