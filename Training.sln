@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.RailwayOrientedPro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.RailwayOrientedProgrammingCs.Tests", "Training.RailwayOrientedProgrammingCs.Tests\Training.RailwayOrientedProgrammingCs.Tests.csproj", "{587616AB-634D-4047-84A3-4A821BA9C37B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.RailwayOrientedProgrammingUsecaseExemple", "Training.RailwayOrientedProgrammingUsecaseExemple\Training.RailwayOrientedProgrammingUsecaseExemple.csproj", "{19E4C465-A62F-4DD5-B6D5-FE8561C969CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +131,10 @@ Global
 		{587616AB-634D-4047-84A3-4A821BA9C37B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{587616AB-634D-4047-84A3-4A821BA9C37B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{587616AB-634D-4047-84A3-4A821BA9C37B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19E4C465-A62F-4DD5-B6D5-FE8561C969CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19E4C465-A62F-4DD5-B6D5-FE8561C969CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19E4C465-A62F-4DD5-B6D5-FE8561C969CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19E4C465-A62F-4DD5-B6D5-FE8561C969CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
