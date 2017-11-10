@@ -155,7 +155,7 @@ let jNumber_ = jNumber .>> spaces1
 let createParserForwardedToRef<'a>() =
 
     let dummyParser= 
-        let innerFn input : Result<'a * Input> = failwith "unfixed forwarded parser"
+        let innerFn _ : Result<'a * Input> = failwith "unfixed forwarded parser"
         {parseFn=innerFn; label="unknown"}
     
     // ref to placeholder Parser
