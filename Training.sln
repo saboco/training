@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Codility", "Training.Codility\Training.Codility.csproj", "{E79CF9EF-D4C1-47A1-8788-7962D7119CE7}"
 EndProject
@@ -48,6 +48,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.RailwayOrientedProgrammingCs.Tests", "Training.RailwayOrientedProgrammingCs.Tests\Training.RailwayOrientedProgrammingCs.Tests.csproj", "{587616AB-634D-4047-84A3-4A821BA9C37B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.RailwayOrientedProgrammingUsecaseExemple", "Training.RailwayOrientedProgrammingUsecaseExemple\Training.RailwayOrientedProgrammingUsecaseExemple.csproj", "{19E4C465-A62F-4DD5-B6D5-FE8561C969CE}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Training.MapBindApplyAndReturn", "Training.MapBindApplyAndReturn\Training.MapBindApplyAndReturn.fsproj", "{4AEFC0BE-B3FC-40DC-91B2-8FCFA71EBE86}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,12 +137,13 @@ Global
 		{19E4C465-A62F-4DD5-B6D5-FE8561C969CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19E4C465-A62F-4DD5-B6D5-FE8561C969CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19E4C465-A62F-4DD5-B6D5-FE8561C969CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AEFC0BE-B3FC-40DC-91B2-8FCFA71EBE86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AEFC0BE-B3FC-40DC-91B2-8FCFA71EBE86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AEFC0BE-B3FC-40DC-91B2-8FCFA71EBE86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AEFC0BE-B3FC-40DC-91B2-8FCFA71EBE86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1C7B3380-37CF-44A9-9559-360EA963281F}
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E79CF9EF-D4C1-47A1-8788-7962D7119CE7} = {BDF96AA7-5751-4E64-9AD5-BF696A31ECD4}
@@ -148,5 +151,8 @@ Global
 		{741843F4-B6C1-451C-8960-859AAC95AA9A} = {BC13542A-B1DE-4A4A-9CEA-8FCEAE88D5DE}
 		{D42F09A0-C55F-45BD-90ED-7F1BED1FF71E} = {BC13542A-B1DE-4A4A-9CEA-8FCEAE88D5DE}
 		{EEE028BB-CCE7-4AB9-B89B-AF9F95E0709C} = {E97FEB89-5D88-45B9-9B3D-3098BBFB707C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C7B3380-37CF-44A9-9559-360EA963281F}
 	EndGlobalSection
 EndGlobal
