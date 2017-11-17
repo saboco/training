@@ -61,6 +61,8 @@
     <None Include="FrequentWordTest.fsx" />
     <Compile Include="WorkingWithNonMonoids.fs" />
     <Content Include="packages.config" />
+    <Compile Include="CollectionPerformance.fs" />
+    <None Include="CollectionPerformance.fsx" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core">
