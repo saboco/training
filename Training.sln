@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2009
+VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Codility", "Training.Codility\Training.Codility.csproj", "{E79CF9EF-D4C1-47A1-8788-7962D7119CE7}"
 EndProject
@@ -54,6 +54,8 @@ EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Training.Monoids.Tests", "Training.Monoids.Tests\Training.Monoids.Tests.fsproj", "{A0AAB156-D2E3-44B2-8416-51B4A34C8C10}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Threads", "Training.Threads\Training.Threads.csproj", "{6A885414-1357-4D3A-89EA-3667655A80DD}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Training.Calculator", "Training.Calculator\Training.Calculator.fsproj", "{7225E5E1-6436-4A2D-BFB8-27D7173365D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +155,10 @@ Global
 		{6A885414-1357-4D3A-89EA-3667655A80DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A885414-1357-4D3A-89EA-3667655A80DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A885414-1357-4D3A-89EA-3667655A80DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7225E5E1-6436-4A2D-BFB8-27D7173365D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7225E5E1-6436-4A2D-BFB8-27D7173365D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7225E5E1-6436-4A2D-BFB8-27D7173365D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7225E5E1-6436-4A2D-BFB8-27D7173365D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
