@@ -18,11 +18,7 @@ module Model =
   | Subtrac
   | Multiply
   | Divide 
-
-  let a : float = 1.0
-  let b : int = 2
-  let c = a + (float b)
-
+  
   type NumberOperation = Number -> Number -> Number
   
   type Operation = Operation of (Left * Operator * Right)
@@ -32,43 +28,43 @@ module Model =
   type ParseOperand = string -> Result<Number, string>
   type ParseOperation = Command -> Result<Operation, string list> 
   
-  let addNumber : NumberOperation =
-    let f n1 n2 =
+  let operateOnNumber opInt opFloat = 
+    fun n1 n2 ->
         match n1, n2 with
-        | Int i1, Int i2 -> Int (i1 + i2)
-        | Float f1, Float f2 -> Float (f1 + f2)
-        | Int i, Float f -> Float ((float i) + f)
-        | Float f, Int i -> Float (f + (float i))
-    f  
+        | Int i1, Int i2 -> Int (opInt i1  i2)
+        | Float f1, Float f2 -> Float (opFloat f1  f2)
+        | Int i, Float f -> Float (opFloat (float i) f)
+        | Float f, Int i -> Float (opFloat f (float i))    
+
+  let addNumber : NumberOperation =
+    let addInt a b = a + b
+    let addFloat a b = a + b
+    operateOnNumber addInt addFloat   
+
+  let multNumber : NumberOperation =
+    let multInt a b = a * b
+    let multFloat a b = a * b
+    operateOnNumber multInt multFloat
 
   let negateN n =
         match n with
         | Int i -> Int -i
         | Float f -> Float -f  
   
-  let (~-) = negateN
-
-  let multNumber : NumberOperation =
-    let f n1 n2 =
-        match n1, n2 with
-        | Int i1, Int i2 -> Int (i1 * i2)
-        | Float f1, Float f2 -> Float (f1 * f2)
-        | Int i, Float f -> Float ((float i) * f)
-        | Float f, Int i -> Float (f * (float i))
-    f
+  let (~-) = negateN  
 
   let invertN n =
     match n with
     | Int i -> Float (1.0 / (float i))
     | Float f -> Float (1.0 / f)
 
+  let (!!) = invertN
+
   let isZero n =
     match n with 
     | Int i when i = 0 -> true
     | Float f when f = 0.0 -> true
-    | _ -> false
-
-  let (!!) = invertN
+    | _ -> false  
 
   let validateString s =
     not (String.IsNullOrWhiteSpace(s))
@@ -83,25 +79,23 @@ module Model =
           Failure ["command should be composed by 3 parts, the left operand the operator and the right operant and should be separated by 1 space, ex: 1 + 2"]
     validateParts
 
-  let parseOperand : ParseOperand=
-    let f str =
-      match System.Int32.TryParse(str) with
-      | (true,int) -> Success (Int int)
-      | _ -> 
+  let parseOperand : ParseOperand = 
+    fun str ->
+        match System.Int32.TryParse(str) with
+        | (true,int) -> Success (Int int)
+        | _ -> 
         match System.Double.TryParse(str) with
         | (true, float) -> Success (Float float)
-        | _ -> Failure ["not an integer, nor a float"]      
-    f      
+        | _ -> Failure ["not an integer, nor a float"]  
 
-  let parseOperator : ParseOperator =
-    let f s = 
-      match s with
-      | "+" -> Success Sum
-      | "-" -> Success Subtrac
-      | "*" -> Success Multiply
-      | "/" -> Success Divide
-      | _ -> Failure ["Unknown operator"]
-    f    
+  let parseOperator : ParseOperator = 
+    fun s ->
+        match s with 
+        | "+" -> Success Sum
+        | "-" -> Success Subtrac
+        | "*" -> Success Multiply
+        | "/" -> Success Divide
+        | _ -> Failure ["Unknown operator"]    
 
   let createLeftOperand s =
     s 
@@ -156,19 +150,7 @@ module Model =
     List.foldBack folder list initState 
 
   let sequence x = traverseResultA id x
-
-  let createOperations cmds =
-    
-    let f = parseOperation
-    let retn = succeed
-    let (<*>) = apply
-    let cons head tail = head::tail
-
-    let initState = retn []
-    let folder head tail = 
-      retn cons <*> (f head) <*> tail
-      
-    List.foldBack folder cmds initState  
+  let createOperations cmds = traverseResultA parseOperation cmds
 
   let execOperation o  =
     let (Operation(Left l, op, Right r)) = o
@@ -191,4 +173,4 @@ module Model =
     |> sequence
     |> bind createOperations
     |> bind execOperationTraverseR
-
+  
