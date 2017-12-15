@@ -132,11 +132,13 @@ module Model =
             Some (l / r)
         else None
   
+  let execOperationR = switch execOperation
+  let execOperationTraverseR = traverseResultA execOperationR
+  
   let treatCommands cmds =
     cmds
     |> List.map parseCommand
     |> sequence
     |> bind createOperations
-    //|> map execOperation
-    //|> sequence
-    //|> map execOperation
+    |> bind execOperationTraverseR
+
