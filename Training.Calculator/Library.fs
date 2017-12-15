@@ -7,21 +7,68 @@ module Model =
   
   type Command = Command of (string * string * string)
 
-  type Left = Left of int
-  type Right = Right of int
+  type Number = 
+    | Int of int
+    | Float of float
+  
+  type Left = Left of Number
+  type Right = Right of Number
   type Operator =
   | Sum
   | Subtrac
   | Multiply
-  | Divide  
+  | Divide 
 
+  let a : float = 1.0
+  let b : int = 2
+  let c = a + (float b)
+
+  type NumberOperation = Number -> Number -> Number
+  
   type Operation = Operation of (Left * Operator * Right)
   
   type ParseOperator = string -> Result<Operator, string>  
   type ParseCommand = string -> Result<Command, string>  
-  type ParseOperand = string -> Result<int, string>
+  type ParseOperand = string -> Result<Number, string>
   type ParseOperation = Command -> Result<Operation, string list> 
-  type Operated<'T> = Operated of 'T
+  
+  let addNumber : NumberOperation =
+    let f n1 n2 =
+        match n1, n2 with
+        | Int i1, Int i2 -> Int (i1 + i2)
+        | Float f1, Float f2 -> Float (f1 + f2)
+        | Int i, Float f -> Float ((float i) + f)
+        | Float f, Int i -> Float (f + (float i))
+    f  
+
+  let negateN n =
+        match n with
+        | Int i -> Int -i
+        | Float f -> Float -f  
+  
+  let (~-) = negateN
+
+  let multNumber : NumberOperation =
+    let f n1 n2 =
+        match n1, n2 with
+        | Int i1, Int i2 -> Int (i1 * i2)
+        | Float f1, Float f2 -> Float (f1 * f2)
+        | Int i, Float f -> Float ((float i) * f)
+        | Float f, Int i -> Float (f * (float i))
+    f
+
+  let invertN n =
+    match n with
+    | Int i -> Float (1.0 / (float i))
+    | Float f -> Float (1.0 / f)
+
+  let isZero n =
+    match n with 
+    | Int i when i = 0 -> true
+    | Float f when f = 0.0 -> true
+    | _ -> false
+
+  let (!!) = invertN
 
   let validateString s =
     not (String.IsNullOrWhiteSpace(s))
@@ -39,8 +86,11 @@ module Model =
   let parseOperand : ParseOperand=
     let f str =
       match System.Int32.TryParse(str) with
-      | (true,int) -> Success int
-      | _ -> Failure ["not an integer"]      
+      | (true,int) -> Success (Int int)
+      | _ -> 
+        match System.Double.TryParse(str) with
+        | (true, float) -> Success (Float float)
+        | _ -> Failure ["not an integer, nor a float"]      
     f      
 
   let parseOperator : ParseOperator =
@@ -124,12 +174,12 @@ module Model =
     let (Operation(Left l, op, Right r)) = o
 
     match op with
-    | Sum -> Some (l + r)
-    | Subtrac -> Some (l - r)
-    | Multiply -> Some (l * r)
+    | Sum -> Some (addNumber l  r)
+    | Subtrac -> Some (addNumber l -r)
+    | Multiply -> Some (multNumber l  r)
     | Divide -> 
-        if r <> 0 then
-            Some (l / r)
+        if not (isZero r) then
+            Some (multNumber l !!r)
         else None
   
   let execOperationR = switch execOperation
