@@ -1,5 +1,4 @@
-﻿using System.Runtime.Remoting;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Training.Tests.Common;
 
 namespace Training.DataStructures.Tests

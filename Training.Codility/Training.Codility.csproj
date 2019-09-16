@@ -64,6 +64,7 @@
     <Compile Include="PrimeAndCompositeNumbers\MinPerimeterRectangle\Solution.cs" />
     <Compile Include="PrimeAndCompositeNumbers\Peaks\Solution.cs" />
     <Compile Include="Sorting\Distinct\Solution.cs" />
+    <None Include="Sorting\MaxProductOfThree\readme.md" />
     <Compile Include="Sorting\MaxProductOfThree\Solution.cs" />
     <Compile Include="Sorting\NumberOfDiscIntersections\Solution.cs" />
     <Compile Include="Sorting\Triangle\Solution.cs" />
@@ -76,6 +77,72 @@
     <Compile Include="CountingElements\MissingInteger\Solution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TimeComplexity\TapeEquilibrium\Solution.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CountingElements\MissingInteger\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Leader\Dominator\readme.md" />
+    <Content Include="Leader\EquiLeader\readme.md" />
+    <Content Include="MaximumSliceProblem\MaxDoubleSliceSum\readme.md" />
+    <Content Include="MaximumSliceProblem\MaxProfit\readme.md" />
+    <Content Include="MaximumSliceProblem\MaxSliceSum\readme.md" />
+    <Content Include="PrimeAndCompositeNumbers\CountFactors\readme.md" />
+    <Content Include="PrimeAndCompositeNumbers\MinPerimeterRectangle\readme.md" />
+    <Content Include="PrimeAndCompositeNumbers\Peaks\readme.md" />
+    <Content Include="Sorting\NumberOfDiscIntersections\readme.md" />
+    <Content Include="StacksAndQueues\Brackets\readme.md" />
+    <Content Include="StacksAndQueues\Fish\readme.md" />
+    <Content Include="StacksAndQueues\StoneWall\4f1cef49cc46d451e88109d449ab7975.png" />
+    <Content Include="StacksAndQueues\StoneWall\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Array\BinaryGap\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Array\CyclicRotation\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TimeComplexity\TapeEquilibrium\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Array\OddOccurrencesInArray\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TimeComplexity\PermMissingElem\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CountingElements\PermCheck\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CountingElements\FrogRiverOne\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CountingElements\MaxCounters\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PrefixSums\CountingDiv\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DynamicProgramming\MinAbsSum\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PrefixSums\PassingCars\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PrefixSums\MinAvgTwoSlice\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PrefixSums\MushroomsPicker\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="PrefixSums\GenomicRangeQuery\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sorting\Distinct\readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sorting\Triangle\readme.md" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Training.DataStructures\Training.DataStructures.csproj">

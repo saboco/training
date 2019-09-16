@@ -43,5 +43,28 @@ namespace Training.Common.Algorithms.Tests
             Assert.AreEqual(fibo, Fibonacci.GoldenRatio.GetFiboOf(n));
             Assert.AreEqual(fibo, Fibonacci.DynamicProgramming.GetFibo(n));
         }
+
+        [TestCase(40)]
+        [TestCase(50)]
+        [TestCase(1000)]
+        public void Should_be_performant(int n)
+        {
+            var fiboImplementations = new System.Collections.Generic.List<Func<long, long>>
+            {
+                Fibonacci.Iterative.GetFiboOf,
+                Fibonacci.Memoized.GetFiboOf,
+                Fibonacci.RecursiveIterative.GetFiboOf,
+                // Fibonacci.Recursive.GetFiboOf left out because it wont pass the test
+            };
+            var stopWatch = new Stopwatch();
+            foreach (var fiboImplementation in fiboImplementations)
+            {
+                stopWatch.Start();
+                fiboImplementation(n);
+                stopWatch.Stop();
+                Assert.LessOrEqual(stopWatch.ElapsedMilliseconds, 20);
+                stopWatch.Reset();
+            }
+        }
     }
 }
