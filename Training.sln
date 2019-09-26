@@ -36,7 +36,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Common.Tests", "Tr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainModelingMadeFuncional", "DomainModelingMadeFuncional", "{E97FEB89-5D88-45B9-9B3D-3098BBFB707C}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "OrderTaking", "OrderTaking\OrderTaking.fsproj", "{EEE028BB-CCE7-4AB9-B89B-AF9F95E0709C}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "OrderTaking", "OrderTaking\OrderTaking.fsproj", "{EEE028BB-CCE7-4AB9-B89B-AF9F95E0709C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredictiveKeyboardT9", "PredictiveKeyboardT9\PredictiveKeyboardT9.csproj", "{3BD7B326-5B73-4452-953A-214F9C8AE91E}"
 EndProject
@@ -68,6 +68,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Training.Monoids.Tests", "Training.Monoids.Tests\Training.Monoids.Tests.fsproj", "{61D0CA5E-7770-4C89-A797-BBF300DD0880}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Drafts", "Drafts\Drafts\Drafts.fsproj", "{23BE337C-108F-4FA2-AFCE-CC93EF72D557}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -175,6 +177,10 @@ Global
 		{61D0CA5E-7770-4C89-A797-BBF300DD0880}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61D0CA5E-7770-4C89-A797-BBF300DD0880}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61D0CA5E-7770-4C89-A797-BBF300DD0880}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23BE337C-108F-4FA2-AFCE-CC93EF72D557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23BE337C-108F-4FA2-AFCE-CC93EF72D557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23BE337C-108F-4FA2-AFCE-CC93EF72D557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23BE337C-108F-4FA2-AFCE-CC93EF72D557}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
