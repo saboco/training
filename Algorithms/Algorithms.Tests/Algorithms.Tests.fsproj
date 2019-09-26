@@ -6,7 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="paket.references" />
-    <Compile Include="Tests.fs" />
+    <Compile Include="ModularArithmeticTests.fs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Algorithms\Algorithms.fsproj" />

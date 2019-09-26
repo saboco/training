@@ -153,6 +153,17 @@ nuget xunit.runner.visualstudio 2.4.0
 nuget FSharp.Core 
 nuget Microsoft.NET.Test.Sdk
 nuget xunit
+<<<<<<< HEAD
 nuget xunit.runner.visualstudio
 >>>>>>> dcaac07... migrating to dotnet core 3.0
+<<<<<<< HEAD
 >>>>>>> 15e6a41... migrating to dotnet core 3.0
+||||||| parent of 769228c... adding modular arithmetic chapter
+=======
+||||||| parent of 2712504... adding modular arithmetic chapter
+nuget xunit.runner.visualstudio
+=======
+nuget xunit.runner.visualstudio
+nuget FsUnit.xUnit
+>>>>>>> 2712504... adding modular arithmetic chapter
+>>>>>>> 769228c... adding modular arithmetic chapter
