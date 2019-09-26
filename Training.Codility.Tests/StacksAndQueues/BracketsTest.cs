@@ -1,24 +1,25 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 using Training.Codility.StacksAndQueues.Brackets;
 
 namespace Training.Codility.Tests.StacksAndQueues
 {
     public class BracketsTest
     {
-        [TestCase("{[()()]}", ExpectedResult = 1)]
-        [TestCase("([)()]", ExpectedResult = 0)]
-        [TestCase("{()[]()[]([[]])}", ExpectedResult = 1)]
-        [TestCase("", ExpectedResult = 1)]
-        [TestCase("{}[][]{()[]()[]([[]])}", ExpectedResult = 1)]
-        [TestCase("{}[][]{()[)[]([[]])}", ExpectedResult = 0)]
-        [TestCase(")(", ExpectedResult = 0)]
-        [TestCase(")", ExpectedResult = 0)]
-        [TestCase("(", ExpectedResult = 0)]
-        [TestCase("(()(())())", ExpectedResult = 1)]
-        [TestCase("())", ExpectedResult = 0)]
-        public int Should_return_if_brackets_are_balanced(string s)
+        [Theory]
+        [InlineData("{[()()]}", 1)]
+        [InlineData("([)()]", 0)]
+        [InlineData("{()[]()[]([[]])}", 1)]
+        [InlineData("", 1)]
+        [InlineData("{}[][]{()[]()[]([[]])}", 1)]
+        [InlineData("{}[][]{()[)[]([[]])}", 0)]
+        [InlineData(")(", 0)]
+        [InlineData(")", 0)]
+        [InlineData("(", 0)]
+        [InlineData("(()(())())", 1)]
+        [InlineData("())", 0)]
+        public void Should_return_if_brackets_are_balanced(string s, int expected)
         {
-            return Solution.Solve(s);
+            Assert.Equal(expected, Solution.Solve(s));
         }
     }
 }

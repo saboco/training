@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using Xunit;
 
 namespace Training.Tests.Common
 {
@@ -8,8 +9,22 @@ namespace Training.Tests.Common
         {
             for (var i = 1; i < arr.Length; i++)
             {
-                Assert.IsTrue((arr[i - 1] - arr[i]) < 1);
+                Assert.True((arr[i - 1] - arr[i]) < 1);
             }
+        }
+
+        public static void DoesNotThrow(Action f)
+        {
+            var doesNotThrow = true;
+            try
+            {
+                f();
+            }
+            catch
+            {
+                doesNotThrow = false;
+            }
+            Assert.True(doesNotThrow);
         }
     }
 }

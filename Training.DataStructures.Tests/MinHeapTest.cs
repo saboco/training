@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
+using Xunit;
 
 namespace Training.DataStructures.Tests
 {
-    [TestFixture]
     public class MinHeapTest
     {
-        [Test]
+        [Fact]
         public void Should_remain_a_valid_heap_when_adding_new_items()
         {
             var heap = new MinHeap();
@@ -19,7 +18,7 @@ namespace Training.DataStructures.Tests
             AssertValidMinHeap(heap);
         }
 
-        [Test]
+        [Fact]
         public void Should_remain_a_valid_heap_when_polled()
         {
             var heap = new MinHeap();
@@ -45,11 +44,11 @@ namespace Training.DataStructures.Tests
             {
                 if (HasLeftChild(i, heapArr.Count))
                 {
-                    Assert.IsTrue(heapArr[i] <= GetLeftChild(heapArr, i));
+                    Assert.True(heapArr[i] <= GetLeftChild(heapArr, i));
                 }
                 if (HasRightChild(i, heapArr.Count))
                 {
-                    Assert.IsTrue(heapArr[i] <= GetRightChild(heapArr, i));
+                    Assert.True(heapArr[i] <= GetRightChild(heapArr, i));
                 }
             }
         }

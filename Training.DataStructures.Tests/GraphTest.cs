@@ -1,10 +1,10 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 namespace Training.DataStructures.Tests
 {
     public class GraphTest
     {
-        [Test]
+        [Fact]
         public void Should_return_correct_answer_when_asked_for_an_existing_path_by_dfs()
         {
             var graph = new Graph<int>();
@@ -17,17 +17,17 @@ namespace Training.DataStructures.Tests
             graph.AddEdge(21, 15);
 
             var hasPath1To15 = graph.HasPathDfs(1, 15);
-            Assert.IsTrue(hasPath1To15);
+            Assert.True(hasPath1To15);
             var hasPath3To9 = graph.HasPathDfs(3, 9);
-            Assert.IsTrue(hasPath3To9);
+            Assert.True(hasPath3To9);
 
             var hasPath2To15 = graph.HasPathDfs(2, 15);
-            Assert.IsFalse(hasPath2To15);
+            Assert.False(hasPath2To15);
             var hasPath15To21 = graph.HasPathDfs(15, 21);
-            Assert.IsFalse(hasPath15To21);
+            Assert.False(hasPath15To21);
         }
 
-        [Test]
+        [Fact]
         public void Should_return_correct_answer_when_asked_for_an_existing_path_by_bfs()
         {
             var graph = new Graph<int>();
@@ -41,17 +41,17 @@ namespace Training.DataStructures.Tests
 
 
             var hasPath1To15 = graph.HasPathBfs(1, 15);
-            Assert.IsTrue(hasPath1To15);
+            Assert.True(hasPath1To15);
             var hasPath3To9 = graph.HasPathBfs(3, 9);
-            Assert.IsTrue(hasPath3To9);
+            Assert.True(hasPath3To9);
 
             var hasPath2To15 = graph.HasPathBfs(2, 15);
-            Assert.IsFalse(hasPath2To15);
+            Assert.False(hasPath2To15);
             var hasPath15To21 = graph.HasPathBfs(15, 21);
-            Assert.IsFalse(hasPath15To21);
+            Assert.False(hasPath15To21);
         }
 
-        [Test]
+        [Fact]
         public void Should_return_number_of_connected_nodes_when_asked_for_it()
         {
             var graph = new Graph<int>();
@@ -66,9 +66,9 @@ namespace Training.DataStructures.Tests
             graph.AddEdge(22, 16);
 
             var count = graph.GetConnectedNodesCount(1);
-            Assert.AreEqual(7, count);
+            Assert.Equal(7, count);
             var countFrom22 = graph.GetConnectedNodesCount(22);
-            Assert.AreEqual(2, countFrom22);
+            Assert.Equal(2, countFrom22);
 
             var graph2 = new Graph<int>();
             graph2.AddEdge(1, 3);
@@ -78,9 +78,9 @@ namespace Training.DataStructures.Tests
             graph2.AddEdge(22, 16);
 
             var count2From1 = graph2.GetConnectedNodesCount(1);
-            Assert.AreEqual(4, count2From1);
+            Assert.Equal(4, count2From1);
             var count2From22 = graph2.GetConnectedNodesCount(22);
-            Assert.AreEqual(2, count2From22);
+            Assert.Equal(2, count2From22);
         }
     }
 }

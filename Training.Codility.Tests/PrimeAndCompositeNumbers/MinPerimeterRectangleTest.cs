@@ -1,13 +1,14 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 namespace Training.Codility.Tests.PrimeAndCompositeNumbers
 {
     public class MinPerimeterRectangleTest
     {
-        [TestCase(30, ExpectedResult = 22)]
-        public int Should_return_the_minimal_perimeter_of_rectangle_or_area_n(int n)
+        [Theory]
+        [InlineData(30, 22)]
+        public void Should_return_the_minimal_perimeter_of_rectangle_or_area_n(int n, int expected)
         {
-            return Codility.PrimeAndCompositeNumbers.MinPerimeterRectangle.Solution.Solve(n);
+            Assert.Equal(expected, Codility.PrimeAndCompositeNumbers.MinPerimeterRectangle.Solution.Solve(n));
         }
     }
 }

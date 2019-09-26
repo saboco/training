@@ -1,15 +1,16 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 using Training.Codility.PrimeAndCompositeNumbers.CountFactors;
 
 namespace Training.Codility.Tests.PrimeAndCompositeNumbers
 {
     public class CountFactorsTest
     {
-        [TestCase(7, ExpectedResult = 2)]
-        [TestCase(24, ExpectedResult = 8)]
-        public int Should_count_factors_of_n(int n)
+        [Theory]
+        [InlineData(7, 2)]
+        [InlineData(24, 8)]
+        public void Should_count_factors_of_n(int n, int expected)
         {
-            return Solution.Solve(n);
+            Assert.Equal(expected, Solution.Solve(n));
         }
     }
 }

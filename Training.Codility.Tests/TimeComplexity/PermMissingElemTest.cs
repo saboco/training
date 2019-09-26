@@ -1,15 +1,16 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 using Training.Codility.TimeComplexity.PermMissingElem;
 
 namespace Training.Codility.Tests.TimeComplexity
 {
     public class PermMissingElemTest
     {
-        [TestCase(new[] { 2, 3, 1, 5 },ExpectedResult = 4)]
-        [TestCase(new[] { 4, 3, 1, 5 }, ExpectedResult = 2)]
-        public int Should_return_the_missing_elem_in_permutation(int[] arr)
+        [Theory]
+        [InlineData(new[] { 2, 3, 1, 5 }, 4)]
+        [InlineData(new[] { 4, 3, 1, 5 }, 2)]
+        public void Should_return_the_missing_elem_in_permutation(int[] arr, int expected)
         {
-            return Solution.Solve(arr);
+            Assert.Equal(expected, Solution.Solve(arr));
         }
     }
 }

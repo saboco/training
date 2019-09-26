@@ -1,16 +1,17 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 using Training.Codility.Array.OddOccurrencesInArray;
 
 namespace Training.Codility.Tests.Array
 {
     public class OddOccurrencesInArray
     {
-        [TestCase(new[] { 9, 3, 9, 3, 9, 7, 9 }, ExpectedResult = 7)]
-        [TestCase(new[] { 9, 3, 9, 3, 9, 10, 9 }, ExpectedResult = 10)]
-        [TestCase(new[] { 9, 3, 9, 3, 9, 1, 9 }, ExpectedResult = 1)]
-        public int Should_return_the_odd_in_array(int[] arr)
+        [Theory]
+        [InlineData(new[] { 9, 3, 9, 3, 9, 7, 9 }, 7)]
+        [InlineData(new[] { 9, 3, 9, 3, 9, 10, 9 }, 10)]
+        [InlineData(new[] { 9, 3, 9, 3, 9, 1, 9 }, 1)]
+        public void Should_return_the_odd_in_array(int[] arr, int expected)
         {
-            return Solution.Solve(arr);
+            Assert.Equal(expected, Solution.Solve(arr));
         }
     }
 }

@@ -2,6 +2,7 @@ source https://api.nuget.org/v3/index.json
 
 nuget FSharp.Compiler.Tools 4.1.29 prerelease restriction: >= net461
 nuget FSharp.Core 4.2.3 prerelease restriction: >= net461
+nuget Microsoft.NET.Test.Sdk 16.0.1
 nuget Microsoft.NETCore.Platforms 2.0.1 prerelease restriction: >= net461
 nuget Microsoft.Win32.Primitives 4.3.0 prerelease restriction: >= net461
 nuget NETStandard.Library 2.0.1 prerelease restriction: >= net461
@@ -56,15 +57,31 @@ nuget System.ValueTuple 4.4.0 prerelease
 nuget System.Xml.ReaderWriter 4.3.0 prerelease restriction: >= net461
 <<<<<<< HEAD
 nuget System.Xml.XDocument 4.3.0 prerelease restriction: >= net461
+<<<<<<< HEAD
 ||||||| parent of e5bb694... convert to sdk project style
 nuget System.Xml.XDocument 4.3.0 prerelease restriction: >= net461
 =======
 <<<<<<< HEAD
 nuget System.Xml.XDocument 4.3.0 prerelease restriction: >= net461
+||||||| parent of 3b07010... migrate from nunit to xunit
+=======
+<<<<<<< HEAD
+>>>>>>> 3b07010... migrate from nunit to xunit
 ||||||| parent of 915846e... convert to sdk project style
 nuget System.Xml.XDocument 4.3.0 prerelease restriction: >= net461
 =======
 nuget System.Xml.XDocument 4.3.0 prerelease restriction: >= net461
 nuget NUnit3TestAdapter
 >>>>>>> 915846e... convert to sdk project style
+<<<<<<< HEAD
 >>>>>>> e5bb694... convert to sdk project style
+||||||| parent of 3b07010... migrate from nunit to xunit
+=======
+||||||| parent of d12c820... migrate from nunit to xunit
+nuget NUnit3TestAdapter
+=======
+nuget NUnit3TestAdapter
+nuget xunit 2.4.0
+nuget xunit.runner.visualstudio 2.4.0
+>>>>>>> d12c820... migrate from nunit to xunit
+>>>>>>> 3b07010... migrate from nunit to xunit

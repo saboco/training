@@ -1,13 +1,12 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 using Training.HackerRank.DataStructures;
 using Training.Tests.Common;
 
 namespace Training.HackerRank.Tests.DataStructures
-{
-    [TestFixture]
+{    
     public class ATaleOfTwoStacksTests
     {
-        [Test]
+        [Fact]
         public void Should_produces_the_expected_output_when_given_transactions()
         {
             var input = new[] {"10", "1 42", "2", "1 14", "3", "1 28", "3", "1 60", "1 78", "2", "2"};
@@ -31,7 +30,7 @@ namespace Training.HackerRank.Tests.DataStructures
             var i = 0;
             foreach (var s in output)
             {
-                Assert.AreEqual(s, printer.Printed[i++].ToString());
+                Assert.Equal(s, printer.Printed[i++].ToString());
             }
         }
     }

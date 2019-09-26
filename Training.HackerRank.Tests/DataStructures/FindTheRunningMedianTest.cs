@@ -1,13 +1,12 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 using Training.HackerRank.DataStructures;
 using Training.Tests.Common;
 
 namespace Training.HackerRank.Tests.DataStructures
 {
-    [TestFixture]
     public class FindTheRunningMedianTest
     {
-        [Test]
+        [Fact]
         public void Should_calculate_running_median_when_adding_integers()
         {
             var printer = new FakePrinter("{0:0.0}");
@@ -23,7 +22,7 @@ namespace Training.HackerRank.Tests.DataStructures
             var j = 0;
             foreach (var s in output)
             {
-                Assert.AreEqual(s, printer.Printed[j++]);
+                Assert.Equal(s, printer.Printed[j++]);
             }
         }
     }

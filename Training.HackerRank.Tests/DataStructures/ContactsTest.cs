@@ -1,13 +1,12 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 using Training.HackerRank.DataStructures;
 using Training.Tests.Common;
 
 namespace Training.HackerRank.Tests.DataStructures
-{
-    [TestFixture]
+{    
     public class ContactsTest
     {
-        [Test]
+        [Fact]
         public void Should_treat_contact_operations_when_received()
         {
             var input = new[] { "add hack", "add hackerrank", "find hac", "find hak" };
@@ -24,7 +23,7 @@ namespace Training.HackerRank.Tests.DataStructures
             var i = 0;
             foreach (var o in output)
             {
-                Assert.AreEqual(o, int.Parse((string)printer.Printed[i++]));
+                Assert.Equal(o, int.Parse((string)printer.Printed[i++]));
             }
         }
     }

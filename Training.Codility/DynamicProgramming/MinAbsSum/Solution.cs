@@ -5,10 +5,9 @@ namespace Training.Codility.DynamicProgramming.MinAbsSum
 {
     public class Solution
     {
-        public static void Solve(int[] arr, int n)
+        public static int Solve(int[] arr, int n)
         {
-            
-        }
-        
+            return 0;
+        }        
     }
 }

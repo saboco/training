@@ -1,10 +1,9 @@
 ﻿using System.Linq;
-using NUnit.Framework;
+using Xunit;
 using PredictiveKeyboardT9;
 
 namespace PredictiveKeyboardT9Tests
-{
-    [TestFixture]
+{    
     public class PredictionsTests
     {
         private readonly Predictions _predictions;
@@ -16,35 +15,35 @@ namespace PredictiveKeyboardT9Tests
             _predictions = new Predictions(dictionary);
         }
 
-        [TestCase(new[] {7, 2, 4, 3}, new[] {"rage", "ragee", "sage", "raid", "raider"})]
-        [TestCase(new[] {7, 2, 4}, new[] {"rage", "ragee", "sage", "raid", "raider"})]
-        [TestCase(new[] {7, 2, 4, 3, 3}, new[] {"ragee", "raider"})]
-        [TestCase(new[] {7, 2, 4, 3, 3, 7}, new[] {"raider"})]
-        [TestCase(new[] {2, 6}, new[] {"any"})]
-        [TestCase(new[] {2, 2, 2}, new string[0])]
-        public void Should_return_a_list_of_complete_words_in_the_dictionay_given_some_digits(int[] digits,
-            string[] expected)
+        [Theory]
+        [InlineData(new[] {7, 2, 4, 3}, new[] {"rage", "ragee", "sage", "raid", "raider"})]
+        [InlineData(new[] {7, 2, 4}, new[] {"rage", "ragee", "sage", "raid", "raider"})]
+        [InlineData(new[] {7, 2, 4, 3, 3}, new[] {"ragee", "raider"})]
+        [InlineData(new[] {7, 2, 4, 3, 3, 7}, new[] {"raider"})]
+        [InlineData(new[] {2, 6}, new[] {"any"})]
+        [InlineData(new[] {2, 2, 2}, new string[0])]
+        public void Should_return_a_list_of_complete_words_in_the_dictionay_given_some_digits(int[] digits, string[] expected)
         {
             var actual = _predictions.GetPredictions(digits).ToArray();
-            Assert.AreEqual(expected.Length, actual.Length);
+            Assert.Equal(expected.Length, actual.Length);
             foreach (var w in actual)
             {
-                Assert.IsTrue(expected.Contains(w));
+                Assert.Contains(w, expected);
             }
         }
 
-        [Test]
+        [Fact]
         public void Should_handle_empty_digits()
         {
             var actual = _predictions.GetPredictions(new int[0]).ToArray();
-            Assert.AreEqual(0, actual.Length);
+            Assert.Empty(actual);
         }
 
-        [Test]
+        [Fact]
         public void Should_handle_null_digits()
         {
             var actual = _predictions.GetPredictions(null).ToArray();
-            Assert.AreEqual(0, actual.Length);
+            Assert.Empty(actual);
         }
     }
 }

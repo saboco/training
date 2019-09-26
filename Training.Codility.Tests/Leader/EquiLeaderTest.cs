@@ -1,18 +1,19 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 
 namespace Training.Codility.Tests.Leader
 {
     public class EquiLeaderTest
     {
-        [TestCase(new[] {4, 3, 4, 4, 4, 2}, ExpectedResult = 2)]
-        [TestCase(new[] {1, 2, 3, 4, 5}, ExpectedResult = 0)]
-        [TestCase(new[] {0, 0}, ExpectedResult = 1)]
-        [TestCase(new[] {-1, 0}, ExpectedResult = 0)]
-        [TestCase(new[] {-1, -1}, ExpectedResult = 1)]
-        [TestCase(new[] {-1000000000, -1000000000}, ExpectedResult = 1)]
-        public int Should_return_the_number_of_equi_leaders(int[] a)
+        [Theory]
+        [InlineData(new[] {4, 3, 4, 4, 4, 2}, 2)]
+        [InlineData(new[] {1, 2, 3, 4, 5}, 0)]
+        [InlineData(new[] {0, 0}, 1)]
+        [InlineData(new[] {-1, 0}, 0)]
+        [InlineData(new[] {-1, -1}, 1)]
+        [InlineData(new[] {-1000000000, -1000000000}, 1)]
+        public void Should_return_the_number_of_equi_leaders(int[] a, int expected)
         {
-            return Codility.Leader.EquiLeader.Solution.Solve(a);
+            Assert.Equal(expected, Codility.Leader.EquiLeader.Solution.Solve(a));
         }
     }
 }

@@ -1,12 +1,11 @@
-﻿using NUnit.Framework;
+﻿using Xunit;
 using Training.HackerRank.DataStructures;
 
 namespace Training.HackerRank.Tests.DataStructures
-{
-    [TestFixture]
+{    
     public class BalancedBracketsTest
     {
-        [Test]
+        [Fact]
         public void Should_print_yes_when_brackets_are_balanced()
         {
             var brackets = new[] { "{}", "[]", "()", "{[()]}", "{{[[(())]]}}" };
@@ -15,12 +14,12 @@ namespace Training.HackerRank.Tests.DataStructures
             foreach (var bracket in brackets)
             {
                 var isBalanced = sut.IsBalanced(bracket);
-                Assert.AreEqual(true, isBalanced);
+                Assert.True(isBalanced);
             }
             
         }
 
-        [Test]
+        [Fact]
         public void Should_print_false_when_brackets_are_unbalanced()
         {
             var brackets = new[] { "}}", "(", "[[", "]]", "((", "))", "{]", "{)", "(}", "(]", "[)", "[}", "{[(])}", "{[{[(())]]}}", "{{[[(())]}}" };
@@ -29,7 +28,7 @@ namespace Training.HackerRank.Tests.DataStructures
             foreach (var bracket in brackets)
             {
                 var isBalanced = sut.IsBalanced(bracket);
-                Assert.AreEqual(false, isBalanced);
+                Assert.False(isBalanced);
             }
         }
     }

@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
-using NUnit.Framework;
+using Xunit;
 
 namespace Training.RailwayOrientedProgrammingCs.Tests
-{
-    [TestFixture]
+{    
     public class ResultTests
     {
-        [Test]
+        [Fact]
         public void Compose_ComposeTwoFuncions()
         {
             Func<int, int> f1 = i => i + 1;
@@ -16,7 +15,7 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
 
             const int expected = 4;
             var actual = composedF(1);
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
 
             //----------------------------------------------------------------------
             Func<int, int> f3 = i => i * 3;
@@ -24,10 +23,10 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
 
             const int expected2 = 12;
             var actual2 = composedF2(1);
-            Assert.AreEqual(expected2, actual2);
+            Assert.Equal(expected2, actual2);
         }
 
-        [Test]
+        [Fact]
         public void Bind_BindsAValueToAFunction()
         {
             Func<int, Result<int, string>> f1 = i =>
@@ -39,17 +38,17 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
             var actualS = f1.BindR(rS);
 
             var expectedS = Result<int, string>.NewSuccess(9);
-            Assert.AreEqual(expectedS, actualS);
+            Assert.Equal(expectedS, actualS);
 
             //----------------------------------------------------------------------
             var rF = Result<int, string>.NewSuccess(6);
             var actualF = f1.BindR(rF);
 
             var expectedF = Result<int, string>.NewFailure("value was greater than 5");
-            Assert.AreEqual(expectedF, actualF);
+            Assert.Equal(expectedF, actualF);
         }
 
-        [Test]
+        [Fact]
         public void Either_return_a_modified_success_when_a_success_is_provided()
         {
             var expected = Result<int, string>.NewSuccess(10);
@@ -58,10 +57,10 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
                 i => Result<int, string>.NewSuccess(i + 5),
                 f => Result<int, string>.NewFailure($"Failure {f}"));
 
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [Test]
+        [Fact]
         public void Either_return_a_modified_failure_when_a_failure_is_provided()
         {
             var expected = Result<int, string>.NewFailure("Failure i'm a failure");
@@ -70,10 +69,10 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
                 i => Result<int, string>.NewSuccess(i + 5),
                 f => Result<int, string>.NewFailure($"Failure {f}"));
 
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [Test]
+        [Fact]
         public void Pipe_pipe_un_result_into_a_funtion()
         {
             Func<int, Result<int, string>> f = i =>
@@ -85,17 +84,17 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
             var inputS = Result<int, string>.NewSuccess(10);
             var actualS = inputS.PipeR(f);
 
-            Assert.AreEqual(expectedS, actualS);
+            Assert.Equal(expectedS, actualS);
 
             //-----------------------------------------------------------------------
             var expectedF = Result<int, string>.NewFailure("i was greater than 10. It was 15");
             var inputF = Result<int, string>.NewSuccess(15);
             var actualF = inputF.PipeR(f);
 
-            Assert.AreEqual(expectedF, actualF);
+            Assert.Equal(expectedF, actualF);
         }
 
-        [Test]
+        [Fact]
         public void ComposeR_compose_two_functions()
         {
             Func<int, Result<int, string>> f1 = i =>
@@ -115,7 +114,7 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
             var expectedS = Result<int, string>.NewSuccess(11);
             var actualS = composedF(inputS);
 
-            Assert.AreEqual(expectedS, actualS);
+            Assert.Equal(expectedS, actualS);
 
             //---------------------------------------------------------------------------------------
             const int inputF = 2;
@@ -123,10 +122,10 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
             var expectedF = Result<int, string>.NewFailure("value was less than than 5. It was 2");
             var actualF = composedF(inputF);
 
-            Assert.AreEqual(expectedF, actualF);
+            Assert.Equal(expectedF, actualF);
         }
 
-        [Test]
+        [Fact]
         public void ComposeR_can_compose_two_or_more_functions()
         {
             Func<int, Result<int, string>> f1 = i =>
@@ -152,17 +151,17 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
 
             var expectedS = Result<int, string>.NewSuccess(12);
             var actualS = composedF(inputS);
-            Assert.AreEqual(expectedS, actualS);
+            Assert.Equal(expectedS, actualS);
 
             //---------------------------------------------------------------------------------------
             const int inputF = 2;
 
             var expectedF = Result<int, string>.NewFailure("value was less than than 5. It was 2");
             var actualF = composedF(inputF);
-            Assert.AreEqual(expectedF, actualF);
+            Assert.Equal(expectedF, actualF);
         }
 
-        [Test]
+        [Fact]
         public void SwitchR_can_convert_any_function_in_a_rFunction()
         {
             Func<int, int> f = i => i + 5;
@@ -171,10 +170,10 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
             const int input = 1;
             var expected = Result<int, string>.NewSuccess(6);
             var actual = fR(input);
-            Assert.AreEqual(expected, actual);
+            Assert.Equal(expected, actual);
         }
 
-        [Test]
+        [Fact]
         public void MapR_can_map_a_normal_function_into_a_result()
         {
             Func<int, int> f = i => i + 6;
@@ -184,10 +183,10 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
             var expectedS = Result<int, string>.NewSuccess(8);
             var actualS = mappedF(inputS);
             
-            Assert.AreEqual(expectedS, actualS);
+            Assert.Equal(expectedS, actualS);
         }
 
-        [Test]
+        [Fact]
         public void TryCatchR_should_catch_exceptions()
         {
             Action<int> f1 = i =>
@@ -206,17 +205,17 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
             var expectedS = Result<int, string>.NewSuccess(7);
             var actualS = composedF(inputS);
 
-            Assert.AreEqual(expectedS, actualS);
+            Assert.Equal(expectedS, actualS);
 
             //----------------------------------------------------------------------------------
             const int inputF = 4;
             var expectedF = Result<int, string>.NewFailure("i'm an exception");
             var actualF = composedF(inputF);
 
-            Assert.AreEqual(expectedF, actualF);
+            Assert.Equal(expectedF, actualF);
         }
 
-        [Test]
+        [Fact]
         public void DoubleMapR_should_map_success_and_failure()
         {
             Func<int, string> fSuccess = i => $"value was {i}";
@@ -227,16 +226,16 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
             var inputS = Result<int, string>.NewSuccess(2);
             var expectedS = Result<string, string>.NewSuccess("value was 2");
             var actualS = doubleMappedF(inputS);
-            Assert.AreEqual(expectedS, actualS);
+            Assert.Equal(expectedS, actualS);
 
             //-------------------------------------------------------------------------
             var inputF = Result<int, string>.NewFailure("some error");
             var expectedF = Result<string, string>.NewFailure("Error was some error");
             var actualF = doubleMappedF(inputF);
-            Assert.AreEqual(expectedF, actualF);
+            Assert.Equal(expectedF, actualF);
         }
 
-        [Test]
+        [Fact]
         public void PlusR_should_add_success_and_failures()
         {
             Func<int, int, int> addSuccess = (a, b) => a;
@@ -263,7 +262,7 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
             var inputS = 5;
             var expectedS = Result<int, string>.NewSuccess(5);
             var actualS = plusF1F2F3(inputS);
-            Assert.AreEqual(expectedS, actualS);
+            Assert.Equal(expectedS, actualS);
 
             //-----------------------------------------------------------------------------------------
             var inputF = 2;
@@ -271,10 +270,10 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
                 Result<int, string>.NewFailure(
                     $"value was less than than 5. It was 2, value was less than 3. It was 2");
             var actualF = plusF1F2F3(inputF);
-            Assert.AreEqual(expectedF, actualF);
+            Assert.Equal(expectedF, actualF);
         }
 
-        [Test]
+        [Fact]
         public void Usecase()
         {
             Func<Request, Result<Request, string>> validate1 = r =>

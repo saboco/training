@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework;
+using Xunit;
 
 namespace Training.Common.Algorithms.Tests
 {
     public class AnagramsTests
     {
-        [TestCase("ab", new[] {"ab", "ba"})]
-        [TestCase("abc", new[] {"abc", "bac", "cba", "acb", "bca", "cab"})]
-        [TestCase("aab", new[] {"aab", "baa", "aba"})]
+        [Theory]
+        [InlineData("ab", new[] {"ab", "ba"})]
+        [InlineData("abc", new[] {"abc", "bac", "cba", "acb", "bca", "cab"})]
+        [InlineData("aab", new[] {"aab", "baa", "aba"})]
         public void Should_return_all_anagrams_in_word(string s, string[] expected)
         {
             var anagrams = Anagrams.GetAnagramsIn(s).ToArray();
@@ -19,7 +20,7 @@ namespace Training.Common.Algorithms.Tests
         {
             foreach (var expectedAnagram in expected)
             {
-                Assert.IsTrue(actual.Contains(expectedAnagram));
+                Assert.Contains(expectedAnagram, actual);
             }
         }
     }
