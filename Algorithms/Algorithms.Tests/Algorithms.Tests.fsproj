@@ -2,12 +2,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
-    <IsPackable>false</IsPackable>
+    <OutputType>Library</OutputType>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="xunit.runner.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="paket.references" />
     <Compile Include="ModularArithmeticTests.fs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Algorithms\Algorithms.fsproj" />
   </ItemGroup>
