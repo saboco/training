@@ -40,8 +40,6 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "OrderTaking", "OrderTaking\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredictiveKeyboardT9", "PredictiveKeyboardT9\PredictiveKeyboardT9.csproj", "{3BD7B326-5B73-4452-953A-214F9C8AE91E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredictiveKeyboardT9Tests", "PredictiveKeyboardT9Tests\PredictiveKeyboardT9Tests.csproj", "{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.RailwayOrientedProgrammingCs", "Training.RailwayOrientedProgrammingCs\Training.RailwayOrientedProgrammingCs.csproj", "{D11A3B47-000D-4E47-B935-AAEEFB3717FE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.RailwayOrientedProgrammingCs.Tests", "Training.RailwayOrientedProgrammingCs.Tests\Training.RailwayOrientedProgrammingCs.Tests.csproj", "{587616AB-634D-4047-84A3-4A821BA9C37B}"
@@ -75,7 +73,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Algorithms", "Algorithms", 
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Algorithms", "Algorithms\Algorithms\Algorithms.fsproj", "{879D2276-AB53-42A9-8FA7-0B1D22701152}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Algorithms.Tests", "algorithms\Algorithms.Tests\Algorithms.Tests.fsproj", "{19AA465E-C9CE-4D66-B304-243416FAC56C}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Algorithms.Tests", "algorithms\Algorithms.Tests\Algorithms.Tests.fsproj", "{19AA465E-C9CE-4D66-B304-243416FAC56C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredictiveKeyboardT9.Tests", "PredictiveKeyboardT9.Tests\PredictiveKeyboardT9.Tests.csproj", "{3F2FEE8A-D074-4171-AA30-0A6B121506AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -135,10 +135,6 @@ Global
 		{3BD7B326-5B73-4452-953A-214F9C8AE91E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BD7B326-5B73-4452-953A-214F9C8AE91E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BD7B326-5B73-4452-953A-214F9C8AE91E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D11A3B47-000D-4E47-B935-AAEEFB3717FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D11A3B47-000D-4E47-B935-AAEEFB3717FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D11A3B47-000D-4E47-B935-AAEEFB3717FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -195,6 +191,10 @@ Global
 		{19AA465E-C9CE-4D66-B304-243416FAC56C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19AA465E-C9CE-4D66-B304-243416FAC56C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19AA465E-C9CE-4D66-B304-243416FAC56C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F2FEE8A-D074-4171-AA30-0A6B121506AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F2FEE8A-D074-4171-AA30-0A6B121506AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F2FEE8A-D074-4171-AA30-0A6B121506AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F2FEE8A-D074-4171-AA30-0A6B121506AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
