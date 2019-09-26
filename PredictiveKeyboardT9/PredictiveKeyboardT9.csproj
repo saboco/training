@@ -12,9 +12,6 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualBasic" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Training.Common\Training.Common.csproj" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />

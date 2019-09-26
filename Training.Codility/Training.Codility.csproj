@@ -5,9 +5,6 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System.Net.Http" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Sorting\MaxProductOfThree\readme.md" />
   </ItemGroup>
   <ItemGroup>

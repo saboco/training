@@ -15,9 +15,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.Net.Http" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Training.Codility\Training.Codility.csproj" />
     <ProjectReference Include="..\Training.Common\Training.Common.csproj" />
     <ProjectReference Include="..\Training.DataStructures\Training.DataStructures.csproj" />
