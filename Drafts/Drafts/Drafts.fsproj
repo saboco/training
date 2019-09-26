@@ -5,7 +5,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="Library.fs" />
+    <None Include="cont.csx" />
+    <None Include="ContinuationState\ContinuationState.fsx" />
+    <None Include="ContinuationState\ContinuosStateCont.fsx" />
+    <None Include="Continuations\ContinuationMonad.fsx" />
+    <None Include="Continuations\Continuations.fsx" />
+    <None Include="Continuations\Coroutine.fsx" />
+    <None Include="Continuations\Coroutines.fsx" />
+    <None Include="Coroutine.fsx" />
+    <None Include="Coroutines3.fsx" />
+    <None Include="CPS.fsx" />
+    <None Include="FullCoroutine.fsx" />
+    <None Include="GameSimulationCoroutine.fsx" />
+    <None Include="IO Monad.fsx" />
+    <None Include="OcamlPipesCoroutines.fsx" />
+    <None Include="SimpleCoroutine.fsx" />
+    <None Include="State\State.fsx" />
   </ItemGroup>
 
 </Project>
