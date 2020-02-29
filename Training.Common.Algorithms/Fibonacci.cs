@@ -64,7 +64,7 @@ namespace Training.Common.Algorithms
             private static long Fibonacci(long n, long previousFibo, long current)
             {
                 if (n < 2) return current;
-                
+
                 // ReSharper disable once TailRecursiveCall
                 return Fibonacci(n - 1, current, current + previousFibo);
             }
@@ -89,7 +89,9 @@ namespace Training.Common.Algorithms
             {
                 var sqrt5 = Math.Sqrt(5);
                 var goldenRation = (1 + sqrt5) / 2;
-                return (long) ((Math.Pow(goldenRation, n) - Math.Pow(1 - goldenRation, n)) / sqrt5);
+                var goldenRationPowerN = Math.Pow(goldenRation, n);
+                var oneMinusGoldenRationPowerN = Math.Pow(1 - goldenRation, n);
+                return  (long)((goldenRationPowerN  - oneMinusGoldenRationPowerN) / sqrt5);
             }
         }
 
@@ -97,10 +99,10 @@ namespace Training.Common.Algorithms
         {
             public static long GetFibo(long n)
             {
-                if (n == 0) return 0;
-                if (n == 1) return 1;
+                if (n == 0) return 0L;
+                if (n == 1) return 1L;
 
-                var fiboSequence = new int[n];
+                var fiboSequence = new long[n];
                 fiboSequence[0] = 1;
                 fiboSequence[1] = 1;
                 for (var i = 2; i < n; i++)

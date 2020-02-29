@@ -36,13 +36,21 @@ namespace Training.Common.Algorithms.Tests
         [InlineData(4, 3)]
         [InlineData(5, 5)]
         [InlineData(6, 8)]
+        [InlineData(9, 34)]
+        [InlineData(10, 55)]
+        [InlineData(20, 6765)]
+        [InlineData(100, 3736710778780434371)]
+        [InlineData(1000, 817770325994397771)]
         public void Should_return_fib_of_n_less_1_plus_fib_of_n_less_2(long n, long fibo)
         {
             Assert.Equal(fibo, Fibonacci.Iterative.GetFiboOf(n));
             Assert.Equal(fibo, Fibonacci.Memoized.GetFiboOf(n));
             Assert.Equal(fibo, Fibonacci.RecursiveIterative.GetFiboOf(n));
-            Assert.Equal(fibo, Fibonacci.Recursive.GetFiboOf(n));
-            Assert.Equal(fibo, Fibonacci.GoldenRatio.GetFiboOf(n));
+            if (n <= 10)
+            {
+                Assert.Equal(fibo, Fibonacci.Recursive.GetFiboOf(n));
+                Assert.Equal(fibo, Fibonacci.GoldenRatio.GetFiboOf(n));
+            }
             Assert.Equal(fibo, Fibonacci.DynamicProgramming.GetFibo(n));
         }
 
