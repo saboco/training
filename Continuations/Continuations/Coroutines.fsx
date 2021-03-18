@@ -50,10 +50,10 @@ let (>>=) c f = bindK c f
 open FSharpx.Collections
 type Coroutine() =
     let mutable tasks : IPriorityQueue<Event<K<unit,unit>>> = PriorityQueue.empty false
-    let mutable virtualClock = 0
-    let updateVirtualClock t =
-        if t > virtualClock then
-            virtualClock <- t
+    let mutable logicalClock = 0
+    let updateLogicalClock t =
+        if t > logicalClock then
+            logicalClock <- t
 
     member this.Put (task) =
     
@@ -61,20 +61,20 @@ type Coroutine() =
             do! callcK (fun exit ->
                     task (fun (t:int) -> 
                         callcK (fun c ->
-                            tasks <- PriorityQueue.insert (Timeout(virtualClock + t,c())) tasks
+                            tasks <- PriorityQueue.insert (Timeout(logicalClock + t,c())) tasks
                             exit ())))
             if tasks.Length <> 0 then
                let (Timeout (t,k),tasks') = PriorityQueue.pop tasks
                tasks <- tasks'
-               updateVirtualClock t
-               printfn "Timeout after (+) %i is %i" t virtualClock 
+               updateLogicalClock t
+               printfn "Timeout after (+) %i is %i" t logicalClock 
                do! k }
         tasks <- PriorityQueue.insert (Timeout (0,withYield)) tasks
 
     member this.Run() =
         let (Timeout (t,k),tasks') = PriorityQueue.pop tasks
         tasks <- tasks'
-        printfn "Starting run on time %i" virtualClock
+        printfn "Starting run on time %i" logicalClock
         runK k id
 
 // from FSharpx tests
