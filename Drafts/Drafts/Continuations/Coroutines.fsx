@@ -1,3 +1,33 @@
+#load "../State/.fake/State.fsx/intellisense.fsx"
+
+let equalsOn f x (yobj : obj) =
+    match yobj with
+    | :? 'T as y -> (f x = f y)
+    | _ -> false
+
+let hashOn f x = hash (f x)
+
+let compareOn f x (yobj : obj) =
+    match yobj with
+    | :? 'T as y -> compare (f x) (f y)
+    | _ ->  invalidArg "yobj" "cannont compare values of different types"
+
+[<CustomEquality;CustomComparison>]
+type Event<'next> =
+    | Timeout of int * 'next
+    member private x.selectSignificantValue (Timeout (v,_)) = v
+    override x.Equals(yobj) =
+        match yobj with
+        | :? Event<'next> as y -> equalsOn x.selectSignificantValue x y
+        | _ -> false
+    override x.GetHashCode() = hashOn x.selectSignificantValue x
+
+    interface System.IComparable with
+        member x.CompareTo yobj =
+            match yobj with
+            | :? Event<'next> as y -> compareOn x.selectSignificantValue x y
+            | _ -> invalidArg "yobj" "cannot compare value of different types"
+
 //*********** Continuation
 type K<'T,'r> = (('T -> 'r) -> 'r)
 
@@ -17,41 +47,48 @@ let K = new ContinuationBuilder()
 
 let (>>=) c f = bindK c f
 
+open FSharpx.Collections
 type Coroutine() =
-    let tasks = new System.Collections.Generic.Queue<K<unit, unit>>()
+    let mutable tasks : IPriorityQueue<Event<K<unit,unit>>> = PriorityQueue.empty false
 
     member this.Put (task) =
     
         let withYield = K {
             do! callcK (fun exit ->
-                    task (fun () -> 
+                    task (fun (t:int) -> 
                         callcK (fun c ->
-                            tasks.Enqueue(c())
+                            tasks <- PriorityQueue.insert (Timeout(t,c())) tasks
                             exit ())))
-            if tasks.Count <> 0 then
-               do! tasks.Dequeue() }
-        tasks.Enqueue(withYield)
+            if tasks.Length <> 0 then
+               let (Timeout (t,k),tasks') = PriorityQueue.pop tasks
+               tasks <- tasks'
+               //printfn "Time is %i" t
+               do! k }
+        tasks <- PriorityQueue.insert (Timeout (0,withYield)) tasks
 
     member this.Run() =
-         runK (tasks.Dequeue()) id
+        let (Timeout (t,k),tasks') = PriorityQueue.pop tasks
+        tasks <- tasks'
+        printfn "Starting run on time %i" t
+        runK k id
 
 // from FSharpx tests
 let ``When running a coroutine it should yield elements in turn``() =
       
       let coroutine = Coroutine()
       coroutine.Put(fun yield' -> K {
-        do! yield' ()
+        do! yield' 1
         printfn "hola co1"
-        do! yield' ()
+        do! yield' 5
         printfn "world co1"
-        do! yield' ()
+        do! yield' 1
         return ()
       })
       coroutine.Put(fun yield' -> K {
         printfn "hola co2"
-        do! yield' ()
+        do! yield' 4
         printfn "world co2"
-        do! yield' ()
+        do! yield' 1
         return ()
       })
       

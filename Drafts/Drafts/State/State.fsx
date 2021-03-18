@@ -97,7 +97,7 @@ let popStack (Stack contents) =
 let pushStack newTop (Stack contents) = Stack (contents.Insert newTop)
 
 // define an empty stack
-let emptyStack<'a> = PriorityQueue.empty false |> Stack
+let emptyStack<'a> = PriorityQueue.empty<'a> false |> Stack
 
 // get the value of the stack when run
 // starting with the empty stack
@@ -122,7 +122,7 @@ let push newTop = state {
 let timeout t f = state {
     do! push (Timeout (t,f)) }
 
-let helloWorldS = state {
+let helloWorldS : Stack<Event<_>> = state {
     do! timeout 3 (fun () -> "world ")
     do! timeout 2 (fun ()-> "hello ") 
     do! timeout 5 (fun ()-> "program") 
