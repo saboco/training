@@ -50,6 +50,10 @@ let (>>=) c f = bindK c f
 open FSharpx.Collections
 type Coroutine() =
     let mutable tasks : IPriorityQueue<Event<K<unit,unit>>> = PriorityQueue.empty false
+    let mutable virtualClock = 0
+    let updateVirtualClock t =
+        if t > virtualClock then
+            virtualClock <- t
 
     member this.Put (task) =
     
@@ -57,19 +61,20 @@ type Coroutine() =
             do! callcK (fun exit ->
                     task (fun (t:int) -> 
                         callcK (fun c ->
-                            tasks <- PriorityQueue.insert (Timeout(t,c())) tasks
+                            tasks <- PriorityQueue.insert (Timeout(virtualClock + t,c())) tasks
                             exit ())))
             if tasks.Length <> 0 then
                let (Timeout (t,k),tasks') = PriorityQueue.pop tasks
                tasks <- tasks'
-               //printfn "Time is %i" t
+               updateVirtualClock t
+               printfn "Timeout after (+) %i is %i" t virtualClock 
                do! k }
         tasks <- PriorityQueue.insert (Timeout (0,withYield)) tasks
 
     member this.Run() =
         let (Timeout (t,k),tasks') = PriorityQueue.pop tasks
         tasks <- tasks'
-        printfn "Starting run on time %i" t
+        printfn "Starting run on time %i" virtualClock
         runK k id
 
 // from FSharpx tests
@@ -78,25 +83,25 @@ let ``When running a coroutine it should yield elements in turn``() =
       let coroutine = Coroutine()
       coroutine.Put(fun yield' -> K {
         do! yield' 1
-        printfn "hola co1"
+        printfn "LO :Yield at time 1"
         do! yield' 5
-        printfn "world co1"
+        printfn "R :Yield at time"
         do! yield' 1
+        printfn "L :Yield at time"
         return ()
       })
       coroutine.Put(fun yield' -> K {
-        printfn "hola co2"
+        printfn "HE :Yield At Time 0"
         do! yield' 4
-        printfn "world co2"
+        printfn "W :Yield at time 4"
         do! yield' 1
+        printfn "O :Yield at time 5"
+        do! yield' 3
+        printfn "D :Yield at time 8"
         return ()
       })
       
-      let actual = coroutine.Run()
-      if  actual = "holaworldlast" 
-      then printfn "Good implementation of coroutine: %s" actual
-      else failwithf "Bad implementation of coroutines: %s" actual
+      coroutine.Run()
 
 
 ``When running a coroutine it should yield elements in turn``()
-
