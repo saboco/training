@@ -12,10 +12,14 @@ let compareOn f x (yobj : obj) =
     | :? 'T as y -> compare (f x) (f y)
     | _ ->  invalidArg "yobj" "cannont compare values of different types"
 
+type EventType =
+    | Timeout of int
+    | Resource of string
+
 [<CustomEquality;CustomComparison>]
-type Event<'next> =
-    | Timeout of int * 'next
-    member private x.selectSignificantValue (Timeout (v,_)) = v
+type Event<'next> = 
+    | EventType of EventType * 'next
+    member private x.selectSignificantValue (EventType (v,_)) = v
     override x.Equals(yobj) =
         match yobj with
         | :? Event<'next> as y -> equalsOn x.selectSignificantValue x y
@@ -50,58 +54,91 @@ let (>>=) c f = bindK c f
 open FSharpx.Collections
 type Coroutine() =
     let mutable tasks : IPriorityQueue<Event<K<unit,unit>>> = PriorityQueue.empty false
+    let sb = new System.Text.StringBuilder()
     let mutable logicalClock = 0
     let updateLogicalClock t =
         if t > logicalClock then
             logicalClock <- t
+    let updateState ev =
+        match ev with
+        | Timeout t ->
+            updateLogicalClock t
+            printfn "Timeout after (+) %i is %i" t logicalClock 
+        | Resource s -> sb.Append(s) |> ignore
 
     member this.Put (task) =
     
         let withYield = K {
             do! callcK (fun exit ->
-                    task (fun (t:int) -> 
+                    task (fun (ev:EventType) -> 
                         callcK (fun c ->
-                            tasks <- PriorityQueue.insert (Timeout(logicalClock + t,c())) tasks
+                            match ev with
+                            | Timeout t ->
+                                tasks <- PriorityQueue.insert (EventType(Timeout (logicalClock + t),c())) tasks
+                            | Resource s -> 
+                                tasks <- PriorityQueue.insert (EventType(Timeout logicalClock,c())) tasks
+                                sb.Append(s) |> ignore
                             exit ())))
             if tasks.Length <> 0 then
-               let (Timeout (t,k),tasks') = PriorityQueue.pop tasks
+               let (EventType (ev,k),tasks') = PriorityQueue.pop tasks
                tasks <- tasks'
-               updateLogicalClock t
-               printfn "Timeout after (+) %i is %i" t logicalClock 
-               do! k }
-        tasks <- PriorityQueue.insert (Timeout (0,withYield)) tasks
+               updateState ev
+               do! k
+            else printfn "%s" (sb.ToString()) }
+        tasks <- PriorityQueue.insert (EventType (Timeout 0,withYield)) tasks
 
     member this.Run() =
-        let (Timeout (t,k),tasks') = PriorityQueue.pop tasks
+        let (EventType (ev,k),tasks') = PriorityQueue.pop tasks
         tasks <- tasks'
+        updateState ev
         printfn "Starting run on time %i" logicalClock
         runK k id
+
+let timeout t = Timeout t
+let resource s = Resource s
 
 // from FSharpx tests
 let ``When running a coroutine it should yield elements in turn``() =
       
       let coroutine = Coroutine()
       coroutine.Put(fun yield' -> K {
-        do! yield' 1
+        do! yield' <| timeout 1
+        do! yield' <| Resource "LO"
         printfn "LO :Yield at time 1"
-        do! yield' 5
-        printfn "R :Yield at time"
-        do! yield' 1
-        printfn "L :Yield at time"
+        do! yield' <| timeout  5
+        do! yield' <| Resource "R"
+        printfn "R :Yield at time 6"
+        do! yield' <| timeout 1
+        do! yield' <| Resource "L"
+        printfn "L :Yield at time 7"
         return ()
       })
       coroutine.Put(fun yield' -> K {
+        do! yield' <| Resource "HE"
         printfn "HE :Yield At Time 0"
-        do! yield' 4
+        do! yield' <| timeout 4
+        do! yield' <| Resource "W"
         printfn "W :Yield at time 4"
-        do! yield' 1
+        do! yield' <| timeout 1
+        do! yield' <| Resource "O"
         printfn "O :Yield at time 5"
-        do! yield' 3
+        do! yield' <| timeout 3
+        do! yield' <| Resource "D"
         printfn "D :Yield at time 8"
         return ()
       })
       
       coroutine.Run()
 
-
 ``When running a coroutine it should yield elements in turn``()
+
+let c : K<int, string> = returnK 5
+runK c (fun i -> printfn "passed param %i" i; string i)
+let cc : K<int,string> = 
+    callcK (fun k -> 
+        printfn "this will be executed"
+        runK (k 9) (fun p -> printfn "continuation called with %A" p; p) 
+        printfn "this won't be executed"
+        returnK -1)
+
+runK cc (fun _ -> c string)

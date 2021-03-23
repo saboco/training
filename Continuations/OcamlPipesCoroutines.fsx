@@ -19,7 +19,7 @@ let empty = Ready ()
 let yield' b  = Yield (b, empty)
 let await = Await (fun b -> Ready b)
 
-let rec forever p = p >> p
+let forever p = p >> p
 
 let rec map f =
     forever (await >>= (fun a -> yield' (f a)))

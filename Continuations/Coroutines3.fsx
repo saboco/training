@@ -24,7 +24,9 @@ type CoroutineBuilder() =
 
 let co = CoroutineBuilder()
 
-let yield' a : Coroutine<unit,'a> = fun () -> Yield (a,empty)
+let yield' a : Coroutine<unit,'a> = fun () ->
+    printfn "%A" a
+    Yield (a,empty)
 
 let co_step = function
     | Ready r -> co { return r }
@@ -37,12 +39,19 @@ let rec run c =
 
 let co1 = co {
     do! yield' "hello"
+    do! yield' "hello2"
     return ()
 }
 
 let co2 = co {
     do! yield' "world"
+    do! yield' "world2"
     return ()
 }
 
-run co2
+let step = co {
+    do! co_step (co1())
+    do! co_step (co2())
+}
+
+run step
