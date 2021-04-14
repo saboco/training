@@ -4,7 +4,6 @@
     <TargetFramework>net5</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="cont.csx" />
     <None Include="ContinuationState\ContinuationState.fsx" />
     <None Include="ContinuationState\ContinuosStateCont.fsx" />
     <None Include="Continuations\ContinuationMonad.fsx" />
@@ -20,6 +19,7 @@
     <None Include="OcamlPipesCoroutines.fsx" />
     <None Include="SimpleCoroutine.fsx" />
     <None Include="State\State.fsx" />
+    <None Include="ChurchEncodingNumbers.fsx" />
   </ItemGroup>
-  <Import Project="..\..\.paket\Paket.Restore.targets" />
+  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

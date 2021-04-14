@@ -95,6 +95,23 @@ type Coroutine() =
                 tasks.Dequeue() 
             else returnK ()
         tasks.Enqueue withYield
+
+    member this.Put3(task) =
+        let withYield =
+            fun k ->
+                let m =
+                    (callcK (fun exit ->
+                        task (
+                            callcK (fun c ->
+                                tasks.Enqueue(c())
+                                exit ()))))
+                let f =
+                    fun () ->
+                        if tasks.Count <> 0 
+                        then tasks.Dequeue()
+                        else returnK ()
+                m (fun a -> f a k)
+        tasks.Enqueue(withYield)
         
     member this.Run() =
         runK (tasks.Dequeue()) ignore
@@ -116,7 +133,7 @@ let ``When running a coroutine it should yield elements in turn``() =
         printfn "appending C"
         sb.Append("C") |> ignore
         printfn "yielding from coroutine 1"
-        do! yield' 
+        do! yield'
       })
       coroutine.Put(fun yield' -> K {
         printfn "appending 1"
