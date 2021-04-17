@@ -22,7 +22,31 @@ namespace Training.CrackingCodingInterview
                 _rods[0].Push(i);
             }
         }
+//************************** Recursive Solution *******************************
+        public Stack SolveRec()
+        { 
+            SolveRec(_disks, _rods[0], _rods[1], _rods[2]);
+            return _rods[2];
+        }
+        private void SolveRec(int count, Stack source, Stack spare, Stack target)
+        {   
+            if(count==1){  Move(source, target); return;}
+            SolveRec(count - 1, source, target, spare);
+            Move(source, target);
+            SolveRec(count - 1, spare, source, target);
+        }
 
+        private void Move(Stack source, Stack destination)
+        { 
+            if(!destination.Empty && source.Peek() > destination.Peek())
+            { 
+                throw new InvalidOperationException($"Invalid move. Trying to put {source.Peek()} on {destination.Peek()}");
+            }
+            destination.Push(source.Pop());
+        }
+//********************************************************************************
+
+//**************************** Iterative Solution ********************************
         public void Solve()
         {
             var src = 0;
@@ -50,13 +74,13 @@ namespace Training.CrackingCodingInterview
             return _moves < (Math.Pow(2, _disks) - 1);
         }
 
-        private static bool IsOdd(int i) =>  i % 2 != 0;
-        private static bool IsEven(int i) =>  i % 2 == 0;
+        private static bool IsOdd(int i) => i % 2 != 0;
+        private static bool IsEven(int i) => i % 2 == 0;
 
         private bool CanMove(int src, int dst)
         {
-            return 
-                !_rods[src].Empty 
+            return
+                !_rods[src].Empty
                 && _rods[src].Peek() != _lastMovedDisk // cannot move the same disk twice
                     && (_rods[dst].Empty // if destination is empty you can always move
                         || (_rods[src].Peek() < _rods[dst].Peek() // disk must be put on a bigger disk
@@ -67,7 +91,7 @@ namespace Training.CrackingCodingInterview
         private void Move(int src, int dst)
         {
             var movingDisk = _rods[src].Pop();
-            _lastMovedDisk=movingDisk;
+            _lastMovedDisk = movingDisk;
             _rods[dst].Push(movingDisk);
             _moves++;
         }
@@ -77,34 +101,34 @@ namespace Training.CrackingCodingInterview
             return (i + 1) % _rods.Length;
         }
         private (int step, int src, int dst) Step(int step, int src, int dst)
-        {   
+        {
             var d = dst;
             var s = src;
-            while(!CanMove(s,d))
-            { 
-                switch(step)
-                { 
-                    case 0 :
+            while (!CanMove(s, d))
+            {
+                switch (step)
+                {
+                    case 0:
                         d = Inc(d);
-                        if(d==dst)
-                        { 
+                        if (d == dst)
+                        {
                             step = 1;
                         }
                         break;
-                    case 1 :
+                    case 1:
                         s = Inc(s);
                         d = Inc(s);
-                        step =0;
+                        step = 0;
                         break;
                 }
             }
-            if(_rods[d].Empty)
-            {   
-                for(var i = 0; i < 4; i++)
-                { 
+            if (_rods[d].Empty)
+            {
+                for (var i = 0; i < 4; i++)
+                {
                     d = Inc(d);
-                    if(CanMove(s,d))
-                    { 
+                    if (CanMove(s, d))
+                    {
                         break;
                     }
                 }
@@ -113,4 +137,5 @@ namespace Training.CrackingCodingInterview
             return (step, s, d);
         }
     }
+    //********************************************************************************
 }

@@ -46,5 +46,30 @@ namespace Training.CrackingCodingInterview.Tests
             var game = new HanoiTower(disks);
             game.Solve();
         }
+
+        [Theory]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(3)]
+        [InlineData(4)]
+        [InlineData(5)]
+        [InlineData(6)]
+        [InlineData(7)]
+        [InlineData(8)]
+        [InlineData(9)]
+        [InlineData(10)]
+        public void HanoiTowerRecTest(int disks)
+        {
+            var game = new HanoiTower(disks);
+            var solvedStack = game.SolveRec();
+            Assert.Equal(disks, solvedStack.Count);
+            int prev = 0;
+            for(var i = 0; i < disks; i++)
+            { 
+                var current = solvedStack.Pop();
+                Assert.Equal(prev + 1, current);
+                prev = current;
+            }
+        }
     }
 }
