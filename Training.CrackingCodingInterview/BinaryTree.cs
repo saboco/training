@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Training.CrackingCodingInterview
 {
@@ -54,7 +55,6 @@ namespace Training.CrackingCodingInterview
             }
         }
 
-
         public void PreOrderTraverse(Action<Node> f)
         {
             PreOrderTraverse(Root, f);
@@ -71,6 +71,8 @@ namespace Training.CrackingCodingInterview
 
         public void PreOrderTraverseWithStack(Action<Node> f)
         {
+            if (Root == null)
+            { return; }
             var current = Root;
             var s = new Stack<Node>();
             while (current != null || !s.Empty)
@@ -79,11 +81,33 @@ namespace Training.CrackingCodingInterview
                 while (current != null)
                 {
                     f(current);
-                    s.Push(current.Right);
+                    if (current.Right != null)
+                    {
+                        s.Push(current.Right);
+                    }
                     current = current.Left;
                 }
 
                 current = s.Pop();
+            }
+        }
+
+        public void PreOrderTraverseIterative(Action<Node> f)
+        {
+            if (Root == null)
+            { return; }
+            var s1 = new Stack<Node>();
+            s1.Push(Root);
+
+            while (!s1.Empty)
+            {
+                var current = s1.Pop();
+                f(current);
+                if (current.Right != null)
+                { s1.Push(current); }
+                if (current.Left != null)
+                { s1.Push(current); }
+
             }
         }
 
@@ -101,33 +125,77 @@ namespace Training.CrackingCodingInterview
             f(n);
         }
 
+        public void PostOrderTraverseWithTwoStacks(Action<Node> f)
+        {
+            if (Root == null)
+            { return; }
+            var s1 = new Stack<Node>();
+            var s2 = new Stack<Node>();
+
+            s1.Push(Root);
+
+            while (!s1.Empty)
+            {
+                var current = s1.Pop();
+                s2.Push(current);
+                if (current.Left != null)
+                { s1.Push(current); }
+                if (current.Right != null)
+                { s1.Push(current); }
+            }
+
+            while (!s2.Empty)
+            {
+                f(s2.Pop());
+            }
+        }
+
         public void PostOrderTraverseWithStack(Action<Node> f)
         {
+            if (Root == null)
+            { return; }
             var current = Root;
             var s = new Stack<Node>();
             while (current != null || !s.Empty)
             {
                 while (current != null)
                 {
-                    if(current.Right != null)
+                    if (current.Right != null)
                     { s.Push(current.Right); }
                     s.Push(current);
-                    current=current.Left;
+                    current = current.Left;
                 }
 
                 current = s.Pop();
-                if(current.Right!= null && !s.Empty && current.Right== s.Peek())
-                { 
+                if (current.Right != null && !s.Empty && current.Right == s.Peek())
+                {
                     s.Pop();
                     s.Push(current);
                     current = current.Right;
                 }
                 else
-                { 
+                {
                     f(current);
-                    current=null;
+                    current = null;
                 }
-            } 
+            }
+        }
+
+        public void LevelOrderTraverse(Action<Node> f)
+        {
+            if (Root == null)
+            { return; }
+            var queue = new Queue<Node>();
+            queue.Enqueue(Root);
+            while (queue.Count > 0)
+            {
+                var current = queue.Dequeue();
+                f(current);
+                if (current.Left != null)
+                { queue.Enqueue(current.Left); }
+                if (current.Right != null)
+                { queue.Enqueue(current.Right); }
+            }
         }
     }
 

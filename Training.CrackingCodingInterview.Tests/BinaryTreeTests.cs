@@ -60,8 +60,8 @@ namespace Training.CrackingCodingInterview.Tests
             var root = new BNode(50);
 
             var bst = new BinarySearchTree(root);
-            foreach(var node in nodes)
-            { 
+            foreach (var node in nodes)
+            {
                 bst.Insert(node.Data);
             }
 
@@ -89,8 +89,8 @@ namespace Training.CrackingCodingInterview.Tests
             var root = new BNode(7);
 
             var bst = new BinarySearchTree(root);
-            foreach(var node in nodes)
-            { 
+            foreach (var node in nodes)
+            {
                 bst.Insert(node.Data);
             }
 
@@ -115,8 +115,8 @@ namespace Training.CrackingCodingInterview.Tests
             var root = new BNode(50);
 
             var bst = new BinarySearchTree(root);
-            foreach(var node in nodes)
-            { 
+            foreach (var node in nodes)
+            {
                 bst.Insert(node.Data);
             }
 
@@ -160,6 +160,32 @@ namespace Training.CrackingCodingInterview.Tests
             //sb.Clear();
             tree.PostOrderTraverseWithStack(s => sb.Append(s.Data));
             Assert.Equal("1234859067", sb.ToString());
+        }
+
+        [Fact]
+        public void LevelOrderTraversal()
+        {
+            var nodes = new List<BNode>
+            {
+                new BNode(30),
+                new BNode(20),
+                new BNode(40),
+                new BNode(70),
+                new BNode(60),
+                new BNode(80)
+            };
+
+            var root = new BNode(50);
+
+            var bst = new BinarySearchTree(root);
+            foreach (var node in nodes)
+            {
+                bst.Insert(node.Data);
+            }
+
+            var sb = new StringBuilder("|");
+            bst.LevelOrderTraverse(n => sb.Append($"{n.Data}|"));
+            Assert.Equal("|50|30|70|20|40|60|80|", sb.ToString());
         }
     }
 }
