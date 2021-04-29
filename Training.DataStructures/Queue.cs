@@ -7,6 +7,8 @@
 
         public bool IsEmpty => _tail.IsEmpty && _head.IsEmpty;
 
+        public int Count => _head.Count + _tail.Count;
+
         public void Enqueue(T data)
         {
             _tail.Push(data);

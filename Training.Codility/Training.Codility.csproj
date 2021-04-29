@@ -1,82 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E79CF9EF-D4C1-47A1-8788-7962D7119CE7}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Training.Codility</RootNamespace>
-    <AssemblyName>Training.Codility</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <TargetFramework>net472</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Array\OddOccurrencesInArray\Solution.cs" />
-    <Compile Include="CountingElements\FrogRiverOne\Solution.cs" />
-    <Compile Include="CountingElements\MaxCounters\Solution.cs" />
-    <Compile Include="CountingElements\PermCheck\Solution.cs" />
-    <Compile Include="DynamicProgramming\MinAbsSum\Solution.cs" />
-    <Compile Include="Leader\Dominator\Solution.cs" />
-    <Compile Include="Leader\EquiLeader\Solution.cs" />
-    <Compile Include="Leader\Leader.cs" />
-    <Compile Include="MaximumSliceProblem\MaxDoubleSliceSum\Solution.cs" />
-    <Compile Include="MaximumSliceProblem\MaxProfit\Solution.cs" />
-    <Compile Include="MaximumSliceProblem\GoldenMaxSlice.cs" />
-    <Compile Include="MaximumSliceProblem\MaxSliceSum\Solution.cs" />
-    <Compile Include="MaximumSliceProblem\SlowMaximalSlice.cs" />
-    <Compile Include="PrefixSums\CountingDiv\Solution.cs" />
-    <Compile Include="PrefixSums\GenomicRangeQuery\Solution.cs" />
-    <Compile Include="PrefixSums\MinAvgTwoSlice\Solution.cs" />
-    <Compile Include="PrefixSums\MushroomsPicker\Solution.cs" />
-    <Compile Include="PrefixSums\PassingCars\Solution.cs" />
-    <Compile Include="PrefixSums\PrefixSums.cs" />
-    <Compile Include="PrimeAndCompositeNumbers\CountFactors\Solution.cs" />
-    <Compile Include="PrimeAndCompositeNumbers\MinPerimeterRectangle\Solution.cs" />
-    <Compile Include="PrimeAndCompositeNumbers\Peaks\Solution.cs" />
-    <Compile Include="Sorting\Distinct\Solution.cs" />
     <None Include="Sorting\MaxProductOfThree\readme.md" />
-    <Compile Include="Sorting\MaxProductOfThree\Solution.cs" />
-    <Compile Include="Sorting\NumberOfDiscIntersections\Solution.cs" />
-    <Compile Include="Sorting\Triangle\Solution.cs" />
-    <Compile Include="StacksAndQueues\Brackets\Solution.cs" />
-    <Compile Include="StacksAndQueues\Fish\Solution.cs" />
-    <Compile Include="StacksAndQueues\StoneWall\Solution.cs" />
-    <Compile Include="TimeComplexity\PermMissingElem\Solution.cs" />
-    <Compile Include="Array\BinaryGap\Solution.cs" />
-    <Compile Include="Array\CyclicRotation\Solution.cs" />
-    <Compile Include="CountingElements\MissingInteger\Solution.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TimeComplexity\TapeEquilibrium\Solution.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="CountingElements\MissingInteger\readme.md" />
@@ -145,11 +77,7 @@
     <Content Include="Sorting\Triangle\readme.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Training.DataStructures\Training.DataStructures.csproj">
-      <Project>{7a909765-c509-420b-b58d-40fb6bcb4461}</Project>
-      <Name>Training.DataStructures</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\Training.DataStructures\Training.DataStructures.csproj" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\.paket\paket.targets" />
+  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

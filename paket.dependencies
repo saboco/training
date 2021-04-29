@@ -54,4 +54,17 @@ nuget System.Threading.ThreadPool 4.3.0 prerelease restriction: >= net461
 nuget System.Threading.Timer 4.3.0 prerelease restriction: >= net461
 nuget System.ValueTuple 4.4.0 prerelease
 nuget System.Xml.ReaderWriter 4.3.0 prerelease restriction: >= net461
+<<<<<<< HEAD
 nuget System.Xml.XDocument 4.3.0 prerelease restriction: >= net461
+||||||| parent of e5bb694... convert to sdk project style
+nuget System.Xml.XDocument 4.3.0 prerelease restriction: >= net461
+=======
+<<<<<<< HEAD
+nuget System.Xml.XDocument 4.3.0 prerelease restriction: >= net461
+||||||| parent of 915846e... convert to sdk project style
+nuget System.Xml.XDocument 4.3.0 prerelease restriction: >= net461
+=======
+nuget System.Xml.XDocument 4.3.0 prerelease restriction: >= net461
+nuget NUnit3TestAdapter
+>>>>>>> 915846e... convert to sdk project style
+>>>>>>> e5bb694... convert to sdk project style

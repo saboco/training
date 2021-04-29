@@ -52,3 +52,4 @@ System.Threading.Timer
 System.ValueTuple
 System.Xml.ReaderWriter
 System.Xml.XDocument
+NUnit3TestAdapter

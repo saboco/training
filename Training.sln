@@ -1,66 +1,73 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2003
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{FF4A9CB6-4F3A-4FBA-B336-1360A3762330}"
 	ProjectSection(SolutionItems) = preProject
 		paket.dependencies = paket.dependencies
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Codility", "Training.Codility\Training.Codility.csproj", "{E79CF9EF-D4C1-47A1-8788-7962D7119CE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Codility", "Training.Codility\Training.Codility.csproj", "{E79CF9EF-D4C1-47A1-8788-7962D7119CE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Codility.Tests", "Training.Codility.Tests\Training.Codility.Tests.csproj", "{B20D1759-6C16-4300-92CF-9DCBE5F31710}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Codility.Tests", "Training.Codility.Tests\Training.Codility.Tests.csproj", "{B20D1759-6C16-4300-92CF-9DCBE5F31710}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Codility", "Codility", "{BDF96AA7-5751-4E64-9AD5-BF696A31ECD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.DataStructures", "Training.DataStructures\Training.DataStructures.csproj", "{7A909765-C509-420B-B58D-40FB6BCB4461}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.DataStructures", "Training.DataStructures\Training.DataStructures.csproj", "{7A909765-C509-420B-B58D-40FB6BCB4461}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.DataStructures.Tests", "Training.DataStructures.Tests\Training.DataStructures.Tests.csproj", "{DDDF740E-CC78-4504-8284-F3B99A5260C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.DataStructures.Tests", "Training.DataStructures.Tests\Training.DataStructures.Tests.csproj", "{DDDF740E-CC78-4504-8284-F3B99A5260C3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HackerRank", "HackerRank", "{BC13542A-B1DE-4A4A-9CEA-8FCEAE88D5DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.HackerRank", "Training.HackerRank\Training.HackerRank.csproj", "{741843F4-B6C1-451C-8960-859AAC95AA9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.HackerRank", "Training.HackerRank\Training.HackerRank.csproj", "{741843F4-B6C1-451C-8960-859AAC95AA9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.HackerRank.Tests", "Training.HackerRank.Tests\Training.HackerRank.Tests.csproj", "{D42F09A0-C55F-45BD-90ED-7F1BED1FF71E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.HackerRank.Tests", "Training.HackerRank.Tests\Training.HackerRank.Tests.csproj", "{D42F09A0-C55F-45BD-90ED-7F1BED1FF71E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Tests.Common", "Training.Tests.Common\Training.Tests.Common.csproj", "{587CB08C-364F-41A5-A353-F82B7EB7F051}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Tests.Common", "Training.Tests.Common\Training.Tests.Common.csproj", "{587CB08C-364F-41A5-A353-F82B7EB7F051}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Common", "Training.Common\Training.Common.csproj", "{21ED494E-CF46-4587-9BB5-D73E207AFD06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Common", "Training.Common\Training.Common.csproj", "{21ED494E-CF46-4587-9BB5-D73E207AFD06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Common.Algorithms", "Training.Common.Algorithms\Training.Common.Algorithms.csproj", "{6B6707D8-15FD-42AE-AAEF-68F879B651D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Common.Algorithms", "Training.Common.Algorithms\Training.Common.Algorithms.csproj", "{6B6707D8-15FD-42AE-AAEF-68F879B651D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Common.Algorithms.Tests", "Training.Common.Algorithms.Tests\Training.Common.Algorithms.Tests.csproj", "{CE2059F6-BD0A-4509-AD4F-0BD486800E23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Common.Algorithms.Tests", "Training.Common.Algorithms.Tests\Training.Common.Algorithms.Tests.csproj", "{CE2059F6-BD0A-4509-AD4F-0BD486800E23}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Common.Tests", "Training.Common.Tests\Training.Common.Tests.csproj", "{FA7D402E-5F75-4CCE-8E84-CC259DB6D5B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Common.Tests", "Training.Common.Tests\Training.Common.Tests.csproj", "{FA7D402E-5F75-4CCE-8E84-CC259DB6D5B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DomainModelingMadeFuncional", "DomainModelingMadeFuncional", "{E97FEB89-5D88-45B9-9B3D-3098BBFB707C}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "OrderTaking", "OrderTaking\OrderTaking.fsproj", "{EEE028BB-CCE7-4AB9-B89B-AF9F95E0709C}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Training.ParserCombinator", "Training.ParserCombinator\Training.ParserCombinator.fsproj", "{C9BFC7FD-1EE5-4334-83C6-1A0BC37D4B39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredictiveKeyboardT9", "PredictiveKeyboardT9\PredictiveKeyboardT9.csproj", "{3BD7B326-5B73-4452-953A-214F9C8AE91E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredictiveKeyboardT9", "PredictiveKeyboardT9\PredictiveKeyboardT9.csproj", "{3BD7B326-5B73-4452-953A-214F9C8AE91E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PredictiveKeyboardT9Tests", "PredictiveKeyboardT9Tests\PredictiveKeyboardT9Tests.csproj", "{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PredictiveKeyboardT9Tests", "PredictiveKeyboardT9Tests\PredictiveKeyboardT9Tests.csproj", "{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.RailwayOrientedProgrammingCs", "Training.RailwayOrientedProgrammingCs\Training.RailwayOrientedProgrammingCs.csproj", "{D11A3B47-000D-4E47-B935-AAEEFB3717FE}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Training.Monoids", "Training.Monoids\Training.Monoids.fsproj", "{478A0F46-A3C8-4F3C-AEDB-B37322A483D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.RailwayOrientedProgrammingCs.Tests", "Training.RailwayOrientedProgrammingCs.Tests\Training.RailwayOrientedProgrammingCs.Tests.csproj", "{587616AB-634D-4047-84A3-4A821BA9C37B}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Training.RailwayOrientedProgramming", "Training.RailwayOrientedProgramming\Training.RailwayOrientedProgramming.fsproj", "{CDEF7BE7-21BD-42AD-92F8-3214B143D517}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.RailwayOrientedProgrammingUsecaseExemple", "Training.RailwayOrientedProgrammingUsecaseExemple\Training.RailwayOrientedProgrammingUsecaseExemple.csproj", "{19E4C465-A62F-4DD5-B6D5-FE8561C969CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.RailwayOrientedProgrammingCs", "Training.RailwayOrientedProgrammingCs\Training.RailwayOrientedProgrammingCs.csproj", "{D11A3B47-000D-4E47-B935-AAEEFB3717FE}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Training.MapBindApplyAndReturn", "Training.MapBindApplyAndReturn\Training.MapBindApplyAndReturn.fsproj", "{4AEFC0BE-B3FC-40DC-91B2-8FCFA71EBE86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.RailwayOrientedProgrammingCs.Tests", "Training.RailwayOrientedProgrammingCs.Tests\Training.RailwayOrientedProgrammingCs.Tests.csproj", "{587616AB-634D-4047-84A3-4A821BA9C37B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Threads", "Training.Threads\Training.Threads.csproj", "{6A885414-1357-4D3A-89EA-3667655A80DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.RailwayOrientedProgrammingUsecaseExemple", "Training.RailwayOrientedProgrammingUsecaseExemple\Training.RailwayOrientedProgrammingUsecaseExemple.csproj", "{19E4C465-A62F-4DD5-B6D5-FE8561C969CE}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Training.Calculator", "Training.Calculator\Training.Calculator.fsproj", "{7225E5E1-6436-4A2D-BFB8-27D7173365D9}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Training.MapBindApplyAndReturn", "Training.MapBindApplyAndReturn\Training.MapBindApplyAndReturn.fsproj", "{4AEFC0BE-B3FC-40DC-91B2-8FCFA71EBE86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Training.Console", "Training.Console\Training.Console.csproj", "{21663205-05E9-482E-9D84-463C470D2B97}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Training.Monoids.Tests", "Training.Monoids.Tests\Training.Monoids.Tests.fsproj", "{A0AAB156-D2E3-44B2-8416-51B4A34C8C10}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Training.Monoids", "Training.Monoids\Training.Monoids.fsproj", "{0F95B3DB-C245-48F9-BD27-32D30C565007}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Threads", "Training.Threads\Training.Threads.csproj", "{6A885414-1357-4D3A-89EA-3667655A80DD}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Training.ParserCombinator", "Training.ParserCombinator\Training.ParserCombinator.fsproj", "{7CF37A64-EFCD-4A80-909E-0A9FC11D803C}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Training.Calculator", "Training.Calculator\Training.Calculator.fsproj", "{7225E5E1-6436-4A2D-BFB8-27D7173365D9}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Training.RailwayOrientedProgramming", "Training.RailwayOrientedProgramming\Training.RailwayOrientedProgramming.fsproj", "{84C4FB58-AE93-405D-A3A9-CC6ECF39E1D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8D5D672E-7602-4B51-A0B3-56A7315045A4}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Training.Monoids.Tests", "Training.Monoids.Tests\Training.Monoids.Tests.fsproj", "{61D0CA5E-7770-4C89-A797-BBF300DD0880}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -116,10 +123,6 @@ Global
 		{EEE028BB-CCE7-4AB9-B89B-AF9F95E0709C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEE028BB-CCE7-4AB9-B89B-AF9F95E0709C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEE028BB-CCE7-4AB9-B89B-AF9F95E0709C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C9BFC7FD-1EE5-4334-83C6-1A0BC37D4B39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C9BFC7FD-1EE5-4334-83C6-1A0BC37D4B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C9BFC7FD-1EE5-4334-83C6-1A0BC37D4B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C9BFC7FD-1EE5-4334-83C6-1A0BC37D4B39}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3BD7B326-5B73-4452-953A-214F9C8AE91E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3BD7B326-5B73-4452-953A-214F9C8AE91E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BD7B326-5B73-4452-953A-214F9C8AE91E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -128,14 +131,6 @@ Global
 		{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EE8A45B-3381-44B2-A569-5E9C89D3E0ED}.Release|Any CPU.Build.0 = Release|Any CPU
-		{478A0F46-A3C8-4F3C-AEDB-B37322A483D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{478A0F46-A3C8-4F3C-AEDB-B37322A483D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{478A0F46-A3C8-4F3C-AEDB-B37322A483D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{478A0F46-A3C8-4F3C-AEDB-B37322A483D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CDEF7BE7-21BD-42AD-92F8-3214B143D517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CDEF7BE7-21BD-42AD-92F8-3214B143D517}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CDEF7BE7-21BD-42AD-92F8-3214B143D517}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CDEF7BE7-21BD-42AD-92F8-3214B143D517}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D11A3B47-000D-4E47-B935-AAEEFB3717FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D11A3B47-000D-4E47-B935-AAEEFB3717FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D11A3B47-000D-4E47-B935-AAEEFB3717FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -152,10 +147,6 @@ Global
 		{4AEFC0BE-B3FC-40DC-91B2-8FCFA71EBE86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4AEFC0BE-B3FC-40DC-91B2-8FCFA71EBE86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4AEFC0BE-B3FC-40DC-91B2-8FCFA71EBE86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A0AAB156-D2E3-44B2-8416-51B4A34C8C10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A0AAB156-D2E3-44B2-8416-51B4A34C8C10}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A0AAB156-D2E3-44B2-8416-51B4A34C8C10}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A0AAB156-D2E3-44B2-8416-51B4A34C8C10}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A885414-1357-4D3A-89EA-3667655A80DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6A885414-1357-4D3A-89EA-3667655A80DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A885414-1357-4D3A-89EA-3667655A80DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -164,6 +155,26 @@ Global
 		{7225E5E1-6436-4A2D-BFB8-27D7173365D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7225E5E1-6436-4A2D-BFB8-27D7173365D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7225E5E1-6436-4A2D-BFB8-27D7173365D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21663205-05E9-482E-9D84-463C470D2B97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21663205-05E9-482E-9D84-463C470D2B97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21663205-05E9-482E-9D84-463C470D2B97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21663205-05E9-482E-9D84-463C470D2B97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F95B3DB-C245-48F9-BD27-32D30C565007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F95B3DB-C245-48F9-BD27-32D30C565007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F95B3DB-C245-48F9-BD27-32D30C565007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F95B3DB-C245-48F9-BD27-32D30C565007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CF37A64-EFCD-4A80-909E-0A9FC11D803C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CF37A64-EFCD-4A80-909E-0A9FC11D803C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CF37A64-EFCD-4A80-909E-0A9FC11D803C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CF37A64-EFCD-4A80-909E-0A9FC11D803C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84C4FB58-AE93-405D-A3A9-CC6ECF39E1D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84C4FB58-AE93-405D-A3A9-CC6ECF39E1D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84C4FB58-AE93-405D-A3A9-CC6ECF39E1D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84C4FB58-AE93-405D-A3A9-CC6ECF39E1D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61D0CA5E-7770-4C89-A797-BBF300DD0880}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61D0CA5E-7770-4C89-A797-BBF300DD0880}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61D0CA5E-7770-4C89-A797-BBF300DD0880}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61D0CA5E-7770-4C89-A797-BBF300DD0880}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
