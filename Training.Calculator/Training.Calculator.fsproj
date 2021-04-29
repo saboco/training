@@ -1,16 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-	  <Compile Include="Rop.fs" />
-	  <Compile Include="Library.fs" />
+    <Compile Include="Rop.fs" />
+    <Compile Include="Library.fs" />
   </ItemGroup>
-
   <ItemGroup>
     <None Include="Script.fsx" />
   </ItemGroup>
-
+  <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

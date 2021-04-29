@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2003
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{FF4A9CB6-4F3A-4FBA-B336-1360A3762330}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Codility", "Training.Codility\Training.Codility.csproj", "{E79CF9EF-D4C1-47A1-8788-7962D7119CE7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Training.Codility.Tests", "Training.Codility.Tests\Training.Codility.Tests.csproj", "{B20D1759-6C16-4300-92CF-9DCBE5F31710}"
