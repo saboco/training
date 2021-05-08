@@ -16,7 +16,7 @@ namespace Training.CrackingCodingInterview
             }
         }
 
-        public Node Root { get; }
+        public Node Root { get; private set; }
 
         public BinaryTree(Node root)
         {
@@ -197,6 +197,36 @@ namespace Training.CrackingCodingInterview
                 { queue.Enqueue(current.Right); }
             }
         }
+
+        public static BinaryTree FromArray(int[] arr)
+        {
+            return new BinaryTree(FromArray(arr, 0, arr.Length - 1));
+        }
+
+        private static Node FromArray(int[] arr, int lo, int hi)
+        {
+            if (lo > hi)
+            { return null; }
+            var mid = ((hi - lo) / 2) + lo;
+            var n = new Node(arr[mid]);
+            n.Left = FromArray(arr, lo, mid - 1);
+            n.Right = FromArray(arr, mid + 1, hi);
+            return n;
+        }
+
+        public int Height()
+        {
+            return Height(Root);
+        }
+
+        private int Height(Node n)
+        {
+            if (n == null)
+            { return 0; }
+            var leftHeight = Height(n.Left) + 1;
+            var rightHeight = Height(n.Right) + 1;
+            return Math.Max(leftHeight, rightHeight);
+        }
     }
 
     public class BinarySearchTree : BinaryTree
@@ -223,6 +253,44 @@ namespace Training.CrackingCodingInterview
                 root.Left = Insert(root.Left, val);
             }
             return root;
+        }
+
+        public List<LinkedList<Node>> GetLevels()
+        {
+            if (Root == null)
+            { return new List<LinkedList<Node>>(); }
+
+            var queue = new Queue<(Node, int)>();
+            queue.Enqueue((Root, 0));
+            var visited = new HashSet<int>();
+            visited.Add(Root.Data);
+            var linkedLists = new List<LinkedList<Node>>();
+            var currentLevel = -1;
+            while (queue.Count > 0)
+            {
+                (Node current, int level) = queue.Dequeue();
+                if (currentLevel != level)
+                {
+                    currentLevel = level;
+                    linkedLists.Add(new LinkedList<Node>());
+                }
+                linkedLists[currentLevel].AddLast(current);
+                if (current.Left != null)
+                {
+                    queue.Enqueue((current.Left, level + 1));
+                }
+                if (current.Right != null)
+                {
+                    queue.Enqueue((current.Right, level + 1));
+                }
+            }
+            return linkedLists;
+        }
+
+        public static new BinarySearchTree FromArray(int[] arr)
+        {
+            var bt = BinaryTree.FromArray(arr);
+            return new BinarySearchTree(bt.Root);
         }
     }
 }

@@ -11,7 +11,9 @@ namespace Training.CrackingCodingInterview.Tests
         [InlineData(new[] { 1 }, new[] { 0, 0, 1 }, new[] { 1, 0, 1 })]
         [InlineData(new[] { 0 }, new[] { 0, 0, 1 }, new[] { 0, 0, 1 })]
         [InlineData(new[] { 0 }, new[] { 0 }, new[] { 0 })]
+#pragma warning disable xUnit1025 // InlineData should be unique within the Theory it belongs to
         [InlineData(new[] { 0 }, null, new[] { 0 })]
+#pragma warning restore xUnit1025 // InlineData should be unique within the Theory it belongs to
         [InlineData(null, new[] { 0 }, new[] { 0 })]
         [InlineData(null, null, null)]
         [InlineData(new[] { 9, 9, 9 }, new[] { 9, 9 }, new[] { 8, 9, 0, 1 })]

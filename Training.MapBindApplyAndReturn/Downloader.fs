@@ -30,7 +30,7 @@ let getUriContent (uri:System.Uri) =
         use client = new WebClientWithTimeout(1000<ms>) // 1 sec timeout
         try
             printfn " [%s] Started ..." uri.Host
-            let! html = client.AsyncDownloadString(uri) 
+            let! html = client.DownloadStringTaskAsync(uri) |> Async.AwaitTask
             printfn " [%s] ... finished" uri.Host
             let uriContent = UriContent (uri, html)
             return (Result.Success uriContent)

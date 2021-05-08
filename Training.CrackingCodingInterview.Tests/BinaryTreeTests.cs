@@ -187,5 +187,60 @@ namespace Training.CrackingCodingInterview.Tests
             bst.LevelOrderTraverse(n => sb.Append($"{n.Data}|"));
             Assert.Equal("|50|30|70|20|40|60|80|", sb.ToString());
         }
+
+        [Theory]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, 4)]
+        [InlineData(new[] { 2, 3, 4, 5, 6, 7, 8, 9 }, 4)]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 }, 4)]
+        [InlineData(new[] { 2, 3, 6, 7, 8, 10, 12, 13 }, 4)]
+        [InlineData(new[] { 16 }, 1)]
+        [InlineData(new[] { 1, 6 }, 2)]
+        [InlineData(new[] { 1, 6, 8 }, 2)]
+        [InlineData(new[] { 1, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 }, 5)]
+        [InlineData(new int[0], 0)]
+        public void FromArrayTest(int[] arr, int expectedHeight)
+        {
+            var tree = BinaryTree.FromArray(arr);
+            Assert.Equal(expectedHeight, tree.Height());
+        }
+
+        [Theory]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, new[] { 5 }, new[] { 2, 8 }, new[] { 1, 3, 6, 9 }, new[] { 4, 7, 10 })]
+        [InlineData(new[] { 2, 3, 4, 5, 6, 7, 8, 9 }, new[] { 5 }, new[] { 3, 7 }, new[] { 2, 4, 6, 8 }, new[] { 9 })]
+        [InlineData(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 }, new[] { 7 }, new[] { 3, 10 }, new[] { 1, 5, 8, 12 }, new[] { 2, 4, 6, 9, 11, 13 })]
+        [InlineData(new[] { 2, 3, 6, 7, 8, 10, 12, 13 }, new[] { 7 }, new[] { 3, 10 }, new[] { 2, 6, 8, 12 }, new[] { 13 })]
+        [InlineData(new[] { 16 }, new[] { 16 })]
+        [InlineData(new[] { 1, 6 }, new[] { 1 }, new[] { 6 })]
+        [InlineData(new[] { 1, 6, 8 }, new[] { 6 }, new[] { 1, 8 })]
+        [InlineData(new[] { 1, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30 },
+            new[] { 18 },
+            new[] { 11, 24 },
+            new[] { 8, 14, 21, 27 },
+            new[] { 1, 9, 12, 16, 19, 22, 25, 29 },
+            new[] { 6, 10, 13, 15, 17, 20, 23, 26, 28, 30 })]
+        [InlineData(new int[0], null)]
+        public void GetLevelsTest(int[] arr, params int[][] expectedLevels)
+        {
+            var bst = BinarySearchTree.FromArray(arr);
+            var actual = bst.GetLevels();
+            if (expectedLevels != null)
+            {
+                Assert.Equal(expectedLevels.Length, actual.Count);
+                for (var i = 0; i < expectedLevels.Length; i++)
+                {
+                    Assert.Equal(actual[i].Count, expectedLevels[i].Length);
+                    var current = actual[i].First;
+                    for (var j = 0; j < expectedLevels[i].Length; j++)
+                    {
+                        Assert.Equal(current.Value.Data, expectedLevels[i][j]);
+                        current = current.Next;
+                    }
+                }
+            }
+            else
+            {
+                Assert.Empty(actual);
+            }
+        }
     }
 }
