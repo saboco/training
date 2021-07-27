@@ -6,12 +6,26 @@ namespace Training.HackerRank.Techniques_Concepts
     {
         public static long GetWaysOfMakeChange(int amount, int[] coins, Dictionary<string, long> memo)
         {
-            if (amount == 0) return 1;
-            if (amount < 0) return 0;
-            if (coins.Length == 0) return 0;
+            if (amount == 0)
+            {
+                return 1;
+            }
+
+            if (amount < 0)
+            {
+                return 0;
+            }
+
+            if (coins.Length == 0)
+            {
+                return 0;
+            }
 
             var key = string.Concat(amount, "¤", string.Join("¤", coins));
-            if (memo.ContainsKey(key)) return memo[key];
+            if (memo.ContainsKey(key))
+            {
+                return memo[key];
+            }
 
             var result = GetWaysOfMakeChange(amount - coins[0], coins, memo)
                          + GetWaysOfMakeChange(amount, GetCoinsWithoutFirstKind(coins), memo);

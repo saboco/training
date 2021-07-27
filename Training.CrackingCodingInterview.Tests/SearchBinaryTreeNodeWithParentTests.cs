@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Training.CrackingCodingInterview.Tests
 {
     public class SearchBinaryTreeNodeWithParentTests
     {
+        List<Func<SearchBinaryTreeNodeWithParent.Node, SearchBinaryTreeNodeWithParent.Node>> _actions = new List<Func<SearchBinaryTreeNodeWithParent.Node, SearchBinaryTreeNodeWithParent.Node>>
+        {
+            SearchBinaryTreeNodeWithParent.Next,
+            SearchBinaryTreeNodeWithParent.Next2
+        };
+
         [Theory]
         [InlineData(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, 0, 2)]
         [InlineData(new[] { 2, 3, 4, 5, 6, 7, 8, 9 }, 4, 7)]
@@ -22,14 +25,17 @@ namespace Training.CrackingCodingInterview.Tests
         {
             var bst = SearchBinaryTreeNodeWithParent.FromArray(arr);
             var node = SearchBinaryTreeNodeWithParent.Search(arr[n], bst);
-            var nextNode = SearchBinaryTreeNodeWithParent.Next(node);
-            if (next == -1)
+            foreach (var action in _actions)
             {
-                Assert.Null(nextNode);
-            }
-            else
-            {
-                Assert.Equal(next, nextNode.Data);
+                var nextNode = action.Invoke(node);
+                if (next == -1)
+                {
+                    Assert.Null(nextNode);
+                }
+                else
+                {
+                    Assert.Equal(next, nextNode.Data);
+                }
             }
         }
     }

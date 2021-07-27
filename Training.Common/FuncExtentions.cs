@@ -11,7 +11,10 @@ namespace Training.Common
 
             return (T1 n) =>
             {
-                if (dic.TryGetValue(n, out var result)) return result;
+                if (dic.TryGetValue(n, out var result))
+                {
+                    return result;
+                }
 
                 result = func(n);
                 dic.Add(n, result);

@@ -20,7 +20,10 @@ namespace Training.Codility.CountingElements.PermCheck
             }
             for (var i = 1; i <= arr.Length; i++)
             {
-                if (!dicNumberCount.Contains(i)) return 0;
+                if (!dicNumberCount.Contains(i))
+                {
+                    return 0;
+                }
             }
             return 1;
         }

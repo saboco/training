@@ -12,11 +12,21 @@ namespace Training.Codility.StacksAndQueues.Fish
             var alives = new Stack<int>();
             for (var fish = 0; fish < n; fish++)
             {
-                if(directions[fish] == 0) upstream.Push(fish);
-                if(directions[fish] == 1) downstream.Push(fish);
-                
+                if(directions[fish] == 0)
+                {
+                    upstream.Push(fish);
+                }
+
+                if (directions[fish] == 1)
+                {
+                    downstream.Push(fish);
+                }
+
                 Swim(upstream, downstream, alives, sizes);
-                if (upstream.Count == 1 && directions[upstream.Peek()] == 0) alives.Push(upstream.Pop());
+                if (upstream.Count == 1 && directions[upstream.Peek()] == 0)
+                {
+                    alives.Push(upstream.Pop());
+                }
             }
             return alives.Count + upstream.Count + downstream.Count;
         }
@@ -26,8 +36,13 @@ namespace Training.Codility.StacksAndQueues.Fish
             while (upstream.Count > 0 && downstream.Count > 0)
             {
                 if (sizes[upstream.Peek()] > sizes[downstream.Peek()])
+                {
                     downstream.Pop();
-                else upstream.Pop();
+                }
+                else
+                {
+                    upstream.Pop();
+                }
             }
         }
     }

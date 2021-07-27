@@ -16,7 +16,10 @@
             while (i < n)
             {
                 i++;
-                if (n % i == 0 && VerifyPeeks(a, (int) (n / i))) return (int) (n / i);
+                if (n % i == 0 && VerifyPeeks(a, (int) (n / i)))
+                {
+                    return (int) (n / i);
+                }
             }
             return 0;
         }
@@ -29,7 +32,10 @@
 
             while (to < a.Length)
             {
-                if (!VerifyPeek(a, from, to)) return false;
+                if (!VerifyPeek(a, from, to))
+                {
+                    return false;
+                }
 
                 i++;
                 to = a.Length / d * i - 1;
@@ -40,10 +46,17 @@
 
         private static bool VerifyPeek(int[] a, int from, int to)
         {
-            if (from == 0) from++;
+            if (from == 0)
+            {
+                from++;
+            }
+
             for (var i = from; i <= to && i < a.Length - 1; i++)
             {
-                if (a[i - 1] < a[i] && a[i] > a[i + 1]) return true;
+                if (a[i - 1] < a[i] && a[i] > a[i + 1])
+                {
+                    return true;
+                }
             }
             return false;
         }

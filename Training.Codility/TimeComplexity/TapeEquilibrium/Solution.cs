@@ -7,7 +7,11 @@ namespace Training.Codility.TimeComplexity.TapeEquilibrium
         public static int Solve(int[] arr)
         {
             long rightSum = 0;
-            if (arr.Length == 2) return Math.Abs(arr[1] - arr[0]);
+            if (arr.Length == 2)
+            {
+                return Math.Abs(arr[1] - arr[0]);
+            }
+
             for (var i = 0; i < arr.Length; i++)
             {
                 rightSum += arr[i];

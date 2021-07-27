@@ -31,7 +31,10 @@ namespace Training.DataStructures
 
         public void AddNode(TId id)
         {
-            if (!ContainsNode(id)) _nodes[id] = new Node(id);
+            if (!ContainsNode(id))
+            {
+                _nodes[id] = new Node(id);
+            }
         }
 
         public void AddEdge(TId source, TId destination)
@@ -42,9 +45,14 @@ namespace Training.DataStructures
             sourceNode.AddAdjacentNode(destinationNode);
 
             if (!_nodes.ContainsKey(source))
+            {
                 _nodes.Add(source, sourceNode);
+            }
+
             if (!_nodes.ContainsKey(destination))
+            {
                 _nodes.Add(destination, destinationNode);
+            }
         }
 
         public Dictionary<TId, int> GetDistanceToAllNodesFrom(TId sourceId, int distanceBetweenEdges)
@@ -60,14 +68,20 @@ namespace Training.DataStructures
             {
                 var node = nextNodesToVisite.Dequeue();
 
-                if (visitedNodes.Contains(node)) continue;
+                if (visitedNodes.Contains(node))
+                {
+                    continue;
+                }
+
                 visitedNodes.Add(node);
                 var previousDistance = distances[node.Id];
 
                 foreach (var adjacentNode in node.AdjacentNodes)
                 {
                     if (!distances.ContainsKey(adjacentNode.Id))
+                    {
                         distances.Add(adjacentNode.Id, previousDistance + distanceBetweenEdges);
+                    }
 
                     nextNodesToVisite.Enqueue(adjacentNode);
                 }
@@ -90,8 +104,16 @@ namespace Training.DataStructures
             while (nextNodesToVisite.Count != 0)
             {
                 var node = nextNodesToVisite.Dequeue();
-                if (node == destination) return true;
-                if (visitedNodes.Contains(node)) continue;
+                if (node == destination)
+                {
+                    return true;
+                }
+
+                if (visitedNodes.Contains(node))
+                {
+                    continue;
+                }
+
                 visitedNodes.Add(node);
 
                 foreach (var adjacentNode in node.AdjacentNodes)
@@ -113,11 +135,18 @@ namespace Training.DataStructures
             var greatesRegion = 0;
             foreach (var nextNode in _nodes.Values)
             {
-                if (visitedNodes.Contains(nextNode)) continue;
+                if (visitedNodes.Contains(nextNode))
+                {
+                    continue;
+                }
+
                 visitedNodes.Add(nextNode);
 
                 var count = GetConnectedNodesCount(nextNode.Id);
-                if (count <= greatesRegion) continue;
+                if (count <= greatesRegion)
+                {
+                    continue;
+                }
 
                 greatesRegion = count;
             }
@@ -140,7 +169,11 @@ namespace Training.DataStructures
 
         private static int GetConnectedNodesCount(Node source, HashSet<Node> visitedNodes)
         {
-            if (visitedNodes.Contains(source)) return visitedNodes.Count;
+            if (visitedNodes.Contains(source))
+            {
+                return visitedNodes.Count;
+            }
+
             visitedNodes.Add(source);
 
             foreach (var adjacentNode in source.AdjacentNodes)
@@ -152,8 +185,15 @@ namespace Training.DataStructures
 
         private static bool HasPathDfs(Node source, Node destination, HashSet<Node> visitedNodes)
         {
-            if (visitedNodes.Contains(source)) return false;
-            if (source == destination) return true;
+            if (visitedNodes.Contains(source))
+            {
+                return false;
+            }
+
+            if (source == destination)
+            {
+                return true;
+            }
 
             visitedNodes.Add(source);
             foreach (var nextNode in source.AdjacentNodes)

@@ -15,8 +15,15 @@ namespace Training.Common
 
         public static IEnumerable<T[]> Permute<T>(T[] c)
         {
-            if (c.Length == 0) return new T[0][];
-            if (c.Length == 1) return new[] {c};
+            if (c.Length == 0)
+            {
+                return new T[0][];
+            }
+
+            if (c.Length == 1)
+            {
+                return new[] {c};
+            }
 
             var permutations = new HashSet<T[]>();
             for (var i = 0; i < c.Length; i++)
@@ -28,7 +35,9 @@ namespace Training.Common
                 {
                     var permutation = Append(new[] {first}, p);
                     if (!permutations.Contains(permutation))
+                    {
                         permutations.Add(permutation);
+                    }
                 }
             }
 
@@ -58,15 +67,20 @@ namespace Training.Common
             for (int i = 0, j = 0; i < arr.Count; i++)
             {
                 if (i != at)
+                {
                     arrResult[j++] = arr[i];
+                }
             }
             return arrResult;
         }
         
         public static IEnumerable<T> Intersection<T>(T[] arrA, T[] arrB) where T : IComparable
         {
-            if (arrA == null || arrB == null) yield break;
-           
+            if (arrA == null || arrB == null)
+            {
+                yield break;
+            }
+
             for (int aIndex = 0, bIndex = 0; aIndex < arrA.Length && bIndex < arrB.Length;)
             {
                 if (arrA[aIndex].CompareTo(arrB[bIndex]) == 0)

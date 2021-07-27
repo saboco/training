@@ -81,8 +81,11 @@ namespace Training.RailwayOrientedProgrammingUsecaseExemple
         private static Result<Resource, Failed> Execute(HttpWebResponse r)
         {
             var dataStream = r.GetResponseStream();
-            if (dataStream == null) return Result<Resource, Failed>.NewFailure(new Failed());
-            
+            if (dataStream == null)
+            {
+                return Result<Resource, Failed>.NewFailure(new Failed());
+            }
+
             var data = new StreamReader(dataStream).ReadToEnd();
             return Result<Resource, Failed>.NewSuccess(new Resource(data));
         }

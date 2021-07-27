@@ -23,7 +23,10 @@ namespace Training.HackerRank.DataStructures
                 _regions.AddNode(kvCell.Key);
                 foreach (var adjacentFilledCell in _grid.GetAdjacentFilledCells(kvCell.Value))
                 {
-                    if (_edgesAdded.Contains(GetEdgeId(kvCell.Value, adjacentFilledCell))) continue;
+                    if (_edgesAdded.Contains(GetEdgeId(kvCell.Value, adjacentFilledCell)))
+                    {
+                        continue;
+                    }
 
                     _regions.AddEdge(kvCell.Key, adjacentFilledCell.Id);
                     _edgesAdded.Add(GetEdgeId(kvCell.Value, adjacentFilledCell));
@@ -117,14 +120,45 @@ namespace Training.HackerRank.DataStructures
 
                 var filledCells = new List<Cell>();
 
-                if (upperCell.IsFilled) filledCells.Add(upperCell);
-                if (upperLeftCell.IsFilled) filledCells.Add(upperLeftCell);
-                if (upperRightCell.IsFilled) filledCells.Add(upperRightCell);
-                if (leftCell.IsFilled) filledCells.Add(leftCell);
-                if (rightCell.IsFilled) filledCells.Add(rightCell);
-                if (downCell.IsFilled) filledCells.Add(downCell);
-                if (downLeftCell.IsFilled) filledCells.Add(downLeftCell);
-                if (downRightCell.IsFilled) filledCells.Add(downRightCell);
+                if (upperCell.IsFilled)
+                {
+                    filledCells.Add(upperCell);
+                }
+
+                if (upperLeftCell.IsFilled)
+                {
+                    filledCells.Add(upperLeftCell);
+                }
+
+                if (upperRightCell.IsFilled)
+                {
+                    filledCells.Add(upperRightCell);
+                }
+
+                if (leftCell.IsFilled)
+                {
+                    filledCells.Add(leftCell);
+                }
+
+                if (rightCell.IsFilled)
+                {
+                    filledCells.Add(rightCell);
+                }
+
+                if (downCell.IsFilled)
+                {
+                    filledCells.Add(downCell);
+                }
+
+                if (downLeftCell.IsFilled)
+                {
+                    filledCells.Add(downLeftCell);
+                }
+
+                if (downRightCell.IsFilled)
+                {
+                    filledCells.Add(downRightCell);
+                }
 
                 return filledCells;
             }

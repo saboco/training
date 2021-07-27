@@ -24,7 +24,11 @@ namespace Training.HackerRank.Algorithms
                 for (var j = 0; j < n - 1; j++)
                 {
                     // Swap adjacent elements if they are in decreasing order
-                    if (a[j] <= a[j + 1]) continue;
+                    if (a[j] <= a[j + 1])
+                    {
+                        continue;
+                    }
+
                     ArrayHelpers.Swap(a, j, j + 1);
                     numberOfSwaps++;
                     totalNumSwaps++;

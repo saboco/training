@@ -37,14 +37,22 @@
 
         public bool Rollback()
         {
-            if (_transactions.IsEmpty) return false;
+            if (_transactions.IsEmpty)
+            {
+                return false;
+            }
+
             _transactions.PopOrDefault();
             return true;
         }
 
         public bool Commit()
         {
-            if (_transactions.IsEmpty) return false;
+            if (_transactions.IsEmpty)
+            {
+                return false;
+            }
+
             var transaction = _transactions.TopOrDefault();
             _transactions.PopOrDefault();
 

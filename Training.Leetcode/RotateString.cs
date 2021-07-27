@@ -7,7 +7,9 @@ namespace Training.Leetcode
         public static bool IsRotateString(string a, string b)
         {
             if (a == b)
+            {
                 return true;
+            }
 
             var mod = 1_000_000_007;
             var p = 113;

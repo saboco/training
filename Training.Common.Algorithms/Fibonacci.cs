@@ -8,8 +8,15 @@ namespace Training.Common.Algorithms
         {
             public static long GetFiboOf(long n)
             {
-                if (n == 0L) return 0L;
-                if (n == 1L) return 1L;
+                if (n == 0L)
+                {
+                    return 0L;
+                }
+
+                if (n == 1L)
+                {
+                    return 1L;
+                }
 
                 var fib1 = 1L;
                 var fib2 = 0L;
@@ -31,8 +38,15 @@ namespace Training.Common.Algorithms
                 Func<long, long> fibo = null;
                 fibo = n =>
                 {
-                    if (n == 0) return 0;
-                    if (n == 1) return 1;
+                    if (n == 0)
+                    {
+                        return 0;
+                    }
+
+                    if (n == 1)
+                    {
+                        return 1;
+                    }
 
                     return
                         // ReSharper disable once PossibleNullReferenceException
@@ -55,15 +69,25 @@ namespace Training.Common.Algorithms
         {
             public static long GetFiboOf(long n)
             {
-                if (n == 0) return 0;
-                if (n == 1) return 1;
+                if (n == 0)
+                {
+                    return 0;
+                }
+
+                if (n == 1)
+                {
+                    return 1;
+                }
 
                 return Fibonacci(n, 0, 1);
             }
 
             private static long Fibonacci(long n, long previousFibo, long current)
             {
-                if (n < 2) return current;
+                if (n < 2)
+                {
+                    return current;
+                }
 
                 // ReSharper disable once TailRecursiveCall
                 return Fibonacci(n - 1, current, current + previousFibo);
@@ -77,8 +101,16 @@ namespace Training.Common.Algorithms
         {
             public static long GetFiboOf(long n)
             {
-                if (n == 0) return 0;
-                if (n == 1) return 1;
+                if (n == 0)
+                {
+                    return 0;
+                }
+
+                if (n == 1)
+                {
+                    return 1;
+                }
+
                 return GetFiboOf(n - 1) + GetFiboOf(n - 2);
             }
         }
@@ -99,8 +131,15 @@ namespace Training.Common.Algorithms
         {
             public static long GetFibo(long n)
             {
-                if (n == 0) return 0L;
-                if (n == 1) return 1L;
+                if (n == 0)
+                {
+                    return 0L;
+                }
+
+                if (n == 1)
+                {
+                    return 1L;
+                }
 
                 var fiboSequence = new long[n];
                 fiboSequence[0] = 1;

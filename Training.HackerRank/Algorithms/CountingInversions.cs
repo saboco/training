@@ -11,7 +11,11 @@
 
         private static long CountInversions(int[] arr, int[] aux, int lo, int hi)
         {
-            if (hi <= lo) return 0;
+            if (hi <= lo)
+            {
+                return 0;
+            }
+
             var mid = (lo + hi) / 2;
             var count = 0L;
             count += CountInversions(aux, arr, lo, mid);
@@ -27,9 +31,18 @@
 
             for (var k = lo; k <= hi; k++)
             {
-                if (mid < leftIndex) arr[k] = aux[rightIndex++];
-                else if (hi < rightIndex) arr[k] = aux[leftIndex++];
-                else if (aux[leftIndex] <= aux[rightIndex]) arr[k] = aux[leftIndex++];
+                if (mid < leftIndex)
+                {
+                    arr[k] = aux[rightIndex++];
+                }
+                else if (hi < rightIndex)
+                {
+                    arr[k] = aux[leftIndex++];
+                }
+                else if (aux[leftIndex] <= aux[rightIndex])
+                {
+                    arr[k] = aux[leftIndex++];
+                }
                 else
                 {
                     arr[k] = aux[rightIndex++];

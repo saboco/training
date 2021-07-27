@@ -19,11 +19,31 @@ namespace Training.Common.Algorithms
             var mid = start + ((end - start) / 2); // doing this way rather than (start + end)/2 to prevent overflow of int
             var nearesIndex = nearest ? mid : -1;
 
-            if (arr[mid].CompareTo(n) == 0) return mid;
-            if (mid == start) return nearesIndex;
-            if (mid == end) return nearesIndex;
-            if (0 < arr[mid].CompareTo(n)) return InternalSearch(arr, start, mid, n, nearest);
-            if (arr[mid].CompareTo(n) < 0) return InternalSearch(arr, mid, end, n, nearest);
+            if (arr[mid].CompareTo(n) == 0)
+            {
+                return mid;
+            }
+
+            if (mid == start)
+            {
+                return nearesIndex;
+            }
+
+            if (mid == end)
+            {
+                return nearesIndex;
+            }
+
+            if (0 < arr[mid].CompareTo(n))
+            {
+                return InternalSearch(arr, start, mid, n, nearest);
+            }
+
+            if (arr[mid].CompareTo(n) < 0)
+            {
+                return InternalSearch(arr, mid, end, n, nearest);
+            }
+
             return nearesIndex;
         }
     }

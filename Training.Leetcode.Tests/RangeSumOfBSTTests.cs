@@ -15,7 +15,9 @@ namespace Training.Leetcode.Tests
         private TreeNode BuildBST(object[] nums, int i)
         {
             if (i > nums.Length - 1 || nums[i] == null)
+            {
                 return null;
+            }
 
             var root = new TreeNode((int)nums[i]);
             root.left = BuildBST(nums, 2 * i + 1);

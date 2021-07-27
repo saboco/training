@@ -6,7 +6,10 @@ namespace Training.Codility.MaximumSliceProblem.MaxSliceSum
     {
         public static int Solve(int[] a)
         {
-            if (a.Length == 0) return 0;
+            if (a.Length == 0)
+            {
+                return 0;
+            }
 
             long maxSlice = a[0];
             var maxEnding = 0L;

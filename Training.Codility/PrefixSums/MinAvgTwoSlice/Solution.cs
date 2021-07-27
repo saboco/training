@@ -6,7 +6,10 @@ namespace Training.Codility.PrefixSums.MinAvgTwoSlice
     {
         public static int Solve(int[] a)
         {
-            if (a.Length == 2) return 0;
+            if (a.Length == 2)
+            {
+                return 0;
+            }
 
             var p = PrefixSums.CalculatePrefixSums(a);
             var mean2 = CalculateMeanForEveryPair(p);
@@ -16,14 +19,22 @@ namespace Training.Codility.PrefixSums.MinAvgTwoSlice
             var minIndex = -1;
             for (var i = 0; i < mean2.Length; i++)
             {
-                if (!(mean2[i] < min)) continue;
+                if (!(mean2[i] < min))
+                {
+                    continue;
+                }
+
                 minIndex = i;
                 min = mean2[i];
             }
 
             for (var i = 0; i < mean3.Length; i++)
             {
-                if (!(mean3[i] < min)) continue;
+                if (!(mean3[i] < min))
+                {
+                    continue;
+                }
+
                 minIndex = i;
                 min = mean3[i];
             }

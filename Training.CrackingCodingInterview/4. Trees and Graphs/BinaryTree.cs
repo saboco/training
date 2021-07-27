@@ -77,7 +77,6 @@ namespace Training.CrackingCodingInterview
             var s = new Stack<Node>();
             while (current != null || !s.Empty)
             {
-
                 while (current != null)
                 {
                     f(current);
@@ -226,6 +225,92 @@ namespace Training.CrackingCodingInterview
             var leftHeight = Height(n.Left) + 1;
             var rightHeight = Height(n.Right) + 1;
             return Math.Max(leftHeight, rightHeight);
+        }
+
+        public static bool IsSubTree(Node t1, Node t2)
+        {
+            if (t2 == null)
+            { return true; }
+            if (t1 == null)
+            { return false; }
+
+            var s = new Stack<Node>();
+            s.Push(t1);
+            while (!s.Empty)
+            {
+                var current = s.Pop();
+                if (Contains(current, t2))
+                { return true; }
+                if (current.Right != null)
+                { s.Push(current.Right); }
+                if (current.Left != null)
+                { s.Push(current.Left); }
+            }
+            return false;
+        }
+
+        private static bool Contains(Node n1, Node n2)
+        {
+            if (n1 == null || n2 == null)
+            { return false; }
+            if (n1.Data != n2.Data)
+            { return false; }
+
+            var s1 = new Stack<Node>();
+            var s2 = new Stack<Node>();
+            s1.Push(n1);
+            s2.Push(n2);
+            while (!s1.Empty && !s2.Empty)
+            {
+                var current1 = s1.Pop();
+                var current2 = s2.Pop();
+                if (current1.Data != current2.Data)
+                { return false; }
+                if (current1.Right != null)
+                { s1.Push(current1.Right); }
+                if (current1.Left != null)
+                { s1.Push(current1.Left); }
+                if (current2.Right != null)
+                { s2.Push(current2.Right); }
+                if (current2.Left != null)
+                { s2.Push(current2.Left); }
+            }
+            return s2.Empty;
+        }
+
+        public static bool IsSubTreeRec(Node t1, Node t2)
+        {
+            if (t2 == null)
+            { return true; }
+            return ContainsRec(t1, t2);
+        }
+
+        private static bool ContainsRec(Node t1, Node t2)
+        {
+            if (t1 == null)
+            { return false; }
+            if (t1.Data == t2.Data)
+            {
+                if (MatchTree(t1, t2))
+                { return true; }
+            }
+            return ContainsRec(t1.Left, t2)
+                || ContainsRec(t1.Right, t2);
+        }
+
+        private static bool MatchTree(Node n1, Node n2)
+        {
+            if (n1 == null && n2 == null)
+            { return true; }
+            if (n2 == null)
+            { return true; }
+            if (n1 == null)
+            { return false; }
+
+            if (n1.Data != n2.Data)
+            { return false; }
+            return MatchTree(n1.Left, n2.Left)
+                && MatchTree(n1.Right, n2.Right);
         }
     }
 

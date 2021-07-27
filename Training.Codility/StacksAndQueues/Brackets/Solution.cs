@@ -21,7 +21,11 @@ namespace Training.Codility.StacksAndQueues.Brackets
                         stack.Push(')');
                         break;
                     default:
-                        if (stack.Count == 0 || stack.Pop() != c) return 0;
+                        if (stack.Count == 0 || stack.Pop() != c)
+                        {
+                            return 0;
+                        }
+
                         break;
                 }
             }

@@ -18,7 +18,11 @@ namespace Training.DataStructures
 
         public T Pop()
         {
-            if (IsEmpty) throw new InvalidOperationException("Stack is empty");
+            if (IsEmpty)
+            {
+                throw new InvalidOperationException("Stack is empty");
+            }
+
             return InternalPop();
         }
 

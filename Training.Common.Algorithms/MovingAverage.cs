@@ -16,7 +16,11 @@
             foreach (var v in arr)
             {
                 var nextIndex = j + k - 1;
-                if (nextIndex >= arr.Length) break;
+                if (nextIndex >= arr.Length)
+                {
+                    break;
+                }
+
                 var nextV = arr[nextIndex];
                 
                 sum -= lastV;

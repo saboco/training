@@ -58,7 +58,10 @@ namespace Training.Leetcode.Tests
         private int DFS(TreeNode current)
         {
             if (current == null)
+            {
                 return 0;
+            }
+
             var left = DFS(current.left) + 1;
             var right = DFS(current.right) + 1;
             return Math.Max(left, right);

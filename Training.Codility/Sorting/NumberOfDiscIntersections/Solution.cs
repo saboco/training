@@ -22,12 +22,17 @@ namespace Training.Codility.Sorting.NumberOfDiscIntersections
             var count = 0;
             var j = 0;
             for (var i = 0; i < arr.Length; i++)
+            {
                 while (j < arr.Length && rightBound[i] >= leftBound[j])
                 {
                     count += j - i;
                     j++;
-                    if (count > 1e7) return -1;
+                    if (count > 1e7)
+                    {
+                        return -1;
+                    }
                 }
+            }
 
             return count;
         }

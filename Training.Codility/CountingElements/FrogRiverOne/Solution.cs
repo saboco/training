@@ -16,9 +16,15 @@ namespace Training.Codility.CountingElements.FrogRiverOne
                     while(pastLeaves.Contains(position + 1))
                     {
                         position++;
-                        if (position == x) return i;
+                        if (position == x)
+                        {
+                            return i;
+                        }
                     }
-                    if (position == x) return i;
+                    if (position == x)
+                    {
+                        return i;
+                    }
                 }
                 pastLeaves.Add(leaves[i]);
             }

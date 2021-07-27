@@ -17,11 +17,31 @@
             var mid = (start + end) / 2;
             var nearesIndex = nearest ? mid : -1;
 
-            if (arr[mid] == n) return mid;
-            if (mid == start) return nearesIndex;
-            if (mid == end) return nearesIndex;
-            if (n < arr[mid]) return InternalSearch(arr, start, mid, n, nearest);
-            if (arr[mid] < n) return InternalSearch(arr, mid, end, n, nearest);
+            if (arr[mid] == n)
+            {
+                return mid;
+            }
+
+            if (mid == start)
+            {
+                return nearesIndex;
+            }
+
+            if (mid == end)
+            {
+                return nearesIndex;
+            }
+
+            if (n < arr[mid])
+            {
+                return InternalSearch(arr, start, mid, n, nearest);
+            }
+
+            if (arr[mid] < n)
+            {
+                return InternalSearch(arr, mid, end, n, nearest);
+            }
+
             return nearesIndex;
         }
     }

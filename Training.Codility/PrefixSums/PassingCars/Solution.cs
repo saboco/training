@@ -10,10 +10,19 @@
             foreach (var car in cars)
             {
                 if (IsGoingEst(car))
+                {
                     carsWereGoingEast++;
+                }
+
                 if (IsGoingWest(car))
+                {
                     carsCrossedCount += carsWereGoingEast;
-                if (carsCrossedCount > 1000000000) return -1;
+                }
+
+                if (carsCrossedCount > 1000000000)
+                {
+                    return -1;
+                }
             }
             return carsCrossedCount;
         }

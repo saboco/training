@@ -25,13 +25,21 @@ namespace Training.Codility.StacksAndQueues.StoneWall
 
         private static int BuildWall(int newHeight, int currentHeight, Stack<int> stones, Stack<int> fixedStones)
         {
-            if(newHeight == currentHeight) return newHeight;
+            if(newHeight == currentHeight)
+            {
+                return newHeight;
+            }
+
             while (stones.Count > 0 && currentHeight > newHeight)
             {
                 currentHeight -= stones.Peek();
                 fixedStones.Push(stones.Pop());
             }
-            if (newHeight == currentHeight) return newHeight;
+            if (newHeight == currentHeight)
+            {
+                return newHeight;
+            }
+
             if (stones.Count == 0 || newHeight - currentHeight < 0)
             {
                 //Transfer(tempStack, stoneWall);

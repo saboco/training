@@ -24,7 +24,9 @@ namespace Training.Leetcode
             { return profit; }
 
             if (bought >= prices[i])
+            {
                 return 0;
+            }
 
             if (bought == -1)
             {

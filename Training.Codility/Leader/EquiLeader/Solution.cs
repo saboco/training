@@ -6,7 +6,11 @@
         {
             var equiLeadersCount = 0;
             var leaderInfo = Leader.Find(a, 0, a.Length);
-            if (leaderInfo[0] == 0) return 0;
+            if (leaderInfo[0] == 0)
+            {
+                return 0;
+            }
+
             var totalCount = leaderInfo[2];
             var leader = leaderInfo[1];
             var leftCount = 0;
@@ -20,7 +24,9 @@
                     rightCount--;
                 }
                 if (leftCount > (i + 1) / 2 && rightCount > (n - i - 1) / 2)
+                {
                     equiLeadersCount++;
+                }
             }
             return equiLeadersCount;
         }

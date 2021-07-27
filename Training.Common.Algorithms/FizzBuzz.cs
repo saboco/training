@@ -13,8 +13,16 @@
 
         public static string GetFizzBuzz(int number)
         {
-            if (IsFizz(number) && IsBuzz(number)) return FizzBuzzValue;
-            if (IsFizz(number)) return FizzValue;
+            if (IsFizz(number) && IsBuzz(number))
+            {
+                return FizzBuzzValue;
+            }
+
+            if (IsFizz(number))
+            {
+                return FizzValue;
+            }
+
             return IsBuzz(number) ? BuzzValue : number.ToString();
         }
 

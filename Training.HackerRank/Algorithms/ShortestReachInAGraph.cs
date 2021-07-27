@@ -39,11 +39,19 @@ namespace Training.HackerRank.Algorithms
             var distances = _graph.GetDistanceToAllNodesFrom(queryStartingNode, 6);
             foreach (var nodeId in Enumerable.Range(1, _graph.NodesCount))
             {
-                if(nodeId == queryStartingNode) continue;
+                if(nodeId == queryStartingNode)
+                {
+                    continue;
+                }
+
                 if (distances.ContainsKey(nodeId))
+                {
                     yield return distances[nodeId];
+                }
                 else
+                {
                     yield return -1;
+                }
             }
         }
     }

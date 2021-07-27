@@ -14,7 +14,10 @@ namespace Training.Codility.Sorting.MaxProductOfThree
             for (var i = 2; i < sortedA.Length; i++)
             {
                 if (sortedA[i - 1] < 0)
+                {
                     maxNegativeProduct = Math.Max(maxNegativeProduct, GetMaxNegativePair(sortedA, i));
+                }
+
                 max = Math.Max(max, TripletProduct(sortedA, i, maxNegativeProduct));
             }
             return max;

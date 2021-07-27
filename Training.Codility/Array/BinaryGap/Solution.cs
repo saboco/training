@@ -16,7 +16,10 @@ namespace Training.Codility.Array.BinaryGap
                     max = Math.Max(max, count);
                     count = 0;
                 }
-                else count++;
+                else
+                {
+                    count++;
+                }
             }
             return max;
         }

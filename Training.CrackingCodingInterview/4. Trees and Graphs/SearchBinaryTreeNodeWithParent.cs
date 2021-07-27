@@ -59,12 +59,13 @@ namespace Training.CrackingCodingInterview
             var linkedList = new LinkedList<Node>();
             Next(root, n => linkedList.AddLast(n));
             var current = linkedList.First;
-            while(current.Value.Data != n.Data)
-            { 
-                current=current.Next;
+            while (current.Value.Data != n.Data)
+            {
+                current = current.Next;
             }
             return current.Next?.Value;
         }
+
         private static void Next(Node n, Action<Node> f)
         {
             if (n == null)
@@ -74,6 +75,32 @@ namespace Training.CrackingCodingInterview
             Next(n.Left, f);
             f(n);
             Next(n.Right, f);
+        }
+
+        public static Node Next2(Node n)
+        {
+            if (n == null)
+            { return null; }
+            if (n.Parent == null || n.Right != null)
+            {
+                var current = n.Right;
+                while (current?.Left != null)
+                {
+                    current = current.Left;
+                }
+                return current;
+            }
+            else
+            {
+                var p = n.Parent;
+                var e = n;
+                while (p != null && p.Left != e)
+                {
+                    e = p;
+                    p = e.Parent;
+                }
+                return p;
+            }
         }
     }
 }

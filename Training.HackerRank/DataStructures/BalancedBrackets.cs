@@ -21,7 +21,11 @@ namespace Training.HackerRank.DataStructures
                         stack.Push(']');
                         break;
                     default:
-                        if (stack.IsEmpty || c != stack.Pop()) return false;
+                        if (stack.IsEmpty || c != stack.Pop())
+                        {
+                            return false;
+                        }
+
                         break;
                 }
             }

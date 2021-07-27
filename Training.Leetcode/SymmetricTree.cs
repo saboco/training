@@ -33,12 +33,20 @@ namespace Training.Leetcode
         public static bool IsSymmetricIt(TreeNode root)
         {
             if (root == null)
+            {
                 return true;
+            }
+
             var queue = new Queue<TreeNode>();
             if (root.left == null && root.right == null)
+            {
                 return true;
+            }
+
             if (root.left == null || root.right == null)
+            {
                 return false;
+            }
 
             queue.Enqueue(root.left);
             queue.Enqueue(root.right);

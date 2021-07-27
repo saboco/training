@@ -38,7 +38,10 @@ namespace PredictiveKeyboardT9
 
             foreach (var letter in _keyboard.GetLetters(digit))
             {
-                if (!node.Contains(letter)) continue;
+                if (!node.Contains(letter))
+                {
+                    continue;
+                }
 
                 var next = node.Children[letter];
                 var tempWord = word + letter;

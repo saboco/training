@@ -43,7 +43,10 @@ namespace Training.DataStructures
 
         private void CheckEmptiness()
         {
-            if (IsEmpty) throw new InvalidOperationException("Heap is empty");
+            if (IsEmpty)
+            {
+                throw new InvalidOperationException("Heap is empty");
+            }
         }
 
         private void HeapifyDown()
@@ -144,7 +147,11 @@ namespace Training.DataStructures
 
         private void EnsureCapacity()
         {
-            if (Count < _capacity) return;
+            if (Count < _capacity)
+            {
+                return;
+            }
+
             ResizeHeap();
         }
 

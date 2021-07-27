@@ -30,11 +30,18 @@ namespace Training.HackerRank.Algorithms
             {
                 firstFlavor = iceCreamFlavor;
                 secondFlavor = new IceCreamFlavor(-1, _money - iceCreamFlavor.Cost);
-                if (secondFlavor.Cost <= 0) continue;
+                if (secondFlavor.Cost <= 0)
+                {
+                    continue;
+                }
 
                 var secondFlavorIndex = BinarySearch.Search(_iceCreamFlavors, secondFlavor);
 
-                if (secondFlavorIndex <= -1) continue;
+                if (secondFlavorIndex <= -1)
+                {
+                    continue;
+                }
+
                 secondFlavor = _iceCreamFlavors[secondFlavorIndex];
                 break;
             }
@@ -59,8 +66,16 @@ namespace Training.HackerRank.Algorithms
 
             public int CompareTo(IceCreamFlavor other)
             {
-                if (ReferenceEquals(this, other)) return 0;
-                if (ReferenceEquals(null, other)) return 1;
+                if (ReferenceEquals(this, other))
+                {
+                    return 0;
+                }
+
+                if (ReferenceEquals(null, other))
+                {
+                    return 1;
+                }
+
                 return Cost.CompareTo(other.Cost);
             }
 
@@ -87,8 +102,11 @@ namespace Training.HackerRank.Algorithms
             public int CompareTo(object obj)
             {
                 if (!(obj is IceCreamFlavor iceCreameFlavor))
+                {
                     throw new InvalidOperationException(
                         $"Can't compare type of {obj.GetType().FullName} with {typeof(IceCreamFlavor)}");
+                }
+
                 return CompareTo(iceCreameFlavor);
             }
         }

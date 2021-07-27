@@ -16,7 +16,11 @@ namespace Training.DataStructures.Sorting
         {
             while (true)
             {
-                if (hi <= lo) return;
+                if (hi <= lo)
+                {
+                    return;
+                }
+
                 var partitionIndex = Partition(arr, lo, hi);
                 RecQuick(arr, lo, partitionIndex - 1);
                 lo = partitionIndex + 1;
@@ -38,7 +42,11 @@ namespace Training.DataStructures.Sorting
                 {
                     j--;
                 } while (lo <= j && Less(arr[lo], arr[j]));
-                if (j <= i) break;
+                if (j <= i)
+                {
+                    break;
+                }
+
                 ArrayHelpers.Swap(arr, i, j);
             }
             ArrayHelpers.Swap(arr, lo, j);

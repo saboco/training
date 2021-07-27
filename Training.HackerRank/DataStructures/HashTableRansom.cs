@@ -14,11 +14,23 @@ namespace Training.HackerRank.DataStructures
 
         private static bool EnoughWords(IDictionary<string, int> availableWords, Dictionary<string, int> wantedWords)
         {
-            if (availableWords.Count < wantedWords.Count) return false;
+            if (availableWords.Count < wantedWords.Count)
+            {
+                return false;
+            }
+
             foreach (var word in wantedWords)
             {
-                if (!availableWords.ContainsKey(word.Key)) return false;
-                if (availableWords[word.Key] - 1 < 0) return false;
+                if (!availableWords.ContainsKey(word.Key))
+                {
+                    return false;
+                }
+
+                if (availableWords[word.Key] - 1 < 0)
+                {
+                    return false;
+                }
+
                 availableWords[word.Key]--;
             }
             return true;

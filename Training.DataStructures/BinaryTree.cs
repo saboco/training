@@ -38,16 +38,24 @@ namespace Training.DataStructures
                 if (data.CompareTo(Data) <= 0)
                 {
                     if (Left == null)
+                    {
                         Left = new Node(data);
+                    }
                     else
+                    {
                         Left.Add(data);
+                    }
                 }
                 else
                 {
                     if (Right == null)
+                    {
                         Right = new Node(data);
+                    }
                     else
+                    {
                         Right.Add(data);
+                    }
                 }
             }
 
@@ -61,7 +69,11 @@ namespace Training.DataStructures
             public bool Contains(T value)
             {
                 var compareResult = value.CompareTo(Data);
-                if (compareResult == 0) return true;
+                if (compareResult == 0)
+                {
+                    return true;
+                }
+
                 if (compareResult < 0)
                 {
                     return Left != null && Left.Contains(value);

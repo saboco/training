@@ -20,8 +20,16 @@ namespace Training.RailwayOrientedProgrammingCs
 
         public override bool Equals(object obj)
         {
-            if (ReferenceEquals(null, obj)) return false;
-            if (ReferenceEquals(this, obj)) return true;
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
             return obj.GetType() == GetType()
                    && Equals((Result<TSuccess, TFailure>) obj);
         }
@@ -228,7 +236,9 @@ namespace Training.RailwayOrientedProgrammingCs
                     return Result<TC, TD>.NewFailure(failure2.Error);
                 }
                 if (result1 is Result<TA, TD>.Failure failure3 && result2 is Result<TB, TD>.Failure failure4)
+                {
                     return Result<TC, TD>.NewFailure(addFailure(failure3.Error, failure4.Error));
+                }
 
                 throw new InvalidOperationException();
             };

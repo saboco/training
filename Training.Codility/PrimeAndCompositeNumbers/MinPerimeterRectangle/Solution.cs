@@ -11,10 +11,17 @@ namespace Training.Codility.PrimeAndCompositeNumbers.MinPerimeterRectangle
             while (i * i < area)
             {
                 if (area % i == 0)
+                {
                     perimeter = Math.Min(perimeter, CalculatePerimeter((int) i, (int) (area / i)));
+                }
+
                 i++;
             }
-            if (i * i == area) perimeter = Math.Min(perimeter, CalculatePerimeter((int) i, (int) (area / i)));
+            if (i * i == area)
+            {
+                perimeter = Math.Min(perimeter, CalculatePerimeter((int) i, (int) (area / i)));
+            }
+
             return perimeter;
         }
 

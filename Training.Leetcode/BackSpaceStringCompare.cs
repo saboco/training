@@ -38,11 +38,16 @@ namespace Training.Leetcode
                 readT++;
             }
             if (writeT != writeS)
+            {
                 return false;
+            }
+
             for (var i = 0; i < writeT; i++)
             {
                 if (s[i] != t[i])
+                {
                     return false;
+                }
             }
             return true;
         }

@@ -31,7 +31,11 @@ namespace Training.DataStructures
         {
             foreach (var kv in node.Children)
             {
-                if (kv.Value.IsCompleteWord) printer.Print(prefix + kv.Key);
+                if (kv.Value.IsCompleteWord)
+                {
+                    printer.Print(prefix + kv.Key);
+                }
+
                 PrintChildren(kv.Value, prefix + kv.Key, printer);
             }
         }
@@ -52,7 +56,11 @@ namespace Training.DataStructures
             while (s != string.Empty)
             {
                 prefixComplet = prefixComplet && node.Contains(s[0]);
-                if (!node.Contains(s[0])) break;
+                if (!node.Contains(s[0]))
+                {
+                    break;
+                }
+
                 node = node.GetChild(s[0]);
                 s = s.Substring(1);
             }

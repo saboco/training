@@ -35,7 +35,10 @@ namespace Training.Codility.CountingElements.MaxCounters
         {
             for (var i = 0; i < counters.Length; i++)
             {
-                if (counters[i] < lastMax) counters[i] = lastMax;
+                if (counters[i] < lastMax)
+                {
+                    counters[i] = lastMax;
+                }
             }
         }
     }

@@ -78,7 +78,11 @@ namespace PredictiveKeyboardT9
 
             private static IEnumerable<string> GetCompleteWords(string prefix, Node node, ICollection<string> words)
             {
-                if (node.IsCompleteWord) words.Add(prefix);
+                if (node.IsCompleteWord)
+                {
+                    words.Add(prefix);
+                }
+
                 foreach (var nodeChild in node.Children)
                 {
                     GetCompleteWords(prefix + nodeChild.Key, nodeChild.Value, words);

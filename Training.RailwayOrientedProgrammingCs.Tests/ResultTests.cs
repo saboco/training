@@ -191,7 +191,10 @@ namespace Training.RailwayOrientedProgrammingCs.Tests
         {
             Action<int> f1 = i =>
             {
-                if (i <= 5) throw new Exception("i'm an exception");
+                if (i <= 5)
+                {
+                    throw new Exception("i'm an exception");
+                }
             };
 
             Func<int, Result<int, string>> f2 = i =>

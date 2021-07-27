@@ -10,12 +10,17 @@ namespace Training.Codility.CountingElements.MissingInteger
             foreach (var el in arr)
             {
                 if (el > 0 && !positiveElements.Contains(el))
+                {
                     positiveElements.Add(el);
+                }
             }
             var i = 1;
             for (; i < positiveElements.Count + 1; i++)
             {
-                if (!positiveElements.Contains(i)) return i;
+                if (!positiveElements.Contains(i))
+                {
+                    return i;
+                }
             }
             return positiveElements.Count + 1;
         }
