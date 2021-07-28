@@ -21,5 +21,22 @@ namespace Training.Common.Algorithms.Tests
                 Assert.Equal(expected[i], actual[i]);
             }
         }
+        public static void AssertEqual(string[][] expected, string[][] actual)
+        {
+            Assert.Equal(expected.Length, actual.Length);
+
+            for (var i = 0; i < expected.Length; i++)
+            {
+                AssertEqual(expected[i], actual[i]);
+            }
+        }
+        public static void AssertEqual(string[] expected, string[] actual)
+        {
+            Assert.Equal(expected.Length, actual.Length);
+            for (var i = 0; i < expected.Length; i++)
+            {
+                Assert.Equal(expected[i], actual[i]);
+            }
+        }
     }
 }
