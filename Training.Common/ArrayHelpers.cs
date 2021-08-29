@@ -22,7 +22,7 @@ namespace Training.Common
 
             if (c.Length == 1)
             {
-                return new[] {c};
+                return new[] { c };
             }
 
             var permutations = new HashSet<T[]>();
@@ -33,7 +33,7 @@ namespace Training.Common
                 var newPermutations = Permute(rest);
                 foreach (var p in newPermutations)
                 {
-                    var permutation = Append(new[] {first}, p);
+                    var permutation = Append(new[] { first }, p);
                     if (!permutations.Contains(permutation))
                     {
                         permutations.Add(permutation);
@@ -73,7 +73,7 @@ namespace Training.Common
             }
             return arrResult;
         }
-        
+
         public static IEnumerable<T> Intersection<T>(T[] arrA, T[] arrB) where T : IComparable
         {
             if (arrA == null || arrB == null)
@@ -107,6 +107,32 @@ namespace Training.Common
                     aIndex++;
                 }
             }
+        }
+
+        public static int[,] NewMatrix(int n, int m, int v)
+        {
+            var matrix = new int[n, m];
+            for (var i = 0; i < n; i++)
+            {
+                for (var j = 0; j < m; j++)
+                {
+                    matrix[i, j] = v;
+                }
+            }
+            return matrix;
+        }
+
+        public static string[,] NewMatrix(int n, int m, string v)
+        {
+            var matrix = new string[n, m];
+            for (var i = 0; i < n; i++)
+            {
+                for (var j = 0; j < m; j++)
+                {
+                    matrix[i, j] = v;
+                }
+            }
+            return matrix;
         }
     }
 }
