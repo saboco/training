@@ -134,5 +134,18 @@ namespace Training.Common
             }
             return matrix;
         }
+
+        public static char[,] ToMatrix(char[][] arr)
+        { 
+            var m = new char[arr.Length, arr[0].Length];
+            for(var i = 0; i < arr.Length; i++)
+            { 
+                for(var j = 0; j < arr[0].Length;j++)
+                { 
+                    m[i,j] = arr[i][j];
+                }
+            }
+            return m;
+        }
     }
 }
