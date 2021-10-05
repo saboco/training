@@ -4,6 +4,7 @@ namespace Training.Common.Algorithms.Tests
 {
     public class Common
     {
+
         public static void AssertEqual(int[][] expected, int[][] actual)
         {
             Assert.Equal(expected.Length, actual.Length);
