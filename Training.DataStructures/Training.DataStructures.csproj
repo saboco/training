@@ -14,5 +14,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Training.Common\Training.Common.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>
