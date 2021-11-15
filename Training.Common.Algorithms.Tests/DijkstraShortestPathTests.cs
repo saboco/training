@@ -29,7 +29,7 @@ namespace Training.Common.Algorithms.Tests
             new int[0])]
         public void ShortesPathTest(int[] expected, int n, int start, int end, params int[][] g)
         {
-            var graph = GetGraph(n, g);
+            var graph = Common.GetAdjacencyList(n, g);
             foreach (var action in _actions)
             {
                 var shortestPath = action.Invoke(graph, start, end);
@@ -54,36 +54,10 @@ namespace Training.Common.Algorithms.Tests
             new int[0])]
         public void ShortesPathWithStepsTest(int[] expectedDistances, int[] expectedPath, int n, int start, int end, params int[][] g)
         {
-            var graph = GetGraph(n, g);
+            var graph = Common.GetAdjacencyList(n, g);
             var (distances, path) = DijkstraShortestPath.ShortestPathWithSteps(graph, start, end);
             Common.AssertEqual(expectedDistances, distances);
             Common.AssertEqual(expectedPath, path);
-        }
-
-        private (int, int)[][] GetGraph(int n, int[][] g)
-        {
-            var nodes = new List<int[]>();
-            var distances = new List<int[]>();
-            var zipped = new List<(int, int)[]>();
-            for (var i = 0; i < n; i++)
-            {
-                nodes.Add(g[i]);
-            }
-            for (var i = n; i < n * 2; i++)
-            {
-                distances.Add(g[i]);
-            }
-
-            for (var i = 0; i < n; i++)
-            {
-                var zip = new List<(int, int)>();
-                for (var j = 0; j < nodes[i].Length; j++)
-                {
-                    zip.Add((nodes[i][j], distances[i][j]));
-                }
-                zipped.Add(zip.ToArray());
-            }
-            return zipped.ToArray();
         }
     }
 }
