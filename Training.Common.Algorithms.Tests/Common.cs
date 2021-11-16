@@ -53,6 +53,14 @@ namespace Training.Common.Algorithms.Tests
                 Assert.Equal(expected[i], actual[i]);
             }
         }
+        public static void AssertEqual(bool[] expected, bool[] actual)
+        {
+            Assert.Equal(expected.Length, actual.Length);
+            for (var i = 0; i < expected.Length; i++)
+            {
+                Assert.Equal(expected[i], actual[i]);
+            }
+        }
         public static void AssertEqual(string[][] expected, string[][] actual)
         {
             Assert.Equal(expected.Length, actual.Length);
@@ -80,14 +88,14 @@ namespace Training.Common.Algorithms.Tests
         }
 
         public static double[,] CreateEmptyAdjacencyMatrix(int n)
-        { 
-            var m = new double[n,n];
-            for(var i = 0; i < n; i++)
-            { 
-                for(var j = 0; j < n; j++)
-                { 
-                    m[i,j]=double.PositiveInfinity;
-                    m[i,i]=0;
+        {
+            var m = new double[n, n];
+            for (var i = 0; i < n; i++)
+            {
+                for (var j = 0; j < n; j++)
+                {
+                    m[i, j] = double.PositiveInfinity;
+                    m[i, i] = 0;
                 }
             }
             return m;
@@ -116,6 +124,22 @@ namespace Training.Common.Algorithms.Tests
                 zipped.Add(zip.ToArray());
             }
             return zipped.ToArray();
+        }
+
+        public static List<List<int>> CreateEmptyGraph(int n)
+        {
+            var g = new List<List<int>>(n);
+            for (var i = 0; i < n; i++)
+            {
+                g.Add(new List<int>());
+            }
+            return g;
+        }
+
+        public static void AddUndirectedEdge(List<List<int>> g, int from, int to)
+        {
+            g[from].Add(to);
+            g[to].Add(from);
         }
     }
 }
