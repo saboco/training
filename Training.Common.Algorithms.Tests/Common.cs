@@ -141,5 +141,10 @@ namespace Training.Common.Algorithms.Tests
             g[from].Add(to);
             g[to].Add(from);
         }
+
+        public static void AddDrectedEdge(List<List<int>> g, int from, int to)
+        {
+            g[from].Add(to);
+        }
     }
 }
