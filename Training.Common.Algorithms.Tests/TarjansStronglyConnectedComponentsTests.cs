@@ -9,19 +9,19 @@ namespace Training.Common.Algorithms.Tests
         public void FindStronglyConnectedComponentsTest()
         {
             var g = Common.CreateEmptyGraph(8);
-            Common.AddDrectedEdge(g, 6, 0);
-            Common.AddDrectedEdge(g, 6, 2);
-            Common.AddDrectedEdge(g, 3, 4);
-            Common.AddDrectedEdge(g, 6, 4);
-            Common.AddDrectedEdge(g, 2, 0);
-            Common.AddDrectedEdge(g, 0, 1);
-            Common.AddDrectedEdge(g, 4, 5);
-            Common.AddDrectedEdge(g, 5, 6);
-            Common.AddDrectedEdge(g, 3, 7);
-            Common.AddDrectedEdge(g, 7, 5);
-            Common.AddDrectedEdge(g, 1, 2);
-            Common.AddDrectedEdge(g, 7, 3);
-            Common.AddDrectedEdge(g, 5, 0);
+            Common.AddDirectedEdge(g, 6, 0);
+            Common.AddDirectedEdge(g, 6, 2);
+            Common.AddDirectedEdge(g, 3, 4);
+            Common.AddDirectedEdge(g, 6, 4);
+            Common.AddDirectedEdge(g, 2, 0);
+            Common.AddDirectedEdge(g, 0, 1);
+            Common.AddDirectedEdge(g, 4, 5);
+            Common.AddDirectedEdge(g, 5, 6);
+            Common.AddDirectedEdge(g, 3, 7);
+            Common.AddDirectedEdge(g, 7, 5);
+            Common.AddDirectedEdge(g, 1, 2);
+            Common.AddDirectedEdge(g, 7, 3);
+            Common.AddDirectedEdge(g, 5, 0);
 
             var (count,scc) = TarjansStronglyConnectedComponents.FindStronglyConnectedComponents(g.Select(l => l.ToArray()).ToArray());
 
