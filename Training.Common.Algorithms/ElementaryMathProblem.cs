@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Training.Common.Algorithms
 {
@@ -60,7 +58,7 @@ namespace Training.Common.Algorithms
             var S = N - 1;
             var T = N - 2;
 
-            var solver = new MaxFlowFordFulkerson(N, S, T);
+            var solver = new FordFulkersonFlowSolver(N, S, T);
             for (var i = 0; i < pairs.Length; i++)
             {
                 solver.AddEdge(S, i, 1);

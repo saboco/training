@@ -71,7 +71,7 @@ namespace Training.Common.Algorithms
             var S = N - 1;
             var T = N - 2;
 
-            var solver = new MaxFlowFordFulkerson(N, S, T);
+            var solver = new FordFulkersonFlowSolver(N, S, T);
 
             for (var i = 0; i < M; i++)
             {
