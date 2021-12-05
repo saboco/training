@@ -7,7 +7,9 @@ namespace Training.Common.Algorithms
     {
         public static int[] ShortestPath((int, int)[][] g, int start, int end)
         {
-            var q = new PriorityQueue<(int, int)>((parent, n) => n.Item2 < parent.Item2);
+            static int Compare((int, int c) a, (int, int c) b) => a.c < b.c ? -1 : a.c == b.c ? 0 : 1;
+            var comparer = Comparer<(int, int)>.Create(Compare);
+            var q = new PriorityQueue<(int, int)>(comparer);
             var distances = new int[g.Length];
             var visited = new bool[g.Length];
             Array.Fill(distances, Int32.MaxValue);
@@ -38,7 +40,9 @@ namespace Training.Common.Algorithms
 
         public static int[] ShortestPathOptimization1((int, int)[][] g, int start, int end)
         {
-            var q = new PriorityQueue<(int, int)>((parent, n) => n.Item2 < parent.Item2);
+            static int Compare((int, int c) a, (int, int c) b) => a.c < b.c ? -1 : a.c == b.c ? 0 : 1;
+            var comparer = Comparer<(int, int)>.Create(Compare);
+            var q = new PriorityQueue<(int, int)>(comparer);
             var distances = new int[g.Length];
             var visited = new bool[g.Length];
             Array.Fill(distances, Int32.MaxValue);
@@ -73,7 +77,9 @@ namespace Training.Common.Algorithms
 
         public static int[] ShortestPathOptimization2((int, int)[][] g, int start, int end)
         {
-            var q = new PriorityQueue<(int, int)>((parent, n) => n.Item2 < parent.Item2);
+            static int Compare((int, int c) a, (int, int c) b) => a.c < b.c ? -1 : a.c == b.c ? 0 : 1;
+            var comparer = Comparer<(int, int)>.Create(Compare);
+            var q = new PriorityQueue<(int, int)>(comparer);
             var distances = new int[g.Length];
             var visited = new bool[g.Length];
             Array.Fill(distances, Int32.MaxValue);
@@ -102,8 +108,8 @@ namespace Training.Common.Algorithms
                         q.Enqueue((to, newDistance));
                     }
                 }
-                if(from == end)
-                { 
+                if (from == end)
+                {
                     break;
                 }
             }
@@ -112,7 +118,9 @@ namespace Training.Common.Algorithms
 
         public static (int[], int[]) ShortestPathWithSteps((int, int)[][] g, int start, int end)
         {
-            var q = new PriorityQueue<(int, int)>((parent, n) => n.Item2 < parent.Item2);
+            static int Compare((int, int c) a, (int, int c) b) => a.c < b.c ? -1 : a.c == b.c ? 0 : 1;
+            var comparer = Comparer<(int, int)>.Create(Compare);
+            var q = new PriorityQueue<(int, int)>(comparer);
             var visited = new bool[g.Length];
             var distances = new int[g.Length];
             var prev = new int[g.Length];

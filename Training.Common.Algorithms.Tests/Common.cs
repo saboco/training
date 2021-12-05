@@ -146,5 +146,26 @@ namespace Training.Common.Algorithms.Tests
         {
             g[from].Add(to);
         }
+
+        public static List<List<(int from ,int to, int weight)>> CreateEmptyWeightedGraph(int n)
+        {
+            var g = new List<List<(int, int, int)>>(n);
+            for (var i = 0; i < n; i++)
+            {
+                g.Add(new List<(int, int, int)>());
+            }
+            return g;
+        }
+
+        public static void AddUndirectedWeightedEdge(List<List<(int, int, int)>> g, int from, int to, int weight)
+        {
+            g[from].Add((from, to, weight));
+            g[to].Add((to, from, weight));
+        }
+
+        public static void AddDirectedWeightedEdge(List<List<(int, int, int)>> g, int from, int to, int weight)
+        {
+            g[from].Add((from, to, weight));
+        }
     }
 }

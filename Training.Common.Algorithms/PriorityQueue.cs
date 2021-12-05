@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Training.Common.Algorithms
 {
-    public class PriorityQueue<T>
+    public class PriorityQueue<T> where T : IComparable
     {
         private T[] _heap;
-        private Func<T, T, bool> _lessThan;
+        private IComparer<T> _comparer;
         private int _capacity = 10;
 
         public int Count { get; private set; }
 
-        public PriorityQueue(Func<T, T, bool> lessThan)
+        public PriorityQueue(IComparer<T> comparer)
         {
             _heap = new T[_capacity];
-            _lessThan = lessThan;
+            _comparer = comparer;
         }
 
         public void Enqueue(T data)
@@ -59,11 +59,11 @@ namespace Training.Common.Algorithms
             var index = 0;
             while (HasLeftChild(index))
             {
-                var smallerIndex = HasRightChild(index) && _lessThan(GetRightChild(index), GetLeftChild(index))
+                var smallerIndex = HasRightChild(index) && _comparer.Compare(GetRightChild(index), GetLeftChild(index)) < 0
                     ? GetRightChildIndex(index)
                     : GetLeftChildIndex(index);
 
-                if (_lessThan(_heap[index], _heap[smallerIndex]))
+                if (_comparer.Compare(_heap[index], _heap[smallerIndex]) < 0)
                 {
                     break;
                 }
@@ -75,7 +75,7 @@ namespace Training.Common.Algorithms
         private void HeapifyUp()
         {
             var index = Count - 1;
-            while (HasParent(index) && _lessThan(GetParent(index), _heap[index]))
+            while (HasParent(index) && _comparer.Compare(_heap[index], GetParent(index)) < 0)
             {
                 Swap(GetParentIndex(index), index);
                 index = GetParentIndex(index);
@@ -111,12 +111,12 @@ namespace Training.Common.Algorithms
 
         private static int GetLeftChildIndex(int index)
         {
-            return (index * 2) + 1;
+            return index * 2 + 1;
         }
 
         private static int GetRightChildIndex(int index)
         {
-            return (index * 2) + 2;
+            return index * 2 + 2;
         }
 
         private bool HasLeftChild(int index)
