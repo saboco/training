@@ -13,7 +13,7 @@ namespace Training.Codility.Tests.TimeComplexity
         [InlineData(new[] { -20000, 5000 }, 25000)]
         [InlineData(new[] { -20000, -5000 }, 15000)]
         [InlineData(new[] { -10, -20, -30, -40, 100 }, 20)]
-        public void dShould_return_the_minimal_diference_that_can_be_achived(int[] arr, int expected)
+        public void Should_return_the_minimal_diference_that_can_be_achived(int[] arr, int expected)
         {
             Assert.Equal(expected, Solution.Solve(arr));
         }
