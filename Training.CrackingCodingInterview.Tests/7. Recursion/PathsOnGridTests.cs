@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace Training.CrackingCodingInterview.Tests._7._Recursion
+namespace Training.CrackingCodingInterview.Tests
 {
     public class PathsOnGridTests
     {
