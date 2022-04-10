@@ -6,7 +6,7 @@ namespace Training.CrackingCodingInterview.Tests
 {
     public class SortingAlgorithmsTests
     {
-        List<Action<int[]>> _algorithms = new List<Action<int[]>>
+        readonly List<Action<int[]>> _algorithms = new List<Action<int[]>>
         {
             //BubbleSort.Sort,
             //SelectionSort.Sort
@@ -28,27 +28,10 @@ namespace Training.CrackingCodingInterview.Tests
                 var actual = new int[arr.Length];
                 Array.Copy(arr, actual, arr.Length);
                 algo.Invoke(actual);
-                Assert.True(IsSorted(actual));
+                Common.AssertIsSorted(actual);
             }
         }
-        private static bool IsSorted(int[] arr)
-        {
-            if (arr.Length <= 1)
-            {
-                return true;
-            }
-
-            var prev = arr[0];
-            for (var i = 1; i < arr.Length; i++)
-            {
-                if (arr[i] < prev)
-                {
-                    return false;
-                }
-                prev = arr[i];
-            }
-            return true;
-        }
+        
     }
 }
 
