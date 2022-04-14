@@ -25,6 +25,23 @@ namespace Training.CrackingCodingInterview
             }
         }
 
+        public static IEnumerable<int[]> GetSubSetsIterative(int[] arr)
+        {
+            var sets = new List<int[]>();
+            sets.Add(System.Array.Empty<int>());
+            foreach (var item in arr)
+            {
+                var len = sets.Count;
+                for (var i = 0; i < len; i++)
+                {
+                    var set = new List<int>(sets[i]);
+                    set.Add(item);
+                    sets.Add(set.ToArray());
+                }
+            }
+            return sets;
+        }
+
         public static IEnumerable<int[]> GetSubsetsYielding(int[] arr)
         {
             return GetSubsetsYielding(arr, 0, new List<int>());

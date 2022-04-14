@@ -11,7 +11,7 @@ namespace Training.CrackingCodingInterview.Tests
         {
             Subsets.GetSubsets,
             Subsets.GetSubsetsYielding,
-            Subsets.GetSubsetsCombinatorics
+            Subsets.GetSubsetsCombinatorics,
         };
 
         [Theory]
@@ -32,6 +32,23 @@ namespace Training.CrackingCodingInterview.Tests
                 var sets = action.Invoke(arr);
                 Common.AssertEqual(expected, sets.ToArray());
             }
+        }
+
+        [Theory]
+        [InlineData(
+            new[] { 1, 2, 3 },
+            new int[0],
+            new[] { 1 },
+            new[] { 2 },
+            new[] { 1, 2 },
+            new[] { 3 },
+            new[] { 1, 3 },
+            new[] { 2, 3 },
+            new[] { 1, 2, 3 })]
+        public void GetSubsetIterativeTest(int[] arr, params int[][] expected)
+        {
+            var sets = Subsets.GetSubSetsIterative(arr);
+            Common.AssertEqual(expected, sets.ToArray());
         }
     }
 }
