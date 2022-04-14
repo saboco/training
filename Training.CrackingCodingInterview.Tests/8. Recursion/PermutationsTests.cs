@@ -7,7 +7,7 @@ namespace Training.CrackingCodingInterview.Tests
 {
     public class PermutationsTests
     {
-        List<Func<int[], IEnumerable<int[]>>> _actions = new List<Func<int[], IEnumerable<int[]>>>
+        readonly List<Func<int[], IEnumerable<int[]>>> _actions = new()
         {
             Permutations.GetPermutations
         };

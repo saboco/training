@@ -7,7 +7,7 @@ namespace Training.CrackingCodingInterview.Tests
 {
     public class SubsetsTests
     {
-        List<Func<int[], IEnumerable<int[]>>> _actions = new List<Func<int[], IEnumerable<int[]>>>
+        readonly List<Func<int[], IEnumerable<int[]>>> _actions = new()
         {
             Subsets.GetSubsets,
             Subsets.GetSubsetsYielding,

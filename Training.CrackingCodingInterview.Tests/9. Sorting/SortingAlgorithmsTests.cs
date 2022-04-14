@@ -8,10 +8,10 @@ namespace Training.CrackingCodingInterview.Tests
     {
         readonly List<Action<int[]>> _algorithms = new List<Action<int[]>>
         {
-            //BubbleSort.Sort,
-            //SelectionSort.Sort
-            //MergeSort.Sort
-            //QuickSort.Sort
+            BubbleSort.Sort,
+            SelectionSort.Sort,
+            MergeSort.Sort,
+            QuickSort.Sort,
             BucketSort.Sort
         };
 
@@ -31,7 +31,7 @@ namespace Training.CrackingCodingInterview.Tests
                 Common.AssertIsSorted(actual);
             }
         }
-        
+
     }
 }
 

@@ -11,3 +11,9 @@ Training.Console/obj/
 Training.DataStructures.Tests/obj/
 */obj/
 */bin/
+FindRepeatingLetter.cs
+FindRepeatingLetterTests.cs
+LargestSequenceGap.cs
+LargestSequenceGapTests.cs
+DifferentLettersConcatenation.cs
+DifferentLettersConcatenationTests.cs

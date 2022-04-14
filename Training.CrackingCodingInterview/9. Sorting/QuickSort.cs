@@ -13,7 +13,7 @@ namespace Training.CrackingCodingInterview
         {
             if (left >= right) { return; }
             var pivot = arr[(left + right) / 2];
-            int index = Partition(arr, left, right, pivot);
+            var index = Partition(arr, left, right, pivot);
             Quick(arr, left, index - 1);
             Quick(arr, index, right);
         }
